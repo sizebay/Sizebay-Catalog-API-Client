@@ -1,0 +1,23 @@
+machine:
+  java:
+    version: oraclejdk8
+  timezone:
+    America/Sao_Paulo
+
+dependencies:
+  override:
+    - git clone git@github.com:sizebay/Severino.git utils
+
+test:
+  override:
+    - mvn -s utils/sizebay-circleci/circle.maven-settings.xml clean test
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/output/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - "mvn -s utils/sizebay-circleci/circle.maven-settings.xml -Dconfig.skip.tests=true clean deploy"
+
