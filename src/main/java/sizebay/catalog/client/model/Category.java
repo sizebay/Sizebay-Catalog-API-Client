@@ -1,19 +1,19 @@
 package sizebay.catalog.client.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T13:40:21.609Z")
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class Category   {
   
-  private Integer id = null;
+  private Long id = null;
   private String name = null;
 
   
@@ -23,10 +23,10 @@ public class Category   {
   
   @ApiModelProperty(value = "Unique identifier representing a specific category. (Read only)")
   @JsonProperty("id")
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

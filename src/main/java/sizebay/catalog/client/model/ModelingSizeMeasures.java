@@ -1,25 +1,22 @@
 package sizebay.catalog.client.model;
 
-import java.util.Objects;
+import io.swagger.annotations.ApiModelProperty;
 
-import sizebay.catalog.client.model.ModelingMeasureRange;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 
 
 
-
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T13:40:21.609Z")
-public class ModelingMeasures   {
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
+public class ModelingSizeMeasures   {
   
 
 
-  public enum SizeNameEnum {
+  public enum SizeName {
     PP("PP"),
     P("P"),
     XS("XS"),
@@ -160,7 +157,7 @@ public class ModelingMeasures   {
 
     private String value;
 
-    SizeNameEnum(String value) {
+    SizeName(String value) {
       this.value = value;
     }
 
@@ -171,7 +168,7 @@ public class ModelingMeasures   {
     }
   }
 
-  private SizeNameEnum sizeName = null;
+  private SizeName sizeName = null;
   private ModelingMeasureRange chest = null;
   private ModelingMeasureRange hip = null;
   private ModelingMeasureRange waist = null;
@@ -186,10 +183,10 @@ public class ModelingMeasures   {
   
   @ApiModelProperty(required = true, value = "Size name.")
   @JsonProperty("sizeName")
-  public SizeNameEnum getSizeName() {
+  public SizeName getSizeName() {
     return sizeName;
   }
-  public void setSizeName(SizeNameEnum sizeName) {
+  public void setSizeName(SizeName sizeName) {
     this.sizeName = sizeName;
   }
 
@@ -287,7 +284,7 @@ public class ModelingMeasures   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelingMeasures modelingMeasures = (ModelingMeasures) o;
+    ModelingSizeMeasures modelingMeasures = (ModelingSizeMeasures) o;
 
     return true && Objects.equals(sizeName, modelingMeasures.sizeName) &&
         Objects.equals(chest, modelingMeasures.chest) &&

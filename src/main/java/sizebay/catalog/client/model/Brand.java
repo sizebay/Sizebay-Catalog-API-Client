@@ -1,19 +1,19 @@
 package sizebay.catalog.client.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T13:40:21.609Z")
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class Brand   {
   
-  private Integer id = null;
+  private Long id = null;
   private String name = null;
 
   
@@ -23,10 +23,10 @@ public class Brand   {
   
   @ApiModelProperty(value = "Unique identifier representing a specific brand.")
   @JsonProperty("id")
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -54,7 +54,7 @@ public class Brand   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Brand brand = (Brand) o;
+    final Brand brand = (Brand) o;
 
     return true && Objects.equals(id, brand.id) &&
         Objects.equals(name, brand.name)
@@ -68,7 +68,7 @@ public class Brand   {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    final StringBuilder sb = new StringBuilder();
     sb.append("class Brand {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

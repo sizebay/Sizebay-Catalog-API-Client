@@ -1,21 +1,17 @@
 package sizebay.catalog.client.model;
 
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
+
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-
-
-
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T13:40:21.609Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class ModelingMeasureRange   {
   
-  private BigDecimal initialValue = null;
-  private BigDecimal finalValue = null;
+  private Long initialValue = null;
+  private Long finalValue = null;
 
   
   /**
@@ -24,10 +20,10 @@ public class ModelingMeasureRange   {
   
   @ApiModelProperty(value = "Initial value")
   @JsonProperty("initialValue")
-  public BigDecimal getInitialValue() {
+  public Long getInitialValue() {
     return initialValue;
   }
-  public void setInitialValue(BigDecimal initialValue) {
+  public void setInitialValue(Long initialValue) {
     this.initialValue = initialValue;
   }
 
@@ -38,10 +34,10 @@ public class ModelingMeasureRange   {
   
   @ApiModelProperty(value = "Final value")
   @JsonProperty("finalValue")
-  public BigDecimal getFinalValue() {
+  public Long getFinalValue() {
     return finalValue;
   }
-  public void setFinalValue(BigDecimal finalValue) {
+  public void setFinalValue(Long finalValue) {
     this.finalValue = finalValue;
   }
 
@@ -55,7 +51,7 @@ public class ModelingMeasureRange   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelingMeasureRange modelingMeasureRange = (ModelingMeasureRange) o;
+    final ModelingMeasureRange modelingMeasureRange = (ModelingMeasureRange) o;
 
     return true && Objects.equals(initialValue, modelingMeasureRange.initialValue) &&
         Objects.equals(finalValue, modelingMeasureRange.finalValue)
@@ -69,7 +65,7 @@ public class ModelingMeasureRange   {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
+    final StringBuilder sb = new StringBuilder();
     sb.append("class ModelingMeasureRange {\n");
     
     sb.append("    initialValue: ").append(toIndentedString(initialValue)).append("\n");

@@ -1,25 +1,27 @@
 package sizebay.catalog.client.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
 
 
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T13:40:21.609Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class Product   {
   
-  private Integer id = null;
+  private Long id = null;
   private String name = null;
   private String description = null;
   private String permalink = null;
-  private Integer modelingId = null;
-  private Integer categoryId = null;
+  private Long modelingId = null;
+  private Long categoryId = null;
   private String externalCategory = null;
   private Boolean available = null;
   private Boolean adultContent = null;
@@ -56,10 +58,10 @@ public class Product   {
   
   @ApiModelProperty(value = "Unique identifier representing a specific product. (Read only)")
   @JsonProperty("id")
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -112,10 +114,10 @@ public class Product   {
   
   @ApiModelProperty(required = true, value = "The modeling identifier that will be linked to this product.")
   @JsonProperty("modelingId")
-  public Integer getModelingId() {
+  public Long getModelingId() {
     return modelingId;
   }
-  public void setModelingId(Integer modelingId) {
+  public void setModelingId(Long modelingId) {
     this.modelingId = modelingId;
   }
 
@@ -126,10 +128,10 @@ public class Product   {
   
   @ApiModelProperty(value = "The Sizebay category identifier that should be linked to this product. Note that this category_id is used only for indexing and search proposes. You can leave this field blank if you have no intent this product be indexed.")
   @JsonProperty("categoryId")
-  public Integer getCategoryId() {
+  public Long getCategoryId() {
     return categoryId;
   }
-  public void setCategoryId(Integer categoryId) {
+  public void setCategoryId(Long categoryId) {
     this.categoryId = categoryId;
   }
 

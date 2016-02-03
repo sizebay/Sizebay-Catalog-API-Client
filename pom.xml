@@ -13,39 +13,22 @@
 		<maven>2.2.0</maven>
 	</prerequisites>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.12</version>
-				<configuration>
-					<systemProperties>
-						<property>
-							<name>loggerPath</name>
-							<value>conf/log4j.properties</value>
-						</property>
-					</systemProperties>
-					<argLine>-Xms512m -Xmx1500m</argLine>
-					<parallel>methods</parallel>
-					<forkMode>pertest</forkMode>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+	<distributionManagement>
+		<repository>
+			<id>sizebay-maven</id>
+			<url>s3://sizebay-maven/public</url>
+		</repository>
+	</distributionManagement>
 
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.kuali.maven.wagons</groupId>
+				<artifactId>maven-s3-wagon</artifactId>
+				<version>1.2.1</version>
+			</extension>
+		</extensions>
+		<plugins>
 			<!-- attach test jar -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -64,42 +47,18 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>add_sources</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>src/main/java</source>
-							</sources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>add_test_sources</id>
-						<phase>generate-test-sources</phase>
-						<goals>
-							<goal>add-test-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>src/test/java</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
+				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>${version.compiler.plugin}</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
+					<optimize>true</optimize>
+					<debug>false</debug>
+					<encoding>${config.encoding.source}</encoding>
+					<generatedTestSourcesDirectory>${project.build.directory}/generated-test-sources/annotations</generatedTestSourcesDirectory>
+					<generatedSourcesDirectory>${project.build.directory}/generated-sources/annotations</generatedSourcesDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -187,6 +146,9 @@
 		<maven-plugin-version>1.0.0</maven-plugin-version>
 		<junit-version>4.12</junit-version>
 		<!-- custom deps -->
-		<version.lombok>1.16.4</version.lombok>
+		<version.lombok>1.16.6</version.lombok>
+		<!-- config -->
+		<config.encoding.source>UTF-8</config.encoding.source>
+		<version.compiler.plugin>3.3</version.compiler.plugin>
 	</properties>
 </project>

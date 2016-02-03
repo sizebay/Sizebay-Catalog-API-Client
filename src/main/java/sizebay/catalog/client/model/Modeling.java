@@ -1,35 +1,32 @@
 package sizebay.catalog.client.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.util.*;
-
-import sizebay.catalog.client.model.ModelingMeasures;
 
 
 
 
-
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T13:40:21.609Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class Modeling   {
   
-  private Integer id = null;
+  private Long id = null;
   private String name = null;
 
 
-  public enum GenderEnum {
+  public enum Gender {
     M("M"),
     F("F");
 
     private String value;
 
-    GenderEnum(String value) {
+    Gender(String value) {
       this.value = value;
     }
 
@@ -40,7 +37,7 @@ public class Modeling   {
     }
   }
 
-  private GenderEnum gender = null;
+  private Gender gender = null;
 
 
   public enum TypeEnum {
@@ -61,12 +58,12 @@ public class Modeling   {
   }
 
   private TypeEnum type = null;
-  private Integer brandId = null;
-  private Integer categoryId = null;
-  private List<ModelingMeasures> measures = new ArrayList<ModelingMeasures>();
+  private Long brandId = null;
+  private Long categoryId = null;
+  private List<ModelingSizeMeasures> measures = new ArrayList<ModelingSizeMeasures>();
 
 
-  public enum WearabilityEnum {
+  public enum Wearability {
     REGULAR("regular"),
     VERYTIGHT("veryTight"),
     TIGHT("tight"),
@@ -77,7 +74,7 @@ public class Modeling   {
 
     private String value;
 
-    WearabilityEnum(String value) {
+    Wearability(String value) {
       this.value = value;
     }
 
@@ -88,7 +85,7 @@ public class Modeling   {
     }
   }
 
-  private WearabilityEnum wearability = null;
+  private Wearability wearability = null;
 
   
   /**
@@ -97,10 +94,10 @@ public class Modeling   {
   
   @ApiModelProperty(value = "Unique identifier representing a specific modeling. (Read only)")
   @JsonProperty("id")
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -125,10 +122,10 @@ public class Modeling   {
   
   @ApiModelProperty(value = "Gender")
   @JsonProperty("gender")
-  public GenderEnum getGender() {
+  public Gender getGender() {
     return gender;
   }
-  public void setGender(GenderEnum gender) {
+  public void setGender(Gender gender) {
     this.gender = gender;
   }
 
@@ -153,10 +150,10 @@ public class Modeling   {
   
   @ApiModelProperty(value = "Defines which brand this modeling belongs.")
   @JsonProperty("brandId")
-  public Integer getBrandId() {
+  public Long getBrandId() {
     return brandId;
   }
-  public void setBrandId(Integer brandId) {
+  public void setBrandId(Long brandId) {
     this.brandId = brandId;
   }
 
@@ -167,10 +164,10 @@ public class Modeling   {
   
   @ApiModelProperty(value = "Defines which category this modeling belongs. This is important and mandatory parameter. It is used to define which mandatory 'Measure type' will be considered by the 'Sizebay Recommendation Algorithm'. If you are in doubt, you can set the id of 'Top' or 'Bottom' categories.")
   @JsonProperty("categoryId")
-  public Integer getCategoryId() {
+  public Long getCategoryId() {
     return categoryId;
   }
-  public void setCategoryId(Integer categoryId) {
+  public void setCategoryId(Long categoryId) {
     this.categoryId = categoryId;
   }
 
@@ -180,10 +177,10 @@ public class Modeling   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("measures")
-  public List<ModelingMeasures> getMeasures() {
+  public List<ModelingSizeMeasures> getSizeMeasures() {
     return measures;
   }
-  public void setMeasures(List<ModelingMeasures> measures) {
+  public void setSizeMeasures(List<ModelingSizeMeasures> measures) {
     this.measures = measures;
   }
 
@@ -194,10 +191,10 @@ public class Modeling   {
   
   @ApiModelProperty(value = "Wearability type of this modeling.")
   @JsonProperty("wearability")
-  public WearabilityEnum getWearability() {
+  public Wearability getWearability() {
     return wearability;
   }
-  public void setWearability(WearabilityEnum wearability) {
+  public void setWearability(Wearability wearability) {
     this.wearability = wearability;
   }
 
