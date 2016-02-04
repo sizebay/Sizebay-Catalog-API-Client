@@ -13,13 +13,6 @@
 		<maven>2.2.0</maven>
 	</prerequisites>
 
-	<distributionManagement>
-		<repository>
-			<id>sizebay-maven</id>
-			<url>s3://sizebay-maven/public</url>
-		</repository>
-	</distributionManagement>
-
 	<build>
 		<extensions>
 			<extension>
@@ -70,18 +63,6 @@
 			<version>${swagger-annotations-version}</version>
 		</dependency>
 
-		<!-- HTTP client: jersey-client -->
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>${jersey-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-multipart</artifactId>
-			<version>${jersey-version}</version>
-		</dependency>
-
 		<!-- JSON processing: jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -97,28 +78,6 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.jaxrs</groupId>
-			<artifactId>jackson-jaxrs-json-provider</artifactId>
-			<version>${jackson-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-joda</artifactId>
-			<version>2.1.5</version>
-		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>${jodatime-version}</version>
-		</dependency>
-
-		<!-- Base64 encoding that works in both JVM and Android -->
-		<dependency>
-			<groupId>com.brsanthu</groupId>
-			<artifactId>migbase64</artifactId>
-			<version>2.2</version>
 		</dependency>
 
 		<!-- test dependencies -->

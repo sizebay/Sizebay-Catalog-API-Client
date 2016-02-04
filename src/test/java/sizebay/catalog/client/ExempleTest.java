@@ -15,7 +15,7 @@ import sizebay.catalog.client.model.ModelingSizeMeasures;
 import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
 import sizebay.catalog.client.model.Product;
 
-public class ExempleTests {
+public class ExempleTest {
 
 	final CatalogAPI api = new CatalogAPI( "Application Token", "Security Token" );
 
