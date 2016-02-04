@@ -13,6 +13,13 @@
 		<maven>2.2.0</maven>
 	</prerequisites>
 
+	<distributionManagement>
+		<repository>
+			<id>sizebay-maven-plugin</id>
+			<url>s3://public.maven.sizebay.com</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
 		<extensions>
 			<extension>
