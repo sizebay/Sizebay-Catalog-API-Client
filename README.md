@@ -1,19 +1,15 @@
-# swagger-java-client
+# Sizebay Catalog API client
 
 ## Requirements
-
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
 
 ## Installation & Usage
-
 To install the API client library to your local Maven repository, simply execute:
-
 ```shell
 mvn install
 ```
 
 To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
-
 ```shell
 mvn deploy
 ```
@@ -24,20 +20,9 @@ After the client libarary is installed/deployed, you can use it in your Maven pr
 
 ```xml
 <dependency>
-    <groupId>io.swagger</groupId>
-    <artifactId>swagger-java-client</artifactId>
-    <version>1.0.0</version>
+    <groupId>com.sizebay.catalog</groupId>
+	<artifactId>sizebay-catalog-api-client</artifactId>
+	<version>0.1.0</version>
     <scope>compile</scope>
 </dependency>
-
 ```
-
-## Recommendation
-
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issue.
-
-## Author
-
-
-
-
