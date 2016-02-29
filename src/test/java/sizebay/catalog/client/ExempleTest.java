@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotEquals;
 
 import java.util.Arrays;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import sizebay.catalog.client.model.Brand;
@@ -20,6 +21,7 @@ public class ExempleTest {
 	final CatalogAPI api = new CatalogAPI( "Application Token", "Security Token" );
 
 	@Test
+	@Ignore
 	public void ensureThatCreatesAProduct()
 	{
 		// criando uma marca
