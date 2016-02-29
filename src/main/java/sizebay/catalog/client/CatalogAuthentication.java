@@ -13,7 +13,7 @@ public class CatalogAuthentication implements RESTClientConfiguration {
 
 	@Override
 	public void configureRequest( HttpURLConnection connection ) {
-		connection.setRequestProperty( "Application-Key", applicationToken );
-		connection.setRequestProperty( "Security-Key", securityToken );
+		connection.setRequestProperty( "Application-Token", applicationToken );
+		connection.setRequestProperty( "Security-Token", securityToken );
 	}
 }
