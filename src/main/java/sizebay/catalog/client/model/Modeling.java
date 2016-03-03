@@ -62,31 +62,6 @@ public class Modeling   {
   private Long categoryId = null;
   private List<ModelingSizeMeasures> measures = new ArrayList<ModelingSizeMeasures>();
 
-
-  public enum Wearability {
-    REGULAR("regular"),
-    VERYTIGHT("veryTight"),
-    TIGHT("tight"),
-    SLIGHTLYTIGHT("slightlyTight"),
-    VERYLOOSE("veryLoose"),
-    LOOSE("loose"),
-    SLIGHTLYLOOSE("slightlyLoose");
-
-    private String value;
-
-    Wearability(String value) {
-      this.value = value;
-    }
-
-    @Override
-    @JsonValue
-    public String toString() {
-      return value;
-    }
-  }
-
-  private Wearability wearability = null;
-
   
   /**
    * Unique identifier representing a specific modeling. (Read only)
@@ -157,21 +132,8 @@ public class Modeling   {
     this.brandId = brandId;
   }
 
-  
-  /**
-   * Defines which category this modeling belongs. This is important and mandatory parameter. It is used to define which mandatory 'Measure type' will be considered by the 'Sizebay Recommendation Algorithm'. If you are in doubt, you can set the id of 'Top' or 'Bottom' categories.
-   **/
-  
-  @ApiModelProperty(value = "Defines which category this modeling belongs. This is important and mandatory parameter. It is used to define which mandatory 'Measure type' will be considered by the 'Sizebay Recommendation Algorithm'. If you are in doubt, you can set the id of 'Top' or 'Bottom' categories.")
-  @JsonProperty("categoryId")
-  public Long getCategoryId() {
-    return categoryId;
-  }
-  public void setCategoryId(Long categoryId) {
-    this.categoryId = categoryId;
-  }
 
-  
+
   /**
    **/
   
@@ -184,21 +146,8 @@ public class Modeling   {
     this.measures = measures;
   }
 
-  
-  /**
-   * Wearability type of this modeling.
-   **/
-  
-  @ApiModelProperty(value = "Wearability type of this modeling.")
-  @JsonProperty("wearability")
-  public Wearability getWearability() {
-    return wearability;
-  }
-  public void setWearability(Wearability wearability) {
-    this.wearability = wearability;
-  }
 
-  
+
 
   @Override
   public boolean equals(Object o) {
@@ -216,14 +165,13 @@ public class Modeling   {
         Objects.equals(type, modeling.type) &&
         Objects.equals(brandId, modeling.brandId) &&
         Objects.equals(categoryId, modeling.categoryId) &&
-        Objects.equals(measures, modeling.measures) &&
-        Objects.equals(wearability, modeling.wearability)
+        Objects.equals(measures, modeling.measures)
     ;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, gender, type, brandId, categoryId, measures, wearability);
+    return Objects.hash(id, name, gender, type, brandId, categoryId, measures);
   }
 
   @Override
@@ -238,7 +186,6 @@ public class Modeling   {
     sb.append("    brandId: ").append(toIndentedString(brandId)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    measures: ").append(toIndentedString(measures)).append("\n");
-    sb.append("    wearability: ").append(toIndentedString(wearability)).append("\n");
     sb.append("}");
     return sb.toString();
   }

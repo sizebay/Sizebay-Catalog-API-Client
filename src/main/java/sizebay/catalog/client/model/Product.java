@@ -65,7 +65,6 @@ public class Product   {
     this.id = id;
   }
 
-  
   /**
    * Product name.
    **/
@@ -79,6 +78,42 @@ public class Product   {
     this.name = name;
   }
 
+  public enum Wearability {
+    REGULAR("regular"),
+    VERYTIGHT("veryTight"),
+    TIGHT("tight"),
+    SLIGHTLYTIGHT("slightlyTight"),
+    VERYLOOSE("veryLoose"),
+    LOOSE("loose"),
+    SLIGHTLYLOOSE("slightlyLoose");
+
+    private String value;
+
+    Wearability(String value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return value;
+    }
+  }
+
+  private Wearability wearability = null;
+
+  /**
+   * Wearability type of this modeling.
+   **/
+
+  @ApiModelProperty(value = "Wearability type of this modeling.")
+  @JsonProperty("wearability")
+  public Wearability getWearability() {
+    return wearability;
+  }
+  public void setWearability(Wearability wearability) {
+    this.wearability = wearability;
+  }
   
   /**
    * Product description.

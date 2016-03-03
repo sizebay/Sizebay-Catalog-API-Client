@@ -1,24 +1,19 @@
 package sizebay.catalog.client;
 
-import static org.junit.Assert.assertNotEquals;
+import org.junit.Ignore;
+import org.junit.Test;
+import sizebay.catalog.client.model.*;
+import sizebay.catalog.client.model.Modeling.Gender;
+import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
 
 import java.util.Arrays;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
-import sizebay.catalog.client.model.Brand;
-import sizebay.catalog.client.model.Modeling;
-import sizebay.catalog.client.model.Modeling.Gender;
-import sizebay.catalog.client.model.Modeling.Wearability;
-import sizebay.catalog.client.model.ModelingMeasureRange;
-import sizebay.catalog.client.model.ModelingSizeMeasures;
-import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
-import sizebay.catalog.client.model.Product;
+import static org.junit.Assert.assertNotEquals;
+import static sizebay.catalog.client.model.Product.Wearability.*;
 
 public class ExempleTest {
 
-	final CatalogAPI api = new CatalogAPI( "Application Token", "Security Token" );
+	final CatalogAPI api = new CatalogAPI( "testTenant", "secretTestTenant" );
 
 	@Test
 	@Ignore
@@ -37,6 +32,8 @@ public class ExempleTest {
 		final Product product = new Product();
 		product.setModelingId( modelingId );
 		product.setName( "Produto" );
+		product.setWearability( REGULAR );
+		product.setCategoryId( 6l );
 		final long productId = api.insertProduct( product );
 
 		System.out.println( "Just created product " + productId );
@@ -58,9 +55,7 @@ public class ExempleTest {
 		final Modeling modeling = new Modeling();
 		modeling.setName( "Tabela de Medida A" );
 		modeling.setBrandId( brandId );
-		modeling.setCategoryId( 6l );
 		modeling.setGender( Gender.M );
-		modeling.setWearability( Wearability.REGULAR );
 		modeling.setSizeMeasures( Arrays.asList( measures ) );
 
 		return api.insertModeling( modeling );
