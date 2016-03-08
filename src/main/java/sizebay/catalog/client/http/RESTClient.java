@@ -83,7 +83,7 @@ public class RESTClient {
 			sendDefaultHeaders( connection );
 
 			final String response = readData( connection );
-			if ( connection.getResponseCode() % 200 > 100 )
+			if ( connection.getResponseCode() / 100 >= 3 )
 				throw new ApiException( connection.getResponseCode() + "" + response );
 
 			return new Response( response, connection );

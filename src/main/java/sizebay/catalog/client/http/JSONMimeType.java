@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JSONMimeType implements MimeType {
@@ -16,6 +17,7 @@ public class JSONMimeType implements MimeType {
 	public JSONMimeType() {
 		mapper = new ObjectMapper();
 		mapper.setSerializationInclusion( Include.NON_NULL );
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	}
 
 	@Override

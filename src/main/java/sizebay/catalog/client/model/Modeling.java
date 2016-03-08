@@ -22,7 +22,8 @@ public class Modeling   {
 
   public enum Gender {
     M("M"),
-    F("F");
+    F("F"),
+    U("U");
 
     private String value;
 
