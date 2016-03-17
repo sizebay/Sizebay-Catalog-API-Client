@@ -157,6 +157,11 @@ public class ModelingSizeMeasures   {
     _3_M("3/M"),
     _4_G("4/G"),
     _5_GG("5/GG"),
+    _3a_12m("3a12m"),
+    _12a_24m("12a24m"),
+    _3a_4A("3a4A"),
+    _6a_8A("6a8A"),
+    _10a_12A("10a12A"),
     XXS("XXS");
 
     private String value;
