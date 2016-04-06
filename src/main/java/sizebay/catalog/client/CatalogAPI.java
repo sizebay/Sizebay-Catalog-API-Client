@@ -5,6 +5,7 @@ import sizebay.catalog.client.http.JSONMimeType;
 import sizebay.catalog.client.http.MimeType;
 import sizebay.catalog.client.http.RESTClient;
 import sizebay.catalog.client.model.Brand;
+import sizebay.catalog.client.model.Category;
 import sizebay.catalog.client.model.Modeling;
 import sizebay.catalog.client.model.Product;
 
@@ -20,6 +21,7 @@ public class CatalogAPI {
 	private final static String ENDPOINT_BRAND = "/brands/";
 	private final static String ENDPOINT_MODELING = "/modelings/";
 	private final static String ENDPOINT_PRODUCT = "/products/";
+	private final static String ENDPOINT_CATEGORIES = "/categories/";
 
 	final RESTClient client;
 
@@ -99,5 +101,21 @@ public class CatalogAPI {
 
 	public void deleteProduct( long id ) {
 		client.delete( ENDPOINT_PRODUCT + id );
+	}
+
+	public Category getCategory(long id ) {
+		return client.getSingle( ENDPOINT_CATEGORIES + id, Category.class );
+	}
+
+	public long insertCategory( Category brand ) {
+		return client.post( ENDPOINT_CATEGORIES, brand );
+	}
+
+	public void updateCategory( long id, Category brand ) {
+		client.put( ENDPOINT_CATEGORIES + id, brand );
+	}
+
+	public void deleteCategory( long id ) {
+		client.delete( ENDPOINT_BRAND + id );
 	}
 }

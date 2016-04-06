@@ -34,6 +34,9 @@ public class ExempleTest {
 		product.setName( "Produto" );
 		product.setWearability( REGULAR );
 		product.setCategoryId( 6l );
+		product.setAvailableSizes( Arrays.asList( SizeName.XXXL ) );
+		product.setImages( Arrays.asList( "http://teste.com/p.png" ) );
+		product.setPermalink("http://teste.com/p");
 		final long productId = api.insertProduct( product );
 
 		System.out.println( "Just created product " + productId );
