@@ -1,5 +1,6 @@
 package sizebay.catalog.client;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import sizebay.catalog.client.model.*;
@@ -8,15 +9,37 @@ import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 import static sizebay.catalog.client.model.Product.Wearability.*;
 
 public class ExempleTest {
 
 	final CatalogAPI api = new CatalogAPI( "testTenant", "secretTestTenant" );
 
+	@Before
+	public void cleanUp(){
+		api.deleteCategories();
+		api.deleteBrands();
+		api.deleteModelings();
+		api.deleteProducts();
+	}
+
 	@Test
-	@Ignore
+	public void ensureThatCanCreateCategories(){
+		final Category category = new Category();
+		category.setName("Category Test");
+		final long id = api.insertCategory(category);
+		final Category category1 = api.getCategory(id);
+		assertEquals( category.getName(), category1.getName() );
+		assertEquals( category.getId(), category1.getId() );
+		api.deleteCategories();
+		assertNull( api.getCategory(id) );
+	}
+
+	@Test
+	//@Ignore
 	public void ensureThatCreatesAProduct()
 	{
 		// criando uma marca

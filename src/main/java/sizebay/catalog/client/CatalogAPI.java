@@ -71,6 +71,10 @@ public class CatalogAPI {
 		client.delete( ENDPOINT_BRAND + id );
 	}
 
+	public void deleteBrands() {
+		client.delete( ENDPOINT_BRAND );
+	}
+
 	public Modeling getModeling( long id ) {
 		return client.getSingle( ENDPOINT_MODELING + id, Modeling.class );
 	}
@@ -85,6 +89,10 @@ public class CatalogAPI {
 
 	public void deleteModeling( long id ) {
 		client.delete( ENDPOINT_MODELING + id );
+	}
+
+	public void deleteModelings() {
+		client.delete( ENDPOINT_MODELING );
 	}
 
 	public Product getProduct( long id ) {
@@ -103,6 +111,10 @@ public class CatalogAPI {
 		client.delete( ENDPOINT_PRODUCT + id );
 	}
 
+	public void deleteProducts() {
+		client.delete( ENDPOINT_PRODUCT );
+	}
+
 	public Category getCategory(long id ) {
 		return client.getSingle( ENDPOINT_CATEGORIES + id, Category.class );
 	}
@@ -117,5 +129,9 @@ public class CatalogAPI {
 
 	public void deleteCategory( long id ) {
 		client.delete( ENDPOINT_BRAND + id );
+	}
+
+	public void deleteCategories() {
+		client.delete( ENDPOINT_BRAND );
 	}
 }
