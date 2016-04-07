@@ -33,7 +33,7 @@ public class ExempleTest {
 		final long id = api.insertCategory(category);
 		final Category category1 = api.getCategory(id);
 		assertEquals( category.getName(), category1.getName() );
-		assertEquals( category.getId(), category1.getId() );
+		assertEquals( id, category1.getId().longValue() );
 		api.deleteCategories();
 		assertNull( api.getCategory(id) );
 	}

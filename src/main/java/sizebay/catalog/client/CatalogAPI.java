@@ -128,10 +128,10 @@ public class CatalogAPI {
 	}
 
 	public void deleteCategory( long id ) {
-		client.delete( ENDPOINT_BRAND + id );
+		client.delete( ENDPOINT_CATEGORIES + id );
 	}
 
 	public void deleteCategories() {
-		client.delete( ENDPOINT_BRAND );
+		client.delete( ENDPOINT_CATEGORIES );
 	}
 }
