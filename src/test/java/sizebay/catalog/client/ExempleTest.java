@@ -3,15 +3,14 @@ package sizebay.catalog.client;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import sizebay.catalog.client.http.ApiException;
 import sizebay.catalog.client.model.*;
 import sizebay.catalog.client.model.Modeling.Gender;
 import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 import static sizebay.catalog.client.model.Product.Wearability.*;
 
 public class ExempleTest {
@@ -35,7 +34,11 @@ public class ExempleTest {
 		assertEquals( category.getName(), category1.getName() );
 		assertEquals( id, category1.getId().longValue() );
 		api.deleteCategories();
-		assertNull( api.getCategory(id) );
+
+		try {
+			assertNull( api.getCategory(id) );
+			fail( "Category wasn't removed" );
+		} catch (ApiException cause) {}
 	}
 
 	@Test
