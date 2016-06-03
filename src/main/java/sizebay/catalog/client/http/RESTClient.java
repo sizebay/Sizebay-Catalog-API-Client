@@ -1,14 +1,8 @@
 package sizebay.catalog.client.http;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
+import java.net.*;
 import java.util.Scanner;
-
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -123,7 +117,7 @@ public class RESTClient {
 		config.configureRequest( connection );
 	}
 
-	private void sendData( HttpURLConnection connection, String jsonBodyData ) throws IOException, UnsupportedEncodingException {
+	private void sendData( HttpURLConnection connection, String jsonBodyData ) throws IOException {
 		final OutputStream outputStream = connection.getOutputStream();
 		outputStream.write( jsonBodyData.getBytes( mime.charset() ) );
 		outputStream.flush();

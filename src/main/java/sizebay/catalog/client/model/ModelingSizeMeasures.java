@@ -1,11 +1,8 @@
 package sizebay.catalog.client.model;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.*;
+import io.swagger.annotations.ApiModelProperty;
 
 
 
@@ -29,8 +26,8 @@ public class ModelingSizeMeasures   {
     _2P("2P"),_2BB("2BB"),_1P("1P"),GGB("GGB"),GB("GB"),_9M("9M"),MB("MB"),GBB("GBB"),_3B("3B"),_6M("6M"),
     _1BB("1BB"),PB("PB"),MBB("MBB"),_2B("2B"),_3M("3M"),PBB("PBB"),_1B("1B"),RN("RN"),_1RN("1RN"),UN("UN"),
     JV("JV"), PP("PP"), P("P"), XS("XS"), EP("EP"), S("S"), M("M"), EM("EM"), G("G"),
-    G1("G1"), G2("G2"), G3("G3"), L("L"), EG("EG"), GG("GG"), XL("XL"), EGG("EGG"), XG("XG"), XGG("XGG"),
-    XXL("XXL"), XLG("XLG"), GGG("GGG"), XXXL("XXXL"), XXG("XXG"), _1("1"), _2("2"), _3("3"), _4("4"),
+    G1("G1"), G2("G2"), G3("G3"), G4("G4"), G5("G5"), L("L"), EG("EG"), GG("GG"), XL("XL"), EGG("EGG"), XG("XG"),
+    XGG("XGG"), XXL("XXL"), XLG("XLG"), GGG("GGG"), XXXL("XXXL"), XXG("XXG"), _1("1"), _2("2"), _3("3"), _4("4"),
     _5("5"), _6("6"), _7("7"), _8("8"), _9("9"), _10("10"), _11("11"), _12("12"), _13("13"), _14("14"),
     _15("15"), _16("16"), _17("17"), _18("18"), _19("19"), _20("20"), _21("21"),_22("22"),_23("23"),
     _24("24"),_25("25"),_26("26"),_27("27"),_28("28"),_29("29"),_30("30"), _31("31"), _32("32"),_33("33"),

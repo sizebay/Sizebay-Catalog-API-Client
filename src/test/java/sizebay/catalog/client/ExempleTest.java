@@ -1,17 +1,13 @@
 package sizebay.catalog.client;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import static org.junit.Assert.*;
+import static sizebay.catalog.client.model.Product.Wearability.REGULAR;
+import java.util.Arrays;
+import org.junit.*;
 import sizebay.catalog.client.http.ApiException;
 import sizebay.catalog.client.model.*;
 import sizebay.catalog.client.model.Modeling.Gender;
 import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
-
-import java.util.Arrays;
-
-import static org.junit.Assert.*;
-import static sizebay.catalog.client.model.Product.Wearability.*;
 
 public class ExempleTest {
 
