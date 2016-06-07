@@ -11,8 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class ModelingSizeMeasures   {
   
-
-
   public enum SizeName {
 
     ELG("ELG"),ROS("ROS"),IRI("IRI"),ANG("ANG"),FRE("FRE"),JAS("JAS"),ORQ("ORQ"),AMP("AMP"),
@@ -26,7 +24,7 @@ public class ModelingSizeMeasures   {
     _2P("2P"),_2BB("2BB"),_1P("1P"),GGB("GGB"),GB("GB"),_9M("9M"),MB("MB"),GBB("GBB"),_3B("3B"),_6M("6M"),
     _1BB("1BB"),PB("PB"),MBB("MBB"),_2B("2B"),_3M("3M"),PBB("PBB"),_1B("1B"),RN("RN"),_1RN("1RN"),UN("UN"),
     JV("JV"), PP("PP"), P("P"), XS("XS"), EP("EP"), S("S"), M("M"), EM("EM"), G("G"),
-    G1("G1"), G2("G2"), G3("G3"), G4("G4"), G5("G5"), L("L"), EG("EG"), GG("GG"), XL("XL"), EGG("EGG"), XG("XG"),
+    G1("G1"), G2("G2"), G3("G3"), G4("G4"), G5("G5"), G6("G6"), L("L"), EG("EG"), GG("GG"), XL("XL"), EGG("EGG"), XG("XG"),
     XGG("XGG"), XXL("XXL"), XLG("XLG"), GGG("GGG"), XXXL("XXXL"), XXG("XXG"), _1("1"), _2("2"), _3("3"), _4("4"),
     _5("5"), _6("6"), _7("7"), _8("8"), _9("9"), _10("10"), _11("11"), _12("12"), _13("13"), _14("14"),
     _15("15"), _16("16"), _17("17"), _18("18"), _19("19"), _20("20"), _21("21"),_22("22"),_23("23"),
@@ -68,6 +66,7 @@ public class ModelingSizeMeasures   {
   private ModelingMeasureRange sleeve = null;
   private ModelingMeasureRange length = null;
   private ModelingMeasureRange insideLeg = null;
+  private ModelingMeasureRange biceps = null;
 
   
   /**
@@ -99,9 +98,21 @@ public class ModelingSizeMeasures   {
 
   
   /**
+   * Biceps size in centimeters
+   **/
+  @ApiModelProperty(required = true, value = "Hip size in centimeters")
+  @JsonProperty("biceps")
+  public ModelingMeasureRange getBiceps() {
+    return hip;
+  }
+  public void setBiceps(ModelingMeasureRange hip) {
+    this.hip = hip;
+  }
+
+  /**
    * Hip size in centimeters
    **/
-  
+
   @ApiModelProperty(required = true, value = "Hip size in centimeters")
   @JsonProperty("hip")
   public ModelingMeasureRange getHip() {
