@@ -100,13 +100,13 @@ public class ModelingSizeMeasures   {
   /**
    * Biceps size in centimeters
    **/
-  @ApiModelProperty(required = true, value = "Hip size in centimeters")
+  @ApiModelProperty(required = true, value = "Biceps size in centimeters")
   @JsonProperty("biceps")
   public ModelingMeasureRange getBiceps() {
-    return hip;
+    return biceps;
   }
-  public void setBiceps(ModelingMeasureRange hip) {
-    this.hip = hip;
+  public void setBiceps(ModelingMeasureRange biceps) {
+    this.biceps = biceps;
   }
 
   /**
