@@ -13,7 +13,7 @@ public class ModelingSizeMeasures   {
   
   public enum SizeName {
 
-    ELG("ELG"),ROS("ROS"),IRI("IRI"),ANG("ANG"),FRE("FRE"),JAS("JAS"),ORQ("ORQ"),AMP("AMP"),
+    PR("PR"), EEG("EEG"), ELG("ELG"),ROS("ROS"),IRI("IRI"),ANG("ANG"),FRE("FRE"),JAS("JAS"),ORQ("ORQ"),AMP("AMP"),
     CAM("CAM"),LIR("LIR"),AZA("AZA"),BEG("BEG"),HIB("HIB"),TUL("TUL"),DAL("DAL"),GIR("GIR"),GER("GER"),
     HOR("HOR"),MAR("MAR"),_48B("48B"),_46B("46B"),_44B("44B"),_42B("42B"),BG("BG"),BM("BM"),BP("BP"),
     _978("978"),_977("977"),_951("951"),_950("950"),_3XG("3XG"),_2XL("2XL"),
