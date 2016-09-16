@@ -9,7 +9,7 @@ import sizebay.catalog.client.model.*;
 import sizebay.catalog.client.model.Modeling.Gender;
 import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
 
-public class ExempleTest {
+public class ExampleTest {
 
 	final CatalogAPI api = new CatalogAPI( "testTenant", "secretTestTenant" );
 
@@ -38,7 +38,6 @@ public class ExempleTest {
 	}
 
 	@Test
-	//@Ignore
 	public void ensureThatCreatesAProduct()
 	{
 		// criando uma marca
@@ -62,6 +61,9 @@ public class ExempleTest {
 		final long productId = api.insertProduct( product );
 
 		System.out.println( "Just created product " + productId );
+
+		final ProductBasicInformation basicInfo = api.getProductBasicInfo(productId);
+		System.out.println( basicInfo );
 	}
 
 	private long createABrand() {

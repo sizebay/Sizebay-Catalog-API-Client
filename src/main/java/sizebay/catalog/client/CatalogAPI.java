@@ -4,10 +4,7 @@ import lombok.NonNull;
 import sizebay.catalog.client.http.JSONMimeType;
 import sizebay.catalog.client.http.MimeType;
 import sizebay.catalog.client.http.RESTClient;
-import sizebay.catalog.client.model.Brand;
-import sizebay.catalog.client.model.Category;
-import sizebay.catalog.client.model.Modeling;
-import sizebay.catalog.client.model.Product;
+import sizebay.catalog.client.model.*;
 
 /**
  * A Basic wrapper on generated Swagger client.
@@ -115,7 +112,11 @@ public class CatalogAPI {
 		client.delete( ENDPOINT_PRODUCT );
 	}
 
-	public Category getCategory(long id ) {
+	public ProductBasicInformation getProductBasicInfo(long id ){
+		return client.getSingle( ENDPOINT_PRODUCT + id + "/basic-info", ProductBasicInformation.class );
+	}
+
+	public Category getCategory( long id ) {
 		return client.getSingle( ENDPOINT_CATEGORIES + id, Category.class );
 	}
 
