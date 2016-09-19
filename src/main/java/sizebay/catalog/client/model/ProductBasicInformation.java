@@ -15,6 +15,7 @@ public class ProductBasicInformation implements Serializable {
 	@NonNull String permalink;
 	String genderTheWearWasDesignedFor;
 	String coverImage;
+	boolean bottomOnly;
 
 	Map<String, ProductMeasures> measures;
 }
