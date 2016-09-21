@@ -63,7 +63,11 @@ public class ExampleTest {
 		System.out.println( "Just created product " + productId );
 
 		final ProductBasicInformation basicInfo = api.getProductBasicInfo(productId);
+		assertEquals( basicInfo.getId(), productId, 0 );
 		System.out.println( basicInfo );
+
+		final Long id = api.getProductIdFromPermalink(product.getPermalink());
+		assertEquals( basicInfo.getId(), id, 0 );
 	}
 
 	private long createABrand() {
