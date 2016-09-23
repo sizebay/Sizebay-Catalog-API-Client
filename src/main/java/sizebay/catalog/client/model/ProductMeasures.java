@@ -11,4 +11,6 @@ public class ProductMeasures {
 	Double length;
 	Double insideLeg;
 	Double biceps;
+	Double height;
+	Double fist;
 }
