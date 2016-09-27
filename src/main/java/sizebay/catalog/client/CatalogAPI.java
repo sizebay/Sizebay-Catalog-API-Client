@@ -1,9 +1,8 @@
 package sizebay.catalog.client;
 
+import java.util.List;
 import lombok.NonNull;
-import sizebay.catalog.client.http.JSONMimeType;
-import sizebay.catalog.client.http.MimeType;
-import sizebay.catalog.client.http.RESTClient;
+import sizebay.catalog.client.http.*;
 import sizebay.catalog.client.model.*;
 
 /**
@@ -13,12 +12,15 @@ import sizebay.catalog.client.model.*;
  */
 public class CatalogAPI {
 
-	private final static String DEFAULT_BASE_URL = "http://catalog.sizebay.com/api/v1/";
+	private final static String
+		DEFAULT_BASE_URL = "http://catalog.sizebay.com/api/v1/",
 
-	private final static String ENDPOINT_BRAND = "/brands/";
-	private final static String ENDPOINT_MODELING = "/modelings/";
-	private final static String ENDPOINT_PRODUCT = "/products/";
-	private final static String ENDPOINT_CATEGORIES = "/categories/";
+		ENDPOINT_BRAND = "/brands/",
+		ENDPOINT_MODELING = "/modelings/",
+		ENDPOINT_PRODUCT = "/products/",
+		ENDPOINT_CATEGORIES = "/categories/",
+
+		SEARCH_BY_TEXT = "/search/all?text=";
 
 	final RESTClient client;
 
@@ -56,6 +58,10 @@ public class CatalogAPI {
 		return client.getSingle( ENDPOINT_BRAND + id, Brand.class );
 	}
 
+	public List<Brand> searchForBrands(String text ){
+		return client.getList( ENDPOINT_BRAND + SEARCH_BY_TEXT + text, Brand.class );
+	}
+
 	public long insertBrand( Brand brand ) {
 		return client.post( ENDPOINT_BRAND, brand );
 	}
@@ -74,6 +80,10 @@ public class CatalogAPI {
 
 	public Modeling getModeling( long id ) {
 		return client.getSingle( ENDPOINT_MODELING + id, Modeling.class );
+	}
+
+	public List<Modeling> searchForModelings(String text ){
+		return client.getList( ENDPOINT_MODELING + SEARCH_BY_TEXT + text, Modeling.class );
 	}
 
 	public long insertModeling( Modeling brand ) {
@@ -138,5 +148,9 @@ public class CatalogAPI {
 
 	public void deleteCategories() {
 		client.delete( ENDPOINT_CATEGORIES );
+	}
+
+	public List<Category> searchForCategories(String text ){
+		return client.getList( ENDPOINT_CATEGORIES + SEARCH_BY_TEXT + text, Category.class );
 	}
 }

@@ -1,7 +1,6 @@
 package sizebay.catalog.client;
 
 import java.net.HttpURLConnection;
-
 import lombok.RequiredArgsConstructor;
 import sizebay.catalog.client.http.RESTClientConfiguration;
 

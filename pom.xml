@@ -4,7 +4,7 @@
 
 	<groupId>com.sizebay.catalog</groupId>
 	<artifactId>sizebay-catalog-api-client</artifactId>
-	<version>0.3.6</version>
+	<version>0.3.7</version>
 
 	<packaging>jar</packaging>
 	<name>Sizebay Catalog API Client</name>
@@ -52,8 +52,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${version.compiler.plugin}</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<optimize>true</optimize>
 					<debug>false</debug>
 					<encoding>${config.encoding.source}</encoding>
@@ -69,7 +69,6 @@
 			<artifactId>swagger-annotations</artifactId>
 			<version>${swagger-annotations-version}</version>
 		</dependency>
-
 		<!-- JSON processing: jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

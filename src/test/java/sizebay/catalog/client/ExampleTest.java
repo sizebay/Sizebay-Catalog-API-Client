@@ -2,7 +2,7 @@ package sizebay.catalog.client;
 
 import static org.junit.Assert.*;
 import static sizebay.catalog.client.model.Product.Wearability.REGULAR;
-import java.util.Arrays;
+import java.util.*;
 import org.junit.*;
 import sizebay.catalog.client.http.ApiException;
 import sizebay.catalog.client.model.*;
@@ -97,5 +97,32 @@ public class ExampleTest {
 		range.setInitialValue( initialValue );
 		range.setFinalValue( finalValue );
 		return range;
+	}
+
+	@Test
+	public void ensureThatCanSearchForCategories(){
+		final Category category = new Category();
+		category.setName("Category Test");
+		category.setId( api.insertCategory(category) );
+
+		final List<Category> categories = api.searchForCategories(category.getName());
+		assertEquals( category, categories.get(0) );
+	}
+
+	@Test
+	public void ensureThatCanSearchForBrands(){
+		final long brandId = createABrand();
+		final Brand brand = api.getBrand(brandId);
+		final List<Brand> brands = api.searchForBrands(brand.getName());
+		assertEquals( brand, brands.get(0) );
+	}
+
+	@Test
+	public void ensureThatCanSearchForModelings(){
+		final long brandId = createABrand();
+		final long modelingId = createModeling(brandId);
+		final Modeling modeling = api.getModeling(modelingId);
+		final List<Modeling> modelings = api.searchForModelings(modeling.getName());
+		assertEquals( modeling, modelings.get(0) );
 	}
 }

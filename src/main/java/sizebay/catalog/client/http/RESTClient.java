@@ -2,7 +2,7 @@ package sizebay.catalog.client.http;
 
 import java.io.*;
 import java.net.*;
-import java.util.Scanner;
+import java.util.*;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -29,19 +29,30 @@ public class RESTClient {
 	private <T> T serialize( String response, Class<T> expectedResponseClass ) {
 		if ( response == null )
 			return null;
-		return mime.serialize( response, expectedResponseClass );
+		return mime.unserialize( response, expectedResponseClass );
+	}
+
+	public <T> List<T> getList( String serverEndpoint, Class<T> expectedResponseClass ) {
+		final Response response = callEndpoint( METHOD_GET, serverEndpoint );
+		return serializeList( response.body, expectedResponseClass );
+	}
+
+	private <T> List<T> serializeList( String response, Class<T> expectedResponseClass ) {
+		if ( response == null )
+			return null;
+		return mime.unserializeList( response, expectedResponseClass );
 	}
 
 	public long post( String serverEndpoint, Object request )
 	{
-		final String jsonBodyData = mime.unserialize( request );
+		final String jsonBodyData = mime.serialize( request );
 		final Response response = sendToEndpoint( METHOD_POST, serverEndpoint, jsonBodyData );
 		return response.connection.getHeaderFieldLong( "ID", -1 );
 	}
 
 	public void put( String serverEndpoint, Object request )
 	{
-		final String jsonBodyData = mime.unserialize( request );
+		final String jsonBodyData = mime.serialize( request );
 		sendToEndpoint( METHOD_PUT, serverEndpoint, jsonBodyData );
 	}
 
@@ -88,6 +99,7 @@ public class RESTClient {
 
 	private URL buildURL( String path ) {
 		try {
+			path = path.replace(" ", "%20");
 			final String rootPath = ( baseUrl + "/" + path ).replaceAll( "([^:])//+", "$1/" );
 			return new URL( rootPath );
 		} catch ( final MalformedURLException e ) {

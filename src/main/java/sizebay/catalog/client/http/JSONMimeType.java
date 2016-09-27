@@ -1,6 +1,7 @@
 package sizebay.catalog.client.http;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,7 +22,7 @@ public class JSONMimeType implements MimeType {
 	}
 
 	@Override
-	public String unserialize( Object request ) {
+	public String serialize(Object request ) {
 		try {
 			return mapper.writeValueAsString( request );
 		} catch ( final JsonProcessingException e ) {
@@ -29,12 +30,20 @@ public class JSONMimeType implements MimeType {
 		}
 	}
 
-	@Override
-	public <T> T serialize( String response, Class<T> respClass ) {
+	public <T> T unserialize(String response, Class<T> respClass ) {
 		try {
 			return mapper.readValue( response, respClass );
 		} catch ( final IOException e ) {
 			throw new RuntimeException( e );
+		}
+	}
+
+	@Override
+	public <T> List<T> unserializeList(String string, Class<T> clazz) {
+		try {
+			return mapper.readValue(string, mapper.getTypeFactory().constructCollectionType(List.class, clazz));
+		} catch (IOException e) {
+			throw new IllegalStateException(e);
 		}
 	}
 
