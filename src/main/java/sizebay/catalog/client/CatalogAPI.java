@@ -153,4 +153,8 @@ public class CatalogAPI {
 	public List<Category> searchForCategories(String text ){
 		return client.getList( ENDPOINT_CATEGORIES + SEARCH_BY_TEXT + text, Category.class );
 	}
+
+	public List<Tenant> retrieveAllTenants(){
+		return client.getList( "/tenants/", Tenant.class );
+	}
 }
