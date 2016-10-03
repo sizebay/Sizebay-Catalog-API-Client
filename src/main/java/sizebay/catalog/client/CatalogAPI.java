@@ -157,4 +157,8 @@ public class CatalogAPI {
 	public List<Tenant> retrieveAllTenants(){
 		return client.getList( "/tenants/", Tenant.class );
 	}
+
+	public Tenant getTenant( long id ){
+		return client.getSingle( "/tenants/" + id, Tenant.class );
+	}
 }
