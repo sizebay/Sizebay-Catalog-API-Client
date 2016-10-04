@@ -1,13 +1,8 @@
 package sizebay.catalog.client.model;
 
+import java.util.*;
+import com.fasterxml.jackson.annotation.*;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
@@ -50,7 +45,7 @@ public class Product   {
   private AgeGroupEnum ageGroup = null;
   private String gtin = null;
   private List<String> images = new ArrayList<String>();
-  private List<ModelingSizeMeasures.SizeName> availableSizes = new ArrayList<>();
+  private List<String> availableSizes = new ArrayList<>();
 
   /**
    * Unique identifier representing a specific product. (Read only)
@@ -254,8 +249,8 @@ public class Product   {
     this.images = images;
   }
 
-  public List<ModelingSizeMeasures.SizeName> getAvailableSizes(){ return availableSizes; }
-  public void setAvailableSizes( List<ModelingSizeMeasures.SizeName> availableSizes ){
+  public List<String> getAvailableSizes(){ return availableSizes; }
+  public void setAvailableSizes( List<String> availableSizes ){
     this.availableSizes = availableSizes;
   }
 

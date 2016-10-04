@@ -7,7 +7,6 @@ import org.junit.*;
 import sizebay.catalog.client.http.ApiException;
 import sizebay.catalog.client.model.*;
 import sizebay.catalog.client.model.Modeling.Gender;
-import sizebay.catalog.client.model.ModelingSizeMeasures.SizeName;
 
 public class ExampleTest {
 
@@ -55,7 +54,7 @@ public class ExampleTest {
 		product.setName( "Produto" );
 		product.setWearability( REGULAR );
 		product.setCategoryId( 6l );
-		product.setAvailableSizes( Arrays.asList( SizeName.XXXL ) );
+		product.setAvailableSizes( Arrays.asList( "XXXL" ) );
 		product.setImages( Arrays.asList( "http://teste.com/p.png" ) );
 		product.setPermalink("http://teste.com/p");
 		final long productId = api.insertProduct( product );
@@ -78,7 +77,7 @@ public class ExampleTest {
 
 	private long createModeling( final long brandId ) {
 		final ModelingSizeMeasures measures = new ModelingSizeMeasures();
-		measures.setSizeName( SizeName.XXXL );
+		measures.setSizeName( "XXXL" );
 		measures.setHip( range( 50, 60 ) );
 		measures.setWaist( range( 70, 80 ) );
 		measures.setChest( range( 55, 75 ) );
