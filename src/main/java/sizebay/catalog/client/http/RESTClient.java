@@ -99,7 +99,7 @@ public class RESTClient {
 
 	private URL buildURL( String path ) {
 		try {
-			path = path.replace(" ", "%20");
+			path = path.replace( "%", "%25" ).replace(" ", "%20");
 			final String rootPath = ( baseUrl + "/" + path ).replaceAll( "([^:])//+", "$1/" );
 			return new URL( rootPath );
 		} catch ( final MalformedURLException e ) {
