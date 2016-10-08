@@ -1,6 +1,6 @@
 package sizebay.catalog.client;
 
-import java.util.List;
+import java.util.*;
 import lombok.NonNull;
 import sizebay.catalog.client.http.*;
 import sizebay.catalog.client.model.*;
@@ -158,7 +158,17 @@ public class CatalogAPI {
 		return client.getList( "/tenants/", Tenant.class );
 	}
 
-	public Tenant getTenant( long id ){
-		return client.getSingle( "/tenants/" + id, Tenant.class );
+	public Tenant getTenant( String appToken ){
+		return client.getSingle( "/tenants/" + appToken, Tenant.class );
+	}
+
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> authenticateAndRetrieveProperties( String username, String password ) {
+		return (Map<String, Object>)client.getSingle( "/users/" + username + "/" + password, Map.class );
+	}
+
+	@Deprecated
+	void saveUser( User user ){
+		client.post( "/users/", user );
 	}
 }

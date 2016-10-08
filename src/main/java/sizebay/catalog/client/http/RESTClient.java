@@ -78,7 +78,7 @@ public class RESTClient {
 	{
 		final String msg = "Status: " + connection.getResponseCode() + "\n\t\tResponse: " + response + "\n\t\tRequest: " + body;
 		System.out.println( msg );
-		throw new ApiException( msg );
+		throw new ApiException( connection.getResponseCode(), response );
 	}
 
 	private Response callEndpoint( String httpMethod, String serverEndpoint ) {
@@ -89,7 +89,7 @@ public class RESTClient {
 
 			final String response = readData( connection );
 			if ( connection.getResponseCode() / 100 >= 3 )
-				throw new ApiException( connection.getResponseCode() + "" + response );
+				throw new ApiException( connection.getResponseCode(), response );
 
 			return new Response( response, connection );
 		} catch ( final IOException e ) {

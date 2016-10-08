@@ -1,5 +1,7 @@
 package sizebay.catalog.client;
 
+import static java.util.Arrays.asList;
+import static java.util.Collections.singletonMap;
 import static org.junit.Assert.*;
 import static sizebay.catalog.client.model.Product.Wearability.REGULAR;
 import java.util.*;
@@ -8,9 +10,14 @@ import sizebay.catalog.client.http.ApiException;
 import sizebay.catalog.client.model.*;
 import sizebay.catalog.client.model.Modeling.Gender;
 
+@Ignore
 public class ExampleTest {
 
-	final CatalogAPI api = new CatalogAPI( "testTenant", "secretTestTenant" );
+	final CatalogAPI adminApi = new CatalogAPI( "http://localhost:9000/", "admin", "1q2w3e" );
+	final CatalogAPI api = new CatalogAPI( "http://localhost:9000/", "testTenant", "secretTestTenant" );
+
+	final User user = new User().setUsername( "miere" ).setPassword("mudar_senha")
+			.setProperties( singletonMap( "tenants", asList( "domain" ) ) );
 
 	@Before
 	public void cleanUp(){
@@ -54,8 +61,8 @@ public class ExampleTest {
 		product.setName( "Produto" );
 		product.setWearability( REGULAR );
 		product.setCategoryId( 6l );
-		product.setAvailableSizes( Arrays.asList( "XXXL" ) );
-		product.setImages( Arrays.asList( "http://teste.com/p.png" ) );
+		product.setAvailableSizes( asList( "XXXL" ) );
+		product.setImages( asList( "http://teste.com/p.png" ) );
 		product.setPermalink("http://teste.com/p");
 		final long productId = api.insertProduct( product );
 
@@ -86,7 +93,7 @@ public class ExampleTest {
 		modeling.setName( "Tabela de Medida A" );
 		modeling.setBrandId( brandId );
 		modeling.setGender( Gender.M );
-		modeling.setSizeMeasures( Arrays.asList( measures ) );
+		modeling.setSizeMeasures( asList( measures ) );
 
 		return api.insertModeling( modeling );
 	}
@@ -123,5 +130,18 @@ public class ExampleTest {
 		final Modeling modeling = api.getModeling(modelingId);
 		final List<Modeling> modelings = api.searchForModelings(modeling.getName());
 		assertEquals( modeling, modelings.get(0) );
+	}
+
+	@Test
+	public void ensureThatCanCreateAndAuthenticateUser(){
+		adminApi.saveUser( user );
+		final Map<String, Object> properties = adminApi.authenticateAndRetrieveProperties(user.getUsername(), user.getPassword());
+		assertEquals( user.getProperties(), properties );
+	}
+
+	@Test
+	public void ensureCanRetrieveTenantByApplicationToken(){
+		final Tenant tenant = adminApi.getTenant("testTenant");
+		assertNotNull( tenant );
 	}
 }
