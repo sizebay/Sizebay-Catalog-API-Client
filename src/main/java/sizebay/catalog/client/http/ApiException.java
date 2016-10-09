@@ -31,7 +31,7 @@ final public class ApiException extends RuntimeException {
 	}
 
 	public ApiException( int status, String message ) {
-		super( message );
+		super( status + ": " + message );
 		this.status = status;
 		this.message = message;
 	}

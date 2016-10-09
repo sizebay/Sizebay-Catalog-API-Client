@@ -1,16 +1,17 @@
 package sizebay.catalog.client.model;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
 
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class Category   {
   
   private Long id = null;
   private String name = null;
+
+  @Getter
   private ClothesType clothesType = ClothesType.TOP;
 
   /**

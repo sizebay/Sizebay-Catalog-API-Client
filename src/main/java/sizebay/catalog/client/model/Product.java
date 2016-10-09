@@ -20,6 +20,7 @@ public class Product   {
   private String externalCategory = null;
   private Boolean available = null;
   private Boolean adultContent = null;
+  private Boolean pluginActive = null;
 
 
   public enum AgeGroupEnum {
@@ -73,6 +74,7 @@ public class Product   {
     this.name = name;
   }
 
+  @Deprecated
   public enum Wearability {
     REGULAR("regular"),
     VERYTIGHT("veryTight"),
@@ -101,11 +103,14 @@ public class Product   {
    * Wearability type of this modeling.
    **/
 
+  @Deprecated
   @ApiModelProperty(value = "Wearability type of this modeling.")
   @JsonProperty("wearability")
   public Wearability getWearability() {
     return wearability;
   }
+
+  @Deprecated
   public void setWearability(Wearability wearability) {
     this.wearability = wearability;
   }
@@ -299,7 +304,7 @@ public class Product   {
     sb.append("    available: ").append(toIndentedString(available)).append("\n");
     sb.append("    adultContent: ").append(toIndentedString(adultContent)).append("\n");
     sb.append("    ageGroup: ").append(toIndentedString(ageGroup)).append("\n");
-    sb.append("    gtin: ").append(toIndentedString(gtin)).append("\n");
+    sb.append("    pluginActive: ").append(toIndentedString(pluginActive)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -315,5 +320,11 @@ public class Product   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+	@ApiModelProperty(value = "Identify if plugin is properly configured for this project.")
+	@JsonProperty("pluginActive")
+	public Boolean getPluginActive() {
+		return pluginActive;
+	}
 }
 

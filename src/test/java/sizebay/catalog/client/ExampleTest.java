@@ -124,15 +124,6 @@ public class ExampleTest {
 	}
 
 	@Test
-	public void ensureThatCanSearchForModelings(){
-		final long brandId = createABrand();
-		final long modelingId = createModeling(brandId);
-		final Modeling modeling = api.getModeling(modelingId);
-		final List<Modeling> modelings = api.searchForModelings(modeling.getName());
-		assertEquals( modeling, modelings.get(0) );
-	}
-
-	@Test
 	public void ensureThatCanCreateAndAuthenticateUser(){
 		adminApi.saveUser( user );
 		final Map<String, Object> properties = adminApi.authenticateAndRetrieveProperties(user.getUsername(), user.getPassword());
@@ -143,5 +134,14 @@ public class ExampleTest {
 	public void ensureCanRetrieveTenantByApplicationToken(){
 		final Tenant tenant = adminApi.getTenant("testTenant");
 		assertNotNull( tenant );
+	}
+
+	@Test
+	public void ensureCanRetrieveModelingByBrandIdAndGender(){
+		final long brandId = createABrand();
+		final long modelingId = createModeling(brandId);
+		final List<Modeling> found = api.searchForModelings(brandId, "M");
+		assertEquals( 1, found.size() );
+		assertEquals( modelingId, found.get(0).getId(), 0 );
 	}
 }

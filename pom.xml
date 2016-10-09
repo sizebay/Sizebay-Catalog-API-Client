@@ -4,7 +4,7 @@
 
 	<groupId>com.sizebay.catalog</groupId>
 	<artifactId>sizebay-catalog-api-client</artifactId>
-	<version>0.3.8</version>
+	<version>0.3.9</version>
 
 	<packaging>jar</packaging>
 	<name>Sizebay Catalog API Client</name>
@@ -100,6 +100,17 @@
 			<artifactId>lombok</artifactId>
 			<version>${version.lombok}</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sizebay.emmett</groupId>
+			<artifactId>emmett-tasks</artifactId>
+			<version>0.3.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.skullabs.kikaha</groupId>
+			<artifactId>kikaha-injection-processor</artifactId>
+			<version>2.0.3</version>
 		</dependency>
 	</dependencies>
 

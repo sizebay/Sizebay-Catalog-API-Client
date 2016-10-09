@@ -12,7 +12,7 @@ import sizebay.catalog.client.model.*;
  */
 public class CatalogAPI {
 
-	private final static String
+	final static String
 		DEFAULT_BASE_URL = "http://catalog.sizebay.com/api/v1/",
 
 		ENDPOINT_BRAND = "/brands/",
@@ -62,6 +62,10 @@ public class CatalogAPI {
 		return client.getList( ENDPOINT_BRAND + SEARCH_BY_TEXT + text, Brand.class );
 	}
 
+	public List<Brand> getBrands( int page ) {
+		return client.getList( ENDPOINT_BRAND + "?page=" + page, Brand.class );
+	}
+
 	public long insertBrand( Brand brand ) {
 		return client.post( ENDPOINT_BRAND, brand );
 	}
@@ -82,8 +86,16 @@ public class CatalogAPI {
 		return client.getSingle( ENDPOINT_MODELING + id, Modeling.class );
 	}
 
-	public List<Modeling> searchForModelings(String text ){
-		return client.getList( ENDPOINT_MODELING + SEARCH_BY_TEXT + text, Modeling.class );
+	public List<Modeling> searchForModelings( long brandId, String gender ) {
+		return searchForModelings( String.valueOf( brandId ), gender );
+	}
+
+	public List<Modeling> searchForModelings( String brandId, String gender ){
+		return client.getList( ENDPOINT_MODELING + "/search/brand/" + brandId + "/gender/" + gender, Modeling.class );
+	}
+
+	public List<Modeling> getModelings( int page ){
+		return client.getList( ENDPOINT_MODELING + "?page=" + page, Modeling.class );
 	}
 
 	public long insertModeling( Modeling brand ) {
@@ -104,6 +116,10 @@ public class CatalogAPI {
 
 	public Product getProduct( long id ) {
 		return client.getSingle( ENDPOINT_PRODUCT + id, Product.class );
+	}
+
+	public List<Product> getProducts( int page ) {
+		return client.getList( ENDPOINT_PRODUCT + "?page=" + page, Product.class );
 	}
 
 	public long insertProduct( Product brand ) {
@@ -132,6 +148,10 @@ public class CatalogAPI {
 
 	public Category getCategory( long id ) {
 		return client.getSingle( ENDPOINT_CATEGORIES + id, Category.class );
+	}
+
+	public List<Category> getCategories() {
+		return client.getList( ENDPOINT_CATEGORIES, Category.class );
 	}
 
 	public long insertCategory( Category brand ) {
@@ -170,5 +190,9 @@ public class CatalogAPI {
 	@Deprecated
 	void saveUser( User user ){
 		client.post( "/users/", user );
+	}
+
+	public void insertTenant(Tenant tenant) {
+		client.post( "/tenants/", tenant );
 	}
 }
