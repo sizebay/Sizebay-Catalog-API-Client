@@ -184,7 +184,7 @@ public class CatalogAPI {
 
 	@SuppressWarnings("unchecked")
 	public List<Tenant> authenticateAndRetrieveTenants(String username, String password ) {
-		return client.getList( "/users/" + username + "/tenants" + password, Tenant.class );
+		return client.getList( "/users/" + username + "/" + password + "/tenants", Tenant.class );
 	}
 
 	@Deprecated
