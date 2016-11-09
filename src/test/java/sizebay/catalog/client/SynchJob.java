@@ -12,6 +12,7 @@ import sizebay.emmett.tasks.Threads;
 /**
  *
  */
+@Ignore
 public class SynchJob {
 
 	final Threads threads = Threads.fixedPool(10);

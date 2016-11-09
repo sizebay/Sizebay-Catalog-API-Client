@@ -183,8 +183,8 @@ public class CatalogAPI {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> authenticateAndRetrieveProperties( String username, String password ) {
-		return (Map<String, Object>)client.getSingle( "/users/" + username + "/" + password, Map.class );
+	public List<Tenant> authenticateAndRetrieveTenants(String username, String password ) {
+		return client.getList( "/users/" + username + "/tenants" + password, Tenant.class );
 	}
 
 	@Deprecated
