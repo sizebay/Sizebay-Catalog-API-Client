@@ -28,4 +28,6 @@ public class Tenant implements Serializable {
 
 	@NonNull
 	String domain;
+
+	boolean automaticallyImportSize;
 }

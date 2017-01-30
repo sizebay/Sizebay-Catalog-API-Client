@@ -60,6 +60,7 @@ public class ExampleTest {
 		product.setModelingId( modelingId );
 		product.setName( "Produto" );
 		product.setWearability( REGULAR );
+		product.setAgeGroup( Product.AgeGroupEnum.NEWBORN );
 		product.setCategoryId( 6l );
 		product.setAvailableSizes( asList( "XXXL" ) );
 		product.setImages( asList( "http://teste.com/p.png" ) );
@@ -70,6 +71,7 @@ public class ExampleTest {
 
 		final ProductBasicInformation basicInfo = api.getProductBasicInfo(productId);
 		assertEquals( basicInfo.getId(), productId, 0 );
+		assertEquals( Product.AgeGroupEnum.NEWBORN, basicInfo.getAgeGroup() );
 		System.out.println( basicInfo );
 
 		final Long id = api.getProductIdFromPermalink(product.getPermalink());
