@@ -19,5 +19,7 @@ public class ModelingSizeMeasures   {
   ModelingMeasureRange height = null;
   ModelingMeasureRange fist = null;
   ModelingMeasureRange neck = null;
+  ModelingMeasureRange thigh = null;
+  ModelingMeasureRange centralSeam = null;
 }
 
