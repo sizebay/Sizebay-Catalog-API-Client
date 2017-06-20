@@ -143,12 +143,11 @@ public class CatalogAPI {
 	}
 
 	public Long getProductIdFromPermalink( String permalink ){
-		return getProductIdFromPermalink( permalink, false );
+		return client.getSingle( ENDPOINT_PRODUCT + "/search/product-id?permalink=" + permalink, Long.class );
 	}
 
-	public Long getProductIdFromPermalink( String permalink, boolean onlyAvailable ){
-		return client.getSingle( ENDPOINT_PRODUCT + "/search/product-id?permalink=" + permalink + "&onlyAvailable="
-				+ onlyAvailable, Long.class );
+	public Long getAvailableProductIdFromPermalink( String permalink ){
+		return client.getSingle( ENDPOINT_PRODUCT + "/search/product-id?permalink=" + permalink + "&onlyAvailable=true", Long.class );
 	}
 
 	public Category getCategory( long id ) {
