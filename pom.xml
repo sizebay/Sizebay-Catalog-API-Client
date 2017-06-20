@@ -20,6 +20,28 @@
 		</repository>
 	</distributionManagement>
 
+	<repositories>
+		<repository>
+			<id>sizebay-maven</id>
+			<url>http://sizebay-maven.s3-website-sa-east-1.amazonaws.com/release</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>sizebay-maven-snapshot</id>
+			<url>http://sizebay-maven.s3-website-sa-east-1.amazonaws.com/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
 	<build>
 		<extensions>
 			<extension>
