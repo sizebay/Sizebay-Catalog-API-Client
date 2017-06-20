@@ -95,7 +95,7 @@ public class ExampleTest {
 		modeling.setName( "Tabela de Medida A" );
 		modeling.setBrandId( brandId );
 		modeling.setGender( Gender.M );
-		modeling.setSizeMeasures( asList( measures ) );
+		modeling.setMeasures( asList( measures ) );
 
 		return api.insertModeling( modeling );
 	}

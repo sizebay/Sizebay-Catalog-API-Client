@@ -30,4 +30,6 @@ public class Tenant implements Serializable {
 	String domain;
 
 	boolean automaticallyImportSize;
+
+	int httpLinkBehavior;
 }

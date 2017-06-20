@@ -43,7 +43,7 @@ public class JSONMimeType implements MimeType {
 		try {
 			return mapper.readValue(string, mapper.getTypeFactory().constructCollectionType(List.class, clazz));
 		} catch (IOException e) {
-			throw new IllegalStateException(e);
+			throw new IllegalStateException( "Could not unserialize JSON: \n\n" + string + "\n\n", e);
 		}
 	}
 
