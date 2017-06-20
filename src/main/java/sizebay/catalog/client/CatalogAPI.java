@@ -146,6 +146,10 @@ public class CatalogAPI {
 		return client.getSingle( ENDPOINT_PRODUCT + "/search/product-id?permalink=" + permalink, Long.class );
 	}
 
+	public Long getAvailableProductIdFromPermalink( String permalink ){
+		return client.getSingle( ENDPOINT_PRODUCT + "/search/product-id?permalink=" + permalink + "&onlyAvailable=true", Long.class );
+	}
+
 	public Category getCategory( long id ) {
 		return client.getSingle( ENDPOINT_CATEGORIES + id, Category.class );
 	}
