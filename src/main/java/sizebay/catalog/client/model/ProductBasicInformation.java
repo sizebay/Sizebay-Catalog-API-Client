@@ -17,7 +17,7 @@ public class ProductBasicInformation implements Serializable {
 	String coverImage;
 	String categoryName;
 	String modelingName;
-	boolean bottomOnly;
+	@Deprecated boolean bottomOnly;
 	ClothesType clothesType;
 
 	Product.AgeGroupEnum ageGroup = null;
