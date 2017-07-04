@@ -12,7 +12,7 @@ public class Category   {
   private String name = null;
 
   @Getter
-  private ClothesType clothesType = ClothesType.TOP;
+  private ClothesType clothesType = ClothesType.FULL_BODY;
 
   /**
    * Unique identifier representing a specific category. (Read only)

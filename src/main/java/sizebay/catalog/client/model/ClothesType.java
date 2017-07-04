@@ -1,5 +1,10 @@
 package sizebay.catalog.client.model;
 
 public enum ClothesType {
-	TOP, BOTTOM;
+	FULL_BODY,
+	BOTTOM,
+	TOP,
+	UNDERWEAR_FULL_BODY,
+	UNDERWEAR_BOTTOM,
+	UNDERWEAR_TOP
 }
