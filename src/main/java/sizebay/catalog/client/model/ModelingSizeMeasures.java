@@ -21,5 +21,6 @@ public class ModelingSizeMeasures   {
   ModelingMeasureRange neck = null;
   ModelingMeasureRange thigh = null;
   ModelingMeasureRange centralSeam = null;
+  ModelingMeasureRange underBust = null;
 }
 
