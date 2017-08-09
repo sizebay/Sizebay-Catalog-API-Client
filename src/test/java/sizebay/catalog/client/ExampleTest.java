@@ -87,9 +87,9 @@ public class ExampleTest {
 	private long createModeling( final long brandId ) {
 		final ModelingSizeMeasures measures = new ModelingSizeMeasures();
 		measures.setSizeName( "XXXL" );
-		measures.setHip( range( 50, 60 ) );
-		measures.setWaist( range( 70, 80 ) );
-		measures.setChest( range( 55, 75 ) );
+		measures.setHip( range( 50.0f, 60.0f ) );
+		measures.setWaist( range( 70.0f, 80.0f ) );
+		measures.setChest( range( 55.0f, 75.0f ) );
 
 		final Modeling modeling = new Modeling();
 		modeling.setName( "Tabela de Medida A" );
@@ -100,7 +100,7 @@ public class ExampleTest {
 		return api.insertModeling( modeling );
 	}
 
-	private ModelingMeasureRange range( long initialValue, long finalValue ) {
+	private ModelingMeasureRange range( float initialValue, float finalValue ) {
 		final ModelingMeasureRange range = new ModelingMeasureRange();
 		range.setInitialValue( initialValue );
 		range.setFinalValue( finalValue );
