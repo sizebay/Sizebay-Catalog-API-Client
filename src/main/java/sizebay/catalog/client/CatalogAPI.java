@@ -199,4 +199,8 @@ public class CatalogAPI {
 	public void insertTenant(Tenant tenant) {
 		client.post( "/tenants/", tenant );
 	}
+
+	public String retrieveImportRules(long id) {
+		return client.getSingle( "/tenants/" + id + "/rules", String.class );
+	}
 }
