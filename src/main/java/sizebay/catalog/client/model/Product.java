@@ -27,6 +27,7 @@ public class Product   {
 
   private List<String> images = new ArrayList<>();
   private List<String> availableSizes = new ArrayList<>();
+  private ImportationError importationError;
 
   @RequiredArgsConstructor
   public enum AgeGroupEnum {
