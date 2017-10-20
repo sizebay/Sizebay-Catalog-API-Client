@@ -200,6 +200,10 @@ public class CatalogAPI {
 		client.post( "/tenants/", tenant );
 	}
 
+	public void insertImportationSummary(long tenantId, ImportationSummary importationSummary) {
+		client.post( "/importations/"+tenantId, importationSummary );
+	}
+
 	public String retrieveImportRules(long id) {
 		return client.getSingle( "/tenants/" + id + "/rules", String.class );
 	}
