@@ -209,6 +209,6 @@ public class CatalogAPI {
 	}
 
 	public void deleteImportationSummary() {
-		client.delete( ENDPOINT_PRODUCT+"importation-errors/" );
+		client.delete( ENDPOINT_PRODUCT+"importation-errors/all" );
 	}
 }
