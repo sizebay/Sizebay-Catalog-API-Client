@@ -207,4 +207,8 @@ public class CatalogAPI {
 	public String retrieveImportRules(long id) {
 		return client.getSingle( "/tenants/" + id + "/rules", String.class );
 	}
+
+	public void deleteImportationSummary() {
+		client.delete( ENDPOINT_PRODUCT+"importation-errors/all" );
+	}
 }
