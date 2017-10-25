@@ -20,6 +20,7 @@ public class ProductBasicInformation implements Serializable {
 	@Deprecated boolean bottomOnly;
 	ClothesType clothesType;
 	String sizeType;
+	Boolean status;
 	Product.AgeGroupEnum ageGroup = null;
 	Map<String, ModelingSizeMeasures> measures;
 }
