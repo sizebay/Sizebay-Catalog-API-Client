@@ -214,6 +214,6 @@ public class CatalogAPI {
 	}
 
 	public List<Tenant> searchTenants(TenantFilter filter) {
-		client.getList( ENDPOINT_TENANTS + "search?monitored=" + filter.getMonitored(), Tenant.class);
+		return client.getList( ENDPOINT_TENANTS + "search?monitored=" + filter.getMonitored(), Tenant.class);
 	}
 }
