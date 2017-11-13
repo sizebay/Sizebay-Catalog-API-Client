@@ -19,6 +19,7 @@ public class CatalogAPI {
 		ENDPOINT_MODELING = "/modelings/",
 		ENDPOINT_PRODUCT = "/products/",
 		ENDPOINT_CATEGORIES = "/categories/",
+		ENDPOINT_TENANTS = "/tenants/",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
 
@@ -179,11 +180,11 @@ public class CatalogAPI {
 	}
 
 	public List<Tenant> retrieveAllTenants(){
-		return client.getList( "/tenants/", Tenant.class );
+		return client.getList( ENDPOINT_TENANTS, Tenant.class );
 	}
 
 	public Tenant getTenant( String appToken ){
-		return client.getSingle( "/tenants/" + appToken, Tenant.class );
+		return client.getSingle( ENDPOINT_TENANTS + appToken, Tenant.class );
 	}
 
 	@SuppressWarnings("unchecked")
@@ -197,7 +198,7 @@ public class CatalogAPI {
 	}
 
 	public void insertTenant(Tenant tenant) {
-		client.post( "/tenants/", tenant );
+		client.post( ENDPOINT_TENANTS, tenant );
 	}
 
 	public void insertImportationSummary(long tenantId, ImportationSummary importationSummary) {
@@ -205,10 +206,14 @@ public class CatalogAPI {
 	}
 
 	public String retrieveImportRules(long id) {
-		return client.getSingle( "/tenants/" + id + "/rules", String.class );
+		return client.getSingle( ENDPOINT_TENANTS + id + "/rules", String.class );
 	}
 
 	public void deleteImportationSummary() {
 		client.delete( ENDPOINT_PRODUCT+"importation-errors/all" );
+	}
+
+	public List<Tenant> searchTenants(TenantFilter filter) {
+		return client.getList( ENDPOINT_TENANTS + "search?monitored=" + filter.getMonitored(), Tenant.class);
 	}
 }
