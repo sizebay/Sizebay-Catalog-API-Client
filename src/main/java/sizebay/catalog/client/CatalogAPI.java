@@ -213,7 +213,7 @@ public class CatalogAPI {
 		client.delete( ENDPOINT_PRODUCT+"importation-errors/all" );
 	}
 
-	public void searchTenants(TenantFilter filter) {
+	public List<Tenant> searchTenants(TenantFilter filter) {
 		client.getList( ENDPOINT_TENANTS + "search?monitored=" + filter.getMonitored(), Tenant.class);
 	}
 }
