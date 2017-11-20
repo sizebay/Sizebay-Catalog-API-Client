@@ -216,4 +216,8 @@ public class CatalogAPI {
 	public List<Tenant> searchTenants(TenantFilter filter) {
 		return client.getList( ENDPOINT_TENANTS + "search?monitored=" + filter.getMonitored(), Tenant.class);
 	}
+
+	public void insertImportationError(ImportationError importationError){
+		client.post( "/importations/errors", importationError);
+	}
 }

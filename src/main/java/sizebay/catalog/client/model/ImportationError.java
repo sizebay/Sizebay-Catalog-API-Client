@@ -7,8 +7,10 @@ import lombok.*;
 @EqualsAndHashCode
 @AllArgsConstructor
 public class ImportationError {
-    private String errorType;
+    private String message;
     private String brandName;
     private String genderItWasDesignedFor;
     private String availableSizes;
+    private String categoryName;
+    private String ageGroup;
 }
