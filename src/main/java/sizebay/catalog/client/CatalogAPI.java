@@ -209,7 +209,7 @@ public class CatalogAPI {
 		return client.getSingle( ENDPOINT_TENANTS + id + "/rules", String.class );
 	}
 
-	public void deleteImportationSummary() {
+	public void deleteImportationErrors() {
 		client.delete( ENDPOINT_PRODUCT+"importation-errors/all" );
 	}
 
