@@ -13,4 +13,5 @@ public class ImportationError {
     private String availableSizes;
     private String categoryName;
     private String ageGroup;
+    private String permalink;
 }
