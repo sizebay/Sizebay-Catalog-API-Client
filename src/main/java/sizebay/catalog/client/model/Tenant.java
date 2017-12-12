@@ -36,4 +36,6 @@ public class Tenant implements Serializable {
 	int httpLinkBehavior;
 
 	String importationRules;
+
+	int active;
 }
