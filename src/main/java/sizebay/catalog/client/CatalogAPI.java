@@ -217,6 +217,10 @@ public class CatalogAPI {
 		return client.getList( ENDPOINT_TENANTS + "search?monitored=" + filter.getMonitored(), Tenant.class);
 	}
 
+	public List<Tenant> searchAllTenants() {
+		return client.getList( ENDPOINT_TENANTS + "search/all", Tenant.class);
+	}
+
 	public void insertImportationError(ImportationError importationError){
 		client.post( "/importations/errors", importationError);
 	}
