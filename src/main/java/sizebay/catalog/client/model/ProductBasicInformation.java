@@ -23,4 +23,5 @@ public class ProductBasicInformation implements Serializable {
 	Boolean status;
 	Product.AgeGroupEnum ageGroup = null;
 	Map<String, ModelingSizeMeasures> measures;
+	Boolean accessory;
 }
