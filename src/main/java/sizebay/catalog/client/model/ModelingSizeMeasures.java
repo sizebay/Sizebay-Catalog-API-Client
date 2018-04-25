@@ -22,5 +22,10 @@ public class ModelingSizeMeasures   {
   ModelingMeasureRange thigh = null;
   ModelingMeasureRange centralSeam = null;
   ModelingMeasureRange underBust = null;
+  ModelingMeasureRange shoulderWidth = null;
+  ModelingMeasureRange insoleLength = null;
+  ModelingMeasureRange insoleWidth = null;
+  ModelingMeasureRange waistUpper = null;
+  ModelingMeasureRange waistLower = null;
 }
 
