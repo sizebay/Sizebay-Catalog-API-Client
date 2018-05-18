@@ -27,5 +27,12 @@ public class ModelingSizeMeasures   {
   ModelingMeasureRange insoleWidth = null;
   ModelingMeasureRange waistUpper = null;
   ModelingMeasureRange waistLower = null;
+
+  ModelingMeasureRange label1 = null;
+  ModelingMeasureRange label2 = null;
+  ModelingMeasureRange label3 = null;
+
+  ModelingMeasureRange ageRange = null;
+
 }
 
