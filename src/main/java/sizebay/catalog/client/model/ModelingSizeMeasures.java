@@ -32,7 +32,8 @@ public class ModelingSizeMeasures   {
   ModelingMeasureRange label2 = null;
   ModelingMeasureRange label3 = null;
 
-  ModelingMeasureRange ageRange = null;
+  ModelingMeasureRange ageChart = null;
+  ModelingMeasureRange weightChart = null;
 
 }
 
