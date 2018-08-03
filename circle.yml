@@ -20,8 +20,8 @@ jobs:
           key: circleci-sizebay-{{ checksum "pom.xml" }}
 
       - run: mvn package # run the actual tests
-      - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-      - find . -type f -regex ".*/output/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+      - run: mkdir -p $CIRCLE_TEST_REPORTS/junit/
+      - run: find . -type f -regex ".*/output/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
   test:
     machine: true
