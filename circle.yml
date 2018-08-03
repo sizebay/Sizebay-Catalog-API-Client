@@ -1,12 +1,14 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/project
     docker:
       - image: circleci/openjdk:8-jdk-browsers
 
     steps: # a collection of executable commands
 
       - checkout # check out source code to working directory
+      - run : git clone git@github.com:sizebay/Severino.git utils
 
       - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
           key: circleci-sizebay-{{ checksum "pom.xml" }}
