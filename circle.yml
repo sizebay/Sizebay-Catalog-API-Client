@@ -2,8 +2,7 @@ version: 2
 jobs:
   build:
     working_directory: ~/project
-    docker:
-      - image: circleci/openjdk:8-jdk-browsers
+    machine: true
 
     steps: # a collection of executable commands
 
@@ -25,8 +24,7 @@ jobs:
       - find . -type f -regex ".*/output/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
   test:
-    docker:
-      - image: circleci/openjdk:8-jdk-browsers
+    machine: true
     steps:
       - checkout
       - run: mvn -s utils/sizebay-circleci/circle.maven-settings.xml clean test
