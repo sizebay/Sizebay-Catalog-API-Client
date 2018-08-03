@@ -12,12 +12,23 @@ jobs:
       - run: sudo mkdir -p $CIRCLE_TEST_REPORTS/junit/
       - run: find . -type f -regex ".*/output/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
+  deploy:
+    working_directory: ~/project
+    machine: true
+    steps:
+      - run:
+           name: deploying..
+           command: mvn -s utils/sizebay-circleci/circle.maven-settings.xml -Dconfig.skip.tests=true clean deploy
+
 
 workflows:
   version: 2
-  build_and_test:
+  build-deploy:
     jobs:
       - build
-      - test:
-            requires:
-              - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
