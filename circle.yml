@@ -3,32 +3,35 @@ jobs:
   build:
     working_directory: ~/project
     machine: true
+
     steps:
       - checkout
+
+      - restore_cache:
+          key: circleci-java-sizebay-{{ checksum "pom.xml" }}
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: circleci-java-sizebay-{{ checksum "pom.xml" }}
+
       - run: git clone git@github.com:sizebay/Severino.git utils
+      - run: mvn -s utils/sizebay-circleci/circle.maven-settings.xml -Dconfig.skip.tests=true clean package
       - run: mvn -s utils/sizebay-circleci/circle.maven-settings.xml clean test
       - run: sudo mkdir -p $CIRCLE_TEST_REPORTS/junit/
       - run: sudo find . -type f -regex ".*/output/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-      - store_artifacts: # store the uberjar as an artifact
-          path: target/Sizebay-Catalog-API-Client.jar
-
-  deploy:
-    working_directory: ~/project
-    machine: true
-    steps:
       - run:
-           name: deploying..
-           command: mvn -s utils/sizebay-circleci/circle.maven-settings.xml -Dconfig.skip.tests=true clean deploy
-
+           name: Check Deploy
+           command: |
+             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                   echo "deploying app in aws"
+                   mvn -s utils/sizebay-circleci/circle.maven-settings.xml -Dconfig.skip.tests=true clean deploy
+             fi
 
 workflows:
   version: 2
   build-deploy:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
