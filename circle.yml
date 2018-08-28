@@ -32,6 +32,7 @@ jobs:
         - run:
             name: Deploy app in aws usaing maven
             command:  mvn -s utils/sizebay-circleci/circle.maven-settings.xml -Dconfig.skip.tests=true clean deploy
+
 workflows:
   version: 2
   build-deploy:
