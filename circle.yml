@@ -17,6 +17,8 @@ jobs:
             - ~/.m2
           key: circleci-java-sizebay-{{ checksum "pom.xml" }}
 
+      - run: ls ~/.m2
+
       - run: git clone git@github.com:sizebay/Severino.git utils
       - run: mvn -s utils/sizebay-circleci/circle.maven-settings.xml -Dconfig.skip.tests=true clean package
       - run: mvn -s utils/sizebay-circleci/circle.maven-settings.xml clean test
