@@ -22,7 +22,6 @@ jobs:
       - run: mvn -s utils/sizebay-circleci/circle.maven-settings.xml clean test
       - run: sudo mkdir -p $CIRCLE_TEST_REPORTS/junit/
       - run: sudo find . -type f -regex ".*/output/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-      - run: ls ~/.m2/repository
 
   deploy-prod:
       machine: true
