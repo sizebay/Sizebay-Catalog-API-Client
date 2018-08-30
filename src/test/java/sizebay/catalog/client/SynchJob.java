@@ -9,10 +9,7 @@ import org.junit.*;
 import sizebay.catalog.client.model.*;
 import sizebay.emmett.tasks.Threads;
 
-/**
- *
- */
-@Ignore
+/*@Ignore
 public class SynchJob {
 
 	final Threads threads = Threads.fixedPool(10);
@@ -137,9 +134,9 @@ public class SynchJob {
 
 	void forEachTenant(BiConsumer<CatalogAPI,CatalogAPI> consumer){
 		final List<Tenant> tenants = dynamoAdmin.retrieveAllTenants();
-		/*final List<Tenant> tenants = Collections.singletonList(new Tenant().setName("Aramis")
+		final List<Tenant> tenants = Collections.singletonList(new Tenant().setName("Aramis")
 				.setAppToken("a572da5e8b5a3d8de044e5c55dc7a022364dffff")
-				.setSecretToken("8cd5a5a1fc2465694196535fb1bbada0ecdec95d"));*/
+				.setSecretToken("8cd5a5a1fc2465694196535fb1bbada0ecdec95d"));
 
 		for( Tenant tenant : tenants ) {
 			log.info( "Synchronizing " + tenant.getName() );
@@ -176,4 +173,4 @@ class SyncLog {
 	void error( Throwable c ) {
 		c.printStackTrace( writer );
 	}
-}
+}*/

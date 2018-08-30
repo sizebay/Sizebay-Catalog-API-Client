@@ -123,12 +123,12 @@
 			<version>${version.lombok}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.sizebay.emmett</groupId>
 			<artifactId>emmett-tasks</artifactId>
 			<version>0.3.2</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>io.skullabs.kikaha</groupId>
 			<artifactId>kikaha-injection-processor</artifactId>
