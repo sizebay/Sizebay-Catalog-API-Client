@@ -135,7 +135,6 @@
 			<version>2.0.3</version>
 		</dependency>
 	</dependencies>
-
 	<properties>
 		<swagger-annotations-version>1.5.4</swagger-annotations-version>
 		<jersey-version>1.18</jersey-version>
