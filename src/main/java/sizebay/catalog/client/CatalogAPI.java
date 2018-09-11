@@ -56,7 +56,7 @@ public class CatalogAPI {
 	}
 
 	public Brand getBrand( long id ) {
-		return client.getSingle( ENDPOINT_BRAND + id, Brand.class );
+		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );
 	}
 
 	public List<Brand> searchForBrands(String text ){
@@ -68,15 +68,15 @@ public class CatalogAPI {
 	}
 
 	public long insertBrand( Brand brand ) {
-		return client.post( ENDPOINT_BRAND, brand );
+		return client.post( ENDPOINT_BRAND + "single", brand );
 	}
 
 	public void updateBrand( long id, Brand brand ) {
-		client.put( ENDPOINT_BRAND + id, brand );
+		client.put( ENDPOINT_BRAND + "single/" +id, brand );
 	}
 
 	public void deleteBrand( long id ) {
-		client.delete( ENDPOINT_BRAND + id );
+		client.delete( ENDPOINT_BRAND + "single/" + id );
 	}
 
 	public void deleteBrands() {
@@ -84,7 +84,7 @@ public class CatalogAPI {
 	}
 
 	public Modeling getModeling( long id ) {
-		return client.getSingle( ENDPOINT_MODELING + id, Modeling.class );
+		return client.getSingle( ENDPOINT_MODELING + "single/" +id, Modeling.class );
 	}
 
 	public List<Modeling> searchForModelings( long brandId, String gender ) {
@@ -100,15 +100,15 @@ public class CatalogAPI {
 	}
 
 	public long insertModeling( Modeling brand ) {
-		return client.post( ENDPOINT_MODELING, brand );
+		return client.post( ENDPOINT_MODELING + "single", brand );
 	}
 
 	public void updateModeling( long id, Modeling brand ) {
-		client.put( ENDPOINT_MODELING + id, brand );
+		client.put( ENDPOINT_MODELING + "single/" +id, brand );
 	}
 
 	public void deleteModeling( long id ) {
-		client.delete( ENDPOINT_MODELING + id );
+		client.delete( ENDPOINT_MODELING + "single/" +id );
 	}
 
 	public void deleteModelings() {
@@ -116,7 +116,7 @@ public class CatalogAPI {
 	}
 
 	public Product getProduct( long id ) {
-		return client.getSingle( ENDPOINT_PRODUCT + id, Product.class );
+		return client.getSingle( ENDPOINT_PRODUCT + "single/" + id, Product.class );
 	}
 
 	public List<Product> getProducts( int page ) {
@@ -124,15 +124,15 @@ public class CatalogAPI {
 	}
 
 	public long insertProduct( Product brand ) {
-		return client.post( ENDPOINT_PRODUCT, brand );
+		return client.post( ENDPOINT_PRODUCT + "single", brand );
 	}
 
 	public void updateProduct( long id, Product brand ) {
-		client.put( ENDPOINT_PRODUCT + id, brand );
+		client.put( ENDPOINT_PRODUCT + "single/" + id, brand );
 	}
 
 	public void deleteProduct( long id ) {
-		client.delete( ENDPOINT_PRODUCT + id );
+		client.delete( ENDPOINT_PRODUCT + "single/" + id );
 	}
 
 	public void deleteProducts() {
@@ -152,7 +152,7 @@ public class CatalogAPI {
 	}
 
 	public Category getCategory( long id ) {
-		return client.getSingle( ENDPOINT_CATEGORIES + id, Category.class );
+		return client.getSingle( ENDPOINT_CATEGORIES + "single/" + id, Category.class );
 	}
 
 	public List<Category> getCategories() {
@@ -160,15 +160,15 @@ public class CatalogAPI {
 	}
 
 	public long insertCategory( Category brand ) {
-		return client.post( ENDPOINT_CATEGORIES, brand );
+		return client.post( ENDPOINT_CATEGORIES + "single", brand );
 	}
 
 	public void updateCategory( long id, Category brand ) {
-		client.put( ENDPOINT_CATEGORIES + id, brand );
+		client.put( ENDPOINT_CATEGORIES + "single/" +id, brand );
 	}
 
 	public void deleteCategory( long id ) {
-		client.delete( ENDPOINT_CATEGORIES + id );
+		client.delete( ENDPOINT_CATEGORIES + "single/" + id );
 	}
 
 	public void deleteCategories() {
@@ -184,7 +184,7 @@ public class CatalogAPI {
 	}
 
 	public Tenant getTenant( String appToken ){
-		return client.getSingle( ENDPOINT_TENANTS + appToken, Tenant.class );
+		return client.getSingle( ENDPOINT_TENANTS+ "single/" + appToken, Tenant.class );
 	}
 
 	@SuppressWarnings("unchecked")
