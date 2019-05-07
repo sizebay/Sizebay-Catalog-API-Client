@@ -15,6 +15,8 @@ public class ProductBasicInformation implements Serializable {
 	@NonNull String permalink;
 	String genderTheWearWasDesignedFor;
 	String coverImage;
+	String szbSeparator = null;
+	String szbCategory = null;
 	String categoryName;
 	String modelingName;
 	@Deprecated boolean bottomOnly;
