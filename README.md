@@ -11,7 +11,7 @@ mvn install
 
 To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
 ```shell
-mvn deploy
+bash deploy.sh
 ```
 
 Refer to the [official documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
