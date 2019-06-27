@@ -20,6 +20,7 @@ public class CatalogAPI {
 		ENDPOINT_PRODUCT = "/products/",
 		ENDPOINT_CATEGORIES = "/categories/",
 		ENDPOINT_TENANTS = "/tenants/",
+		ENDPOINT_USER = "/user/",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
 
@@ -54,6 +55,26 @@ public class CatalogAPI {
 		final MimeType mimeType = new JSONMimeType();
 		client = new RESTClient( basePath, mimeType, authentication );
 	}
+
+	/* User profile management */
+
+	public void insertUser (UserProfile userProfile) {
+		client.post(ENDPOINT_USER, userProfile);
+	}
+
+	public UserProfile retrieveUser (String userId) {
+		return client.getSingle(ENDPOINT_USER + "single/" + userId, UserProfile.class);
+	}
+
+	public UserProfileIdentification retriveProfile (long profileId) {
+		return client.getSingle(ENDPOINT_USER + "profile/" + profileId, UserProfileIdentification.class);
+	}
+
+	public long insertProfile (UserProfileIdentification profile) {
+		return client.post(ENDPOINT_USER + "profile", profile);
+	}
+
+	/* End user profile management */
 
 	public Brand getBrand( long id ) {
 		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );
