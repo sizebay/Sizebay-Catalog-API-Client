@@ -22,14 +22,12 @@ public class UserProfile implements Serializable {
 
     List<UserProfileIdentification> profiles;
 
-    public static UserProfile empty() {
+    public static UserProfile empty(String id) {
 
-        UserProfile user = new UserProfile();
         List<UserProfileIdentification> profile = new ArrayList<>();
-
         profile.add(UserProfileIdentification.empty());
 
-        user.setProfiles(profile);
+        UserProfile user = new UserProfile().setId(id).setProfiles(profile);
 
         return user;
 
