@@ -66,7 +66,7 @@ public class CatalogAPI {
 		return client.getSingle(ENDPOINT_USER + "single/" + userId, UserProfile.class);
 	}
 
-	public UserProfileIdentification retriveProfile (long profileId) {
+	public UserProfileIdentification retrieveProfile (long profileId) {
 		return client.getSingle(ENDPOINT_USER + "profile/" + profileId, UserProfileIdentification.class);
 	}
 
