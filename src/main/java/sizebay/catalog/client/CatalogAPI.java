@@ -73,6 +73,8 @@ public class CatalogAPI {
 	public long insertProfile (UserProfileIdentification profile) {
 		return client.post(ENDPOINT_USER + "profile", profile);
 	}
+	
+	public void deleteProfile (long profileId) { client.delete(ENDPOINT_USER + "profile/" + profileId); }
 
 	/* End user profile management */
 
