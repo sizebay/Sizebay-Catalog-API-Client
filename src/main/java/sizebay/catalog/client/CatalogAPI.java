@@ -13,7 +13,7 @@ import sizebay.catalog.client.model.*;
 public class CatalogAPI {
 
 	final static String
-		DEFAULT_BASE_URL = "http://catalog.sizebay.com/api/v1/",
+		DEFAULT_BASE_URL = "https://catalogue.fitpeek.co/api/v1/",
 
 		ENDPOINT_BRAND = "/brands/",
 		ENDPOINT_MODELING = "/modelings/",
