@@ -12,9 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfileProduct implements Serializable {
-
-      long id ;
-      long profileIdentificationId;
+	
       String brand;
       String category;
       String model;
