@@ -12,9 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfileMeasures implements Serializable {
-
-    long id;
-    long profileIdentificationId;
+	
     int chest;
     int waist;
     int hip;
