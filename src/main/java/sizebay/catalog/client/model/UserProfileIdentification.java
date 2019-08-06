@@ -6,14 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
+import static java.time.LocalDateTime.now;
 
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfileIdentification implements Serializable {
+
+     private static final BigDecimal DAYS_OF_YEAR = new BigDecimal(365.2425D);
 
      long id;
      String userId;
@@ -49,6 +54,13 @@ public class UserProfileIdentification implements Serializable {
           profile.setProduct(product);
 
           return profile;
+     }
+
+     public Date getBirth(int age) {
+          final int days = new BigDecimal(age).multiply(DAYS_OF_YEAR).intValue();
+          final ZonedDateTime then = now().minusDays(days).atZone(ZoneId.systemDefault());
+
+          return ( Date.from(then.toInstant()));
      }
 
 }
