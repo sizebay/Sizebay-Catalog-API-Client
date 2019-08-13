@@ -70,7 +70,7 @@ public class CatalogAPI {
 		return client.getSingle(ENDPOINT_USER + "profile/" + profileId, Profile.class);
 	}
 
-	public long insertProfile (Profile profile) {
+	public void insertProfile (Profile profile) {
 		client.post(ENDPOINT_USER + "profile", profile);
 	}
 	
