@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+import static java.util.Objects.isNull;
 
 @Data
 @Accessors(chain = true)
@@ -15,24 +17,86 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfile implements Serializable {
 
-    String id;
-    String email;
-    String facebook;
-    String password;
+  private static final int ACTIVE = 1, INACTIVE = 0;
 
-    List<UserProfileIdentification> profiles;
+  String id;
+  String email;
+  String facebook;
+  String password;
 
-    public static UserProfile empty(String id, String password) {
+  List<Profile> profiles = new ArrayList<>();
 
-        List<UserProfileIdentification> profile = new ArrayList<>();
-        profile.add(UserProfileIdentification.empty());
+  public void insertAndUpdateProfilesList(Profile newProfile) {
+    final long profileId = newProfile.getId();
+    final boolean removeProfile = profileId != 0;
 
-        UserProfile user = new UserProfile().setId(id)
-                                            .setPassword(password)
-                                            .setProfiles(profile);
+    if(removeProfile) this.getProfiles().removeIf(p -> p.getId() == profileId);
 
-        return user;
+    newProfile.generateIdentifier();
+
+    this.getProfiles().add(newProfile);
+    this.activeProfile(newProfile.getId());
+  }
+
+  public void activeProfile(long profileId) {
+    final List<Profile> profiles = this.getProfiles();
+
+    profiles.stream().forEach(p -> {
+      if(p.getId() == profileId) {
+        p.setIsActive(ACTIVE);
+        p.setLastActiveTime(System.currentTimeMillis());
+      } else {
+        p.setIsActive(INACTIVE);
+      }
+    });
+  }
+
+  public Profile retrieveActiveProfile() {
+    final List<Profile> userProfiles = this.getProfiles();
+
+    if(isNull(userProfiles)) return null;
+
+    return userProfiles.stream().filter(p -> p.getIsActive() == ACTIVE).findAny().orElse(null);
+  }
+
+  public Profile retrieveActiveProfileByGender(String gender) {
+    final List<Profile> userProfiles = this.getProfiles();
+
+    if(isNull(userProfiles)) return null;
+
+    Profile profile = retrieveActiveProfile();
+
+    if(profile.getGender().equals(gender)) {
+      return profile;
+    } else {
+      return userProfiles.stream().filter(p -> p.getGender().equals(gender))
+                                  .sorted(new SortProfileByLastActiveTime())
+                                  .collect(Collectors.toList()).get(0);
+    }
+
+  }
+
+  public Long retrieveActiveProfileId() {
+    final Profile userProfile = this.retrieveActiveProfile();
+
+    return isNull(userProfile) ? null : userProfile.getId();
+  }
+
+  public static UserProfile empty(String id, String password) {
+
+    return new UserProfile().setId(id).setPassword(password);
+  }
+
+  class SortProfileByLastActiveTime implements Comparator<Profile> {
+    public int compare(Profile profileOne, Profile profileTwo) {
+
+      if(profileOne.getLastActiveTime() > profileTwo.getLastActiveTime()) {
+        return -1;
+      } else {
+        return 0;
+      }
 
     }
+  }
 
 }
