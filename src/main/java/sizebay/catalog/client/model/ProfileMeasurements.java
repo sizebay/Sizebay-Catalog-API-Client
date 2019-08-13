@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserProfileMeasures implements Serializable {
+public class ProfileMeasurements implements Serializable {
 	
     int chest;
     int waist;
