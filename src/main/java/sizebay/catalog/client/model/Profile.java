@@ -17,7 +17,7 @@ import static java.time.LocalDateTime.now;
 @NoArgsConstructor
 @Accessors(chain = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserProfileIdentification implements Serializable {
+public class Profile implements Serializable {
 
      private static final BigDecimal DAYS_OF_YEAR = new BigDecimal(365.2425D);
 
@@ -36,8 +36,8 @@ public class UserProfileIdentification implements Serializable {
      int isActive;
      long lastActiveTime;
 
-     UserProfileMeasures measures;
-     UserProfileProduct product;
+     ProfileMeasurements measures;
+     ProfileProduct product;
 
      public Date getBirth(int age) {
           final int days = new BigDecimal(age).multiply(DAYS_OF_YEAR).intValue();
