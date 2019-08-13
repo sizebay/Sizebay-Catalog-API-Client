@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserProfileProduct implements Serializable {
+public class ProfileProduct implements Serializable {
 	
       String brand;
       String category;
