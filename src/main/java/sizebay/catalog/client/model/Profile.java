@@ -10,11 +10,12 @@ import java.math.BigDecimal;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.UUID;
 import static java.time.LocalDateTime.now;
 
 @Data
-@Accessors(chain = true)
 @NoArgsConstructor
+@Accessors(chain = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserProfileIdentification implements Serializable {
 
@@ -32,35 +33,25 @@ public class UserProfileIdentification implements Serializable {
      int bodyShapeHip;
      int footShape;
 
+     int isActive;
+     long lastActiveTime;
+
      UserProfileMeasures measures;
      UserProfileProduct product;
-
-     public static UserProfileIdentification empty() {
-
-          UserProfileIdentification profile = new UserProfileIdentification();
-          UserProfileMeasures measures = UserProfileMeasures.empty();
-          UserProfileProduct product = UserProfileProduct.empty();
-
-          profile.setName("Você");
-          profile.setAge(0);
-          profile.setWeight(0);
-          profile.setHeight(0);
-          profile.setBodyShapeChest(-99);
-          profile.setBodyShapeWaist(-99);
-          profile.setBodyShapeHip(-99);
-          profile.setFootShape(-99);
-
-          profile.setMeasures(measures);
-          profile.setProduct(product);
-
-          return profile;
-     }
 
      public Date getBirth(int age) {
           final int days = new BigDecimal(age).multiply(DAYS_OF_YEAR).intValue();
           final ZonedDateTime then = now().minusDays(days).atZone(ZoneId.systemDefault());
 
           return ( Date.from(then.toInstant()));
+     }
+
+     public void generateIdentifier() {
+          long val;
+          do {
+               val = UUID.randomUUID().getMostSignificantBits();
+          } while (val < 0);
+          this.setId(val);
      }
 
 }

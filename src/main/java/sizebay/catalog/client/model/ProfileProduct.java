@@ -21,20 +21,4 @@ public class UserProfileProduct implements Serializable {
       String size;
       String sizeStr;
 
-      public static UserProfileProduct empty() {
-
-          UserProfileProduct product = new UserProfileProduct();
-
-          product.setBrand("");
-          product.setCategory("");
-          product.setModel("");
-          product.setGender("");
-          product.setAgeGroup(0);
-          product.setSize("");
-          product.setSizeStr("");
-
-          return product;
-
-      }
-
 }
