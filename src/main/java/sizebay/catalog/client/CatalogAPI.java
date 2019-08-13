@@ -66,12 +66,12 @@ public class CatalogAPI {
 		return client.getSingle(ENDPOINT_USER + "single/" + userId, UserProfile.class);
 	}
 
-	public UserProfileIdentification retrieveProfile (long profileId) {
-		return client.getSingle(ENDPOINT_USER + "profile/" + profileId, UserProfileIdentification.class);
+	public Profile retrieveProfile (long profileId) {
+		return client.getSingle(ENDPOINT_USER + "profile/" + profileId, Profile.class);
 	}
 
-	public long insertProfile (UserProfileIdentification profile) {
-		return client.post(ENDPOINT_USER + "profile", profile);
+	public long insertProfile (Profile profile) {
+		client.post(ENDPOINT_USER + "profile", profile);
 	}
 	
 	public void deleteProfile (long profileId) { client.delete(ENDPOINT_USER + "profile/" + profileId); }
