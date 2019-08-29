@@ -1,5 +1,6 @@
 package sizebay.catalog.client.model;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,9 @@ public class UserProfileIdentification implements Serializable {
      int bodyShapeWaist;
      int bodyShapeHip;
      int footShape;
+
+     @JsonGetter
+     public String getIdView() {return Long.toString(this.id);}
 
      UserProfileMeasures measures;
      UserProfileProduct product;
