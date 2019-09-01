@@ -1,6 +1,6 @@
 package sizebay.catalog.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -38,6 +38,9 @@ public class Profile implements Serializable {
 
      ProfileMeasurements measures;
      ProfileProduct product;
+
+    @JsonGetter
+    public String getIdView() {return Long.toString(this.id);}
 
      public Date getBirth(int age) {
           final int days = new BigDecimal(age).multiply(DAYS_OF_YEAR).intValue();

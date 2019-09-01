@@ -225,7 +225,7 @@ public class CatalogAPI {
 	}
 
 	public void insertImportationSummary(long tenantId, ImportationSummary importationSummary) {
-		client.post( "/importations/"+tenantId, importationSummary );
+		client.post( "/importations/tenantId/"+tenantId, importationSummary );
 	}
 
 	public String retrieveImportRules(long id) {
