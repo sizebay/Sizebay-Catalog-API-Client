@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class ProfileProduct implements Serializable {
 	
       String brand;
+      String brandName;
       String category;
       String model;
       String gender;
