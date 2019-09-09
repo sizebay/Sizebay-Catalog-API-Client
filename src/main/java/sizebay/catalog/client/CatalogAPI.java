@@ -62,6 +62,10 @@ public class CatalogAPI {
 		client.post(ENDPOINT_USER, userProfile);
 	}
 
+	public void updateProfileName(ProfileUpdateName profileUpdateName){
+		client.post( ENDPOINT_USER+ "profile/name", profileUpdateName);
+	}
+
 	public UserProfile retrieveUser (String userId) {
 		return client.getSingle(ENDPOINT_USER + "single/" + userId, UserProfile.class);
 	}
