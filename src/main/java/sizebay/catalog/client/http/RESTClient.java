@@ -56,6 +56,12 @@ public class RESTClient {
 		sendToEndpoint( METHOD_PUT, serverEndpoint, jsonBodyData );
 	}
 
+	public <T> T put( String serverEndpoint, Object request, Class<T> expectedResponseClass ) {
+		final String jsonBodyData = mime.serialize( request );
+		final Response response = sendToEndpoint( METHOD_PUT, serverEndpoint, jsonBodyData );
+		return serialize( response.body, expectedResponseClass );
+	}
+
 	private Response sendToEndpoint( String httpMethod, String serverEndpoint, final String body ) {
 		try {
 			final URL url = buildURL( serverEndpoint );
