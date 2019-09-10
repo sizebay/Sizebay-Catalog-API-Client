@@ -13,14 +13,14 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProfileMeasurements implements Serializable {
 	
-    int chest;
-    int waist;
-    int hip;
-    int sleeve;
-    int length;
-    int insideLeg;
-    int neck;
-    int fist;
-    int underBust;
+    double chest;
+    double waist;
+    double hip;
+    double sleeve;
+    double length;
+    double insideLeg;
+    double neck;
+    double fist;
+    double underBust;
 
 }
