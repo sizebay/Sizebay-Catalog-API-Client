@@ -27,7 +27,7 @@ public class Profile implements Serializable {
      String gender;
      int age;
      int weight;
-     int height;
+     double height;
      int bodyShapeChest;
      int bodyShapeWaist;
      int bodyShapeHip;
