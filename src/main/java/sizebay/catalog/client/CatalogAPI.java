@@ -87,7 +87,7 @@ public class CatalogAPI {
 	}
 
 	public List<Brand> getAllBrand(){
-		return client.getList( "/sizebay/"+ENDPOINT_BRAND + "all", Brand.class );
+		return client.getList( ENDPOINT_BRAND + "strong", Brand.class );
 	}
 
 	public List<Brand> searchForBrands(String text ){
