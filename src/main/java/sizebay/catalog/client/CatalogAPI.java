@@ -56,7 +56,9 @@ public class CatalogAPI {
 		client = new RESTClient( basePath, mimeType, authentication );
 	}
 
-	/* User profile management */
+	/**
+	 * Starting user profile management
+	 */
 
 	public void insertUser (UserProfile userProfile) {
 		client.post(ENDPOINT_USER, userProfile);
@@ -80,7 +82,10 @@ public class CatalogAPI {
 	
 	public void deleteProfile (long profileId) { client.delete(ENDPOINT_USER + "profile/" + profileId); }
 
-	/* End user profile management */
+	/**
+	 * End user profile management
+	 */
+
 
 	public Brand getBrand( long id ) {
 		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );
