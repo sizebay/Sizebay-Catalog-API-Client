@@ -39,5 +39,5 @@ public class ProductBasicInformation implements Serializable {
 	String strongSubcategoryName;
 	int strongModelId;
 	String strongModelName;
-	double weightSize;
+	double weightStyle;
 }
