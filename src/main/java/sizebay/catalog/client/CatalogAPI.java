@@ -21,6 +21,7 @@ public class CatalogAPI {
 		ENDPOINT_CATEGORIES = "/categories/",
 		ENDPOINT_TENANTS = "/tenants/",
 		ENDPOINT_USER = "/user/",
+		ENDPOINT_SIZE_STYLE = "/style/",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
 
@@ -56,7 +57,9 @@ public class CatalogAPI {
 		client = new RESTClient( basePath, mimeType, authentication );
 	}
 
-	/* User profile management */
+	/**
+	 * Starting user profile management
+	 */
 
 	public void insertUser (UserProfile userProfile) {
 		client.post(ENDPOINT_USER, userProfile);
@@ -80,7 +83,22 @@ public class CatalogAPI {
 	
 	public void deleteProfile (long profileId) { client.delete(ENDPOINT_USER + "profile/" + profileId); }
 
-	/* End user profile management */
+	/*
+	 * End user profile management
+	 */
+
+	/*
+	 * Starting size style management
+	 */
+
+	public List<SizeStyle> getSizeStyle(long brandId, int typeId, char gender, int ageGroup) {
+		return client.getList(ENDPOINT_SIZE_STYLE + brandId + "/" + typeId + "/" + gender + "/" + ageGroup, SizeStyle.class);
+	}
+
+	/*
+	 * End size style management
+	 */
+
 
 	public Brand getBrand( long id ) {
 		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );

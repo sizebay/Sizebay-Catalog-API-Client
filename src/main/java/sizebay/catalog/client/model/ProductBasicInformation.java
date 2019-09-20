@@ -16,10 +16,10 @@ public class ProductBasicInformation implements Serializable {
 	String genderTheWearWasDesignedFor;
 	String coverImage;
 	int isShoe;
-	int szbMainCategoryId;
-	int szbSubCategoryId;
-	String szbMainCategoryName = null;
-	String szbSubCategoryName = null;
+	@Deprecated int szbMainCategoryId; // FIXME Remove this field after legacy virtual dead
+	@Deprecated int szbSubCategoryId; // FIXME Remove this field after legacy virtual dead
+	@Deprecated String szbMainCategoryName = null; // FIXME Remove this field after legacy virtual dead
+	@Deprecated String szbSubCategoryName = null; // FIXME Remove this field after legacy virtual dead
 	String categoryName;
 	String modelingName;
 	@Deprecated boolean bottomOnly;
@@ -29,4 +29,15 @@ public class ProductBasicInformation implements Serializable {
 	Product.AgeGroupEnum ageGroup = null;
 	Map<String, ModelingSizeMeasures> measures;
 	Boolean accessory;
+	int strongBrandId;
+	String strongBrandName;
+	int strongCategoryTypeId;
+	String strongCategoryTypeName;
+	int strongCategoryId;
+	String strongCategoryName;
+	int strongSubcategoryId;
+	String strongSubcategoryName;
+	int strongModelId;
+	String strongModelName;
+	double weightStyle;
 }
