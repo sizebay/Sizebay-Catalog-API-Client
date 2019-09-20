@@ -91,7 +91,7 @@ public class CatalogAPI {
 	 * Starting size style management
 	 */
 
-	public List<SizeStyle> getSizeStyle(int brandId, int typeId, char gender, int ageGroup) {
+	public List<SizeStyle> getSizeStyle(long brandId, int typeId, char gender, int ageGroup) {
 		return client.getList(ENDPOINT_SIZE_STYLE + brandId + "/" + typeId + "/" + gender + "/" + ageGroup, SizeStyle.class);
 	}
 
