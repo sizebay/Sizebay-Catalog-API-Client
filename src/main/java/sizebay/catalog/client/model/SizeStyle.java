@@ -24,7 +24,7 @@ public class SizeStyle implements Serializable {
 	String subcategoryName;
 	int modelId;
 	String modelName;
-	double weighStyle;
+	double weightStyle;
 	String slugName;
 }
 
