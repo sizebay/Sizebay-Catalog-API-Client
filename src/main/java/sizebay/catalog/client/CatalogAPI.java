@@ -104,6 +104,10 @@ public class CatalogAPI {
 		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );
 	}
 
+	public List<Brand> getAllBrand(){
+		return client.getList( ENDPOINT_BRAND + "strong", Brand.class );
+	}
+
 	public List<Brand> searchForBrands(String text ){
 		return client.getList( ENDPOINT_BRAND + SEARCH_BY_TEXT + text, Brand.class );
 	}
