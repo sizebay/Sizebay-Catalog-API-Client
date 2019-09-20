@@ -15,6 +15,11 @@ public class Brand   {
   
   private Long id = null;
   private String name = null;
+  private String logo = null;
+
+  private String gender = null;
+  private Integer shoes = null;
+  private Integer status = null;
 
   
   /**
@@ -42,6 +47,42 @@ public class Brand   {
   }
   public void setName(String name) {
     this.name = name;
+  }
+
+  @ApiModelProperty(value = "Gender.")
+  @JsonProperty("gender")
+  public String getGender() {
+    return gender;
+  }
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  @ApiModelProperty(value = "Shoes")
+  @JsonProperty("shoes")
+  public Integer getShoes() {
+    return shoes;
+  }
+  public void setShoes(Integer shoes) {
+    this.shoes = shoes;
+  }
+
+  @ApiModelProperty(value = "Status")
+  @JsonProperty("status")
+  public Integer getStatus() {
+    return status;
+  }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  @ApiModelProperty(value = "Logo")
+  @JsonProperty("logo")
+  public String getLogo() {
+    return logo;
+  }
+  public void setLogo(String logo) {
+    this.logo = logo;
   }
 
   
