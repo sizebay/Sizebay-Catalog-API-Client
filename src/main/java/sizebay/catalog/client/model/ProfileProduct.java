@@ -12,13 +12,14 @@ import java.io.Serializable;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProfileProduct implements Serializable {
-	
-      String brand;
+
+      Long brand;
       String brandName;
       String category;
       String model;
       String gender;
       int ageGroup;
+      int typeId;
       String size;
       String sizeStr;
 
