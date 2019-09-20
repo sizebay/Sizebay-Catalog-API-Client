@@ -21,6 +21,7 @@ public class CatalogAPI {
 		ENDPOINT_CATEGORIES = "/categories/",
 		ENDPOINT_TENANTS = "/tenants/",
 		ENDPOINT_USER = "/user/",
+		ENDPOINT_SIZE_STYLE = "/style/",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
 
@@ -82,8 +83,20 @@ public class CatalogAPI {
 	
 	public void deleteProfile (long profileId) { client.delete(ENDPOINT_USER + "profile/" + profileId); }
 
-	/**
+	/*
 	 * End user profile management
+	 */
+
+	/*
+	 * Starting size style management
+	 */
+
+	public List<SizeStyle> getSizeStyle(int brandId, int typeId, char gender, int ageGroup) {
+		return client.getList(ENDPOINT_SIZE_STYLE + brandId + "/" + typeId + "/" + gender + "/" + ageGroup, SizeStyle.class);
+	}
+
+	/*
+	 * End size style management
 	 */
 
 
