@@ -24,6 +24,8 @@ public class Modeling   {
   private Integer strongCategoryTypeId;
   private String strongCategoryTypeName;
 
+  private int isShoe;
+
   @Getter
   @RequiredArgsConstructor
   public enum TypeEnum {
