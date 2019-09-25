@@ -25,6 +25,18 @@ public class Product   {
   private Wearability wearability;
   private AgeGroupEnum ageGroup;
 
+	private int strongBrandId;
+	private String strongBrandName;
+	private int strongCategoryTypeId;
+	private String strongCategoryTypeName;
+	private int strongCategoryId;
+	private String strongCategoryName;
+	private int strongSubcategoryId;
+	private String strongSubcategoryName;
+	private int strongModelId;
+	private String strongModelName;
+	private int isShoe;
+
   private List<String> images = new ArrayList<>();
   private List<String> availableSizes = new ArrayList<>();
   private ImportationError importationError;
