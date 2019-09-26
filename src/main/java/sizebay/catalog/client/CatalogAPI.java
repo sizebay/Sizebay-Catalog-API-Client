@@ -95,6 +95,14 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_SIZE_STYLE + brandId + "/" + typeId + "/" + gender + "/" + ageGroup, SizeStyle.class);
 	}
 
+	public List<SizeStyle> getSizeStyle(long brandId, int typeId, char gender, int ageGroup, int categoryId) {
+		return client.getList(ENDPOINT_SIZE_STYLE + brandId + "/" + typeId + "/" + gender + "/" + ageGroup + "/" + categoryId, SizeStyle.class);
+	}
+
+	public List<SizeStyle> getSizeStyle(long brandId, int typeId, char gender, int ageGroup, int categoryId, int subcategoryId) {
+		return client.getList(ENDPOINT_SIZE_STYLE + brandId + "/" + typeId + "/" + gender + "/" + ageGroup + "/" + categoryId + "/" + subcategoryId, SizeStyle.class);
+	}
+
 	/*
 	 * End size style management
 	 */
