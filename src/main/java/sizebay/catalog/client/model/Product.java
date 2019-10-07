@@ -25,15 +25,15 @@ public class Product   {
   private Wearability wearability;
   private AgeGroupEnum ageGroup;
 
-	private int strongBrandId;
+	private Integer strongBrandId;
 	private String strongBrandName;
-	private int strongCategoryTypeId;
+	private Integer strongCategoryTypeId;
 	private String strongCategoryTypeName;
-	private int strongCategoryId;
+	private Integer strongCategoryId;
 	private String strongCategoryName;
-	private int strongSubcategoryId;
+	private Integer strongSubcategoryId;
 	private String strongSubcategoryName;
-	private int strongModelId;
+	private Integer strongModelId;
 	private String strongModelName;
 	private int isShoe;
 
