@@ -21,6 +21,11 @@ public class Modeling   {
   private Long categoryId;
   private List<ModelingSizeMeasures> measures = new ArrayList<>();
 
+  private Integer strongCategoryTypeId;
+  private String strongCategoryTypeName;
+
+  private int isShoe;
+
   @Getter
   @RequiredArgsConstructor
   public enum TypeEnum {
