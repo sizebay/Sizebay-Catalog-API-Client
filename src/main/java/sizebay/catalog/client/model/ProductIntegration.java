@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductIntegration implements Serializable {
 
-	private Long id;
+	private String id;
 	private Long tenantId;
 	private String title;
 	private String productType;
