@@ -29,15 +29,15 @@ public class ProductBasicInformation implements Serializable {
 	Product.AgeGroupEnum ageGroup = null;
 	Map<String, ModelingSizeMeasures> measures;
 	Boolean accessory;
-	int strongBrandId;
+	Long strongBrandId;
 	String strongBrandName;
-	int strongCategoryTypeId;
-	String strongCategoryTypeName;
-	int strongCategoryId;
+	Long 	strongTypeId;
+	String strongTypeName;
+	Long strongCategoryId;
 	String strongCategoryName;
-	int strongSubcategoryId;
+	Long strongSubcategoryId;
 	String strongSubcategoryName;
-	int strongModelId;
+	Long strongModelId;
 	String strongModelName;
 	double weightStyle;
 }

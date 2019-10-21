@@ -15,25 +15,19 @@ public class Product   {
   private String permalink;
   private Long modelingId;
   private Long categoryId;
-  private String externalCategory;
   private Boolean available;
-  private Boolean adultContent;
-  private Boolean pluginActive;
-  private String gtin;
   private String sizeType;
-
   private Wearability wearability;
   private AgeGroupEnum ageGroup;
-
-	private Integer strongBrandId;
+	private Long strongBrandId;
 	private String strongBrandName;
-	private Integer strongCategoryTypeId;
-	private String strongCategoryTypeName;
-	private Integer strongCategoryId;
+	private Long strongTypeId;
+	private String strongTypeName;
+	private Long strongCategoryId;
 	private String strongCategoryName;
-	private Integer strongSubcategoryId;
+	private Long strongSubcategoryId;
 	private String strongSubcategoryName;
-	private Integer strongModelId;
+	private Long strongModelId;
 	private String strongModelName;
 	private int isShoe;
 
