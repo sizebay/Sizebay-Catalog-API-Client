@@ -29,6 +29,7 @@ public class Product   {
 	private String strongSubcategoryName;
 	private Long strongModelId;
 	private String strongModelName;
+	private double weightStyle;
 	private int isShoe;
 
   private List<String> images = new ArrayList<>();
