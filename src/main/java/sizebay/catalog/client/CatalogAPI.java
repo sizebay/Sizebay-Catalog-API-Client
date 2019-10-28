@@ -111,8 +111,12 @@ public class CatalogAPI {
 	 * Starting product integration
 	 */
 
-	public Long insertProductIntegration(ProductIntegration product) {
-		return client.post(ENDPOINT_PRODUCT + "single/integration", product);
+	public ProductIntegration retrieveProductIntegration(Long tenantId, Long feedProductId) {
+		return client.getSingle(ENDPOINT_PRODUCT + "search/feed-product-id/" + tenantId + "/" + feedProductId, ProductIntegration.class);
+	}
+
+	public ProductIntegration insertProductIntegration(ProductIntegration product) {
+		return client.post(ENDPOINT_PRODUCT + "single/integration", product, ProductIntegration.class);
 	}
 
 	/*
