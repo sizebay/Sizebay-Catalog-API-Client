@@ -14,6 +14,7 @@ public class ProductBasicInformation implements Serializable {
 	@NonNull String name;
 	@NonNull String permalink;
 	String genderTheWearWasDesignedFor;
+	String feedProductId;
 	String coverImage;
 	int isShoe;
 	@Deprecated int szbMainCategoryId; // FIXME Remove this field after legacy virtual dead
