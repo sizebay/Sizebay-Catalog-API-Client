@@ -12,13 +12,15 @@ public class Product   {
   private Long id;
   private String name;
   private String description;
-  private String permalink;
-  private Long modelingId;
-  private Long categoryId;
-  private Boolean available;
-  private String sizeType;
-  private Wearability wearability;
-  private AgeGroupEnum ageGroup;
+	private String permalink;
+	private String images;
+	private String feedProductId;
+	private Long modelingId;
+	private Long categoryId;
+	private Boolean available;
+	private String sizeType;
+	private Wearability wearability;
+	private AgeGroupEnum ageGroup;
 	private Long strongBrandId;
 	private String strongBrandName;
 	private Long strongTypeId;
@@ -32,7 +34,6 @@ public class Product   {
 	private double weightStyle;
 	private int isShoe;
 
-  private List<String> images = new ArrayList<>();
   private List<String> availableSizes = new ArrayList<>();
   private ImportationError importationError;
 
