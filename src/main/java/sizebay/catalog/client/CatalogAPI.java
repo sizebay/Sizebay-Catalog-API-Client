@@ -128,12 +128,12 @@ public class CatalogAPI {
 		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );
 	}
 
-	public Brand getSingleBrand( long id ) {
-		return client.getSingle( ENDPOINT_BRAND + "strong/single/" + id, Brand.class );
+	public StrongBrand getSingleBrand( long id ) {
+		return client.getSingle( ENDPOINT_BRAND + "strong/single/" + id, StrongBrand.class );
 	}
 
-	public List<Brand> getAllBrand(){
-		return client.getList( ENDPOINT_BRAND + "strong", Brand.class );
+	public List<StrongBrand> getAllBrand(){
+		return client.getList( ENDPOINT_BRAND + "strong", StrongBrand.class );
 	}
 
 	public List<Brand> searchForBrands(String text ){
