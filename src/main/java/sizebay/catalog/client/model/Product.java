@@ -14,6 +14,7 @@ public class Product   {
   private String description;
 	private String permalink;
 	private String images;
+	private Long tenantId;
 	private String feedProductId;
 	private Long modelingId;
 	private Long categoryId;
