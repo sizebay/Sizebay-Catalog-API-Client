@@ -40,6 +40,7 @@ public class ProductIntegration implements Serializable {
 	private List<String> sizes;
 	private List<String> availableSizes;
 	private double weightStyle;
+	private int isAccessory;
 	private int isShoe;
 
 }
