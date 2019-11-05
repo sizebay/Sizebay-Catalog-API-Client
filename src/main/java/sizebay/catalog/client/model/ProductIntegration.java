@@ -43,4 +43,35 @@ public class ProductIntegration implements Serializable {
 	private int isAccessory;
 	private int isShoe;
 
+	public ProductBasicInformation castToProductBasicInformation() {
+		ProductBasicInformation basicInfo = new ProductBasicInformation();
+
+		basicInfo.setId(this.getId());
+		basicInfo.setName(this.getName());
+		basicInfo.setGenderTheWearWasDesignedFor(String.valueOf(this.gender));
+		basicInfo.setAgeGroup(Product.AgeGroupEnum.valueOf(this.getAgeGroup().toUpperCase()));
+		basicInfo.setPermalink(this.getPermalink());
+		basicInfo.setCoverImage(this.getImage());
+		basicInfo.setTenantId(this.getTenantId());
+		basicInfo.setFeedProductId(this.getFeedProductId());
+		basicInfo.setModelingName(this.getModelingName());
+		basicInfo.setSizeType(this.getSizeType());
+		basicInfo.setStatus(this.getAvailability() > 0);
+		basicInfo.setStrongBrandId(this.getStrongBrandId());
+		basicInfo.setStrongBrandName(this.getStrongBrandName());
+		basicInfo.setStrongTypeId(this.getStrongTypeId());
+		basicInfo.setStrongTypeName(this.getStrongTypeName());
+		basicInfo.setStrongCategoryId(this.getStrongCategoryId());
+		basicInfo.setStrongCategoryName(this.getStrongCategoryName());
+		basicInfo.setStrongSubcategoryId(this.getStrongSubcategoryId());
+		basicInfo.setStrongSubcategoryName(this.getStrongSubcategoryName());
+		basicInfo.setStrongModelId(this.getStrongModelId());
+		basicInfo.setStrongModelName(this.getStrongModelName());
+		basicInfo.setWeightStyle(this.getWeightStyle());
+		basicInfo.setAccessory(this.getIsAccessory() > 0);
+		basicInfo.setIsShoe(this.getIsShoe());
+
+		return basicInfo;
+	}
+
 }
