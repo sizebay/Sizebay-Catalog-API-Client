@@ -111,7 +111,7 @@ public class CatalogAPI {
 	 * Starting product integration
 	 */
 
-	public ProductIntegration retrieveProductIntegration(Long tenantId, Long feedProductId) {
+	public ProductIntegration retrieveProductIntegration(Long tenantId, String feedProductId) {
 		return client.getSingle(ENDPOINT_PRODUCT + "search/feed-product-id/" + tenantId + "/" + feedProductId, ProductIntegration.class);
 	}
 
