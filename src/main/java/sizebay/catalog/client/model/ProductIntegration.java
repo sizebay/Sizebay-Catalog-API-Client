@@ -4,9 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -42,6 +42,7 @@ public class ProductIntegration implements Serializable {
 	private double weightStyle;
 	private int isAccessory;
 	private int isShoe;
+	private Map<String, ModelingSizeMeasures> measures;
 
 	public ProductBasicInformation castToProductBasicInformation() {
 		ProductBasicInformation basicInfo = new ProductBasicInformation();
