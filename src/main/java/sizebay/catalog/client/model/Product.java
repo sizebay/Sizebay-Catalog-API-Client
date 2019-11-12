@@ -21,6 +21,7 @@ public class Product   {
   private Boolean pluginActive;
   private String gtin;
   private String sizeType;
+	private String observation;
 
   private Wearability wearability;
   private AgeGroupEnum ageGroup;
