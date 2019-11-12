@@ -15,7 +15,6 @@ public class Modeling   {
   private String gMerchantBrandName;
   private String gMerchantAgeGroup;
   private String gMerchantSizeType;
-  private String observation;
 
   private TypeEnum type;
   private Long brandId;
