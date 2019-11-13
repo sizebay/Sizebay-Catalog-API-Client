@@ -22,6 +22,7 @@ public class Product   {
 	private String sizeType;
 	private Wearability wearability;
 	private AgeGroupEnum ageGroup;
+  private String observation;
 	private Long strongBrandId;
 	private String strongBrandName;
 	private Long strongTypeId;
