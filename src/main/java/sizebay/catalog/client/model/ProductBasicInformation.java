@@ -22,6 +22,7 @@ public class ProductBasicInformation implements Serializable {
 	@Deprecated String szbSubCategoryName = null; // FIXME Remove this field after legacy virtual dead
 	String categoryName;
 	String modelingName;
+	String observation;
 	@Deprecated boolean bottomOnly;
 	ClothesType clothesType;
 	String sizeType;
