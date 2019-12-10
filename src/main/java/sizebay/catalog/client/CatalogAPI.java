@@ -107,6 +107,22 @@ public class CatalogAPI {
 	 * End size style management
 	 */
 
+	/*
+	 * Starting product integration
+	 */
+
+	public ProductIntegration retrieveProductIntegration(Long tenantId, String feedProductId) {
+		return client.getSingle(ENDPOINT_PRODUCT + "search/feed-product-id/" + tenantId + "/" + feedProductId, ProductIntegration.class);
+	}
+
+	public ProductIntegration insertProductIntegration(ProductIntegration product) {
+		return client.post(ENDPOINT_PRODUCT + "single/integration", product, ProductIntegration.class);
+	}
+
+	/*
+	 * End product integration
+	 */
+
 
 	public Brand getBrand( long id ) {
 		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );
