@@ -14,6 +14,7 @@ public class ProductBasicInformation implements Serializable {
 	@NonNull String name;
 	@NonNull String permalink;
 	String genderTheWearWasDesignedFor;
+	String feedProductId;
 	String coverImage;
 	int isShoe;
 	@Deprecated int szbMainCategoryId; // FIXME Remove this field after legacy virtual dead
@@ -30,15 +31,16 @@ public class ProductBasicInformation implements Serializable {
 	Product.AgeGroupEnum ageGroup = null;
 	Map<String, ModelingSizeMeasures> measures;
 	Boolean accessory;
-	int strongBrandId;
+	Long tenantId;
+	Long strongBrandId;
 	String strongBrandName;
-	int strongCategoryTypeId;
-	String strongCategoryTypeName;
-	int strongCategoryId;
+	Long 	strongTypeId;
+	String strongTypeName;
+	Long strongCategoryId;
 	String strongCategoryName;
-	int strongSubcategoryId;
+	Long strongSubcategoryId;
 	String strongSubcategoryName;
-	int strongModelId;
+	Long strongModelId;
 	String strongModelName;
 	double weightStyle;
 }

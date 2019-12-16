@@ -63,7 +63,7 @@ public class ExampleTest {
 		product.setAgeGroup( Product.AgeGroupEnum.NEWBORN );
 		product.setCategoryId( 6l );
 		product.setAvailableSizes( asList( "XXXL" ) );
-		product.setImages( asList( "http://teste.com/p.png" ) );
+		product.setImages("http://teste.com/p.png");
 		product.setPermalink("http://teste.com/p");
 		final long productId = api.insertProduct( product );
 

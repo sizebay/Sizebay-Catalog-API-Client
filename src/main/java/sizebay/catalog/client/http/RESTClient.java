@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 import lombok.RequiredArgsConstructor;
+import sizebay.catalog.client.model.ProductIntegration;
 
 @RequiredArgsConstructor
 public class RESTClient {
@@ -48,6 +49,12 @@ public class RESTClient {
 		final String jsonBodyData = mime.serialize( request );
 		final Response response = sendToEndpoint( METHOD_POST, serverEndpoint, jsonBodyData );
 		return response.connection.getHeaderFieldLong( "ID", -1 );
+	}
+
+	public <T> T post(String serverEndpoint, Object request, Class<T> expectedResponseClass) {
+		final String jsonBodyData = mime.serialize(request);
+		final Response response = sendToEndpoint( METHOD_POST, serverEndpoint, jsonBodyData );
+		return serialize(response.body, expectedResponseClass);
 	}
 
 	public void put( String serverEndpoint, Object request )

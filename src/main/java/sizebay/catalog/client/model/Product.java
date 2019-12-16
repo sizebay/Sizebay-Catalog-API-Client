@@ -12,33 +12,30 @@ public class Product   {
   private Long id;
   private String name;
   private String description;
-  private String permalink;
-  private Long modelingId;
-  private Long categoryId;
-  private String externalCategory;
-  private Boolean available;
-  private Boolean adultContent;
-  private Boolean pluginActive;
-  private String gtin;
-  private String sizeType;
-	private String observation;
-
-  private Wearability wearability;
-  private AgeGroupEnum ageGroup;
-
-	private Integer strongBrandId;
+	private String permalink;
+	private String images;
+	private Long tenantId;
+	private String feedProductId;
+	private Long modelingId;
+	private Long categoryId;
+	private Boolean available;
+	private String sizeType;
+	private Wearability wearability;
+	private AgeGroupEnum ageGroup;
+  private String observation;
+	private Long strongBrandId;
 	private String strongBrandName;
-	private Integer strongCategoryTypeId;
-	private String strongCategoryTypeName;
-	private Integer strongCategoryId;
+	private Long strongTypeId;
+	private String strongTypeName;
+	private Long strongCategoryId;
 	private String strongCategoryName;
-	private Integer strongSubcategoryId;
+	private Long strongSubcategoryId;
 	private String strongSubcategoryName;
-	private Integer strongModelId;
+	private Long strongModelId;
 	private String strongModelName;
+	private double weightStyle;
 	private int isShoe;
 
-  private List<String> images = new ArrayList<>();
   private List<String> availableSizes = new ArrayList<>();
   private ImportationError importationError;
 
