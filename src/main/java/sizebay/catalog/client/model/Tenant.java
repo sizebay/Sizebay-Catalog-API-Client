@@ -29,7 +29,7 @@ public class Tenant implements Serializable {
 	@NonNull
 	String domain;
 
-	String hashFile;
+	String hashXML;
 
 	boolean automaticallyImportSize;
 
