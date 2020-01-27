@@ -29,6 +29,8 @@ public class Tenant implements Serializable {
 	@NonNull
 	String domain;
 
+	String hashFile;
+
 	boolean automaticallyImportSize;
 
 	boolean monitored;
