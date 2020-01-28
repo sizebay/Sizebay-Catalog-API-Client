@@ -256,6 +256,10 @@ public class CatalogAPI {
 		return client.getList( ENDPOINT_CATEGORIES + SEARCH_BY_TEXT + text, Category.class );
 	}
 
+	public void updateHashXML(String hash) {
+		client.put(ENDPOINT_TENANTS + "hash", hash);
+	}
+
 	public List<Tenant> retrieveAllTenants(){
 		return client.getList( ENDPOINT_TENANTS, Tenant.class );
 	}
