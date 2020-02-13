@@ -123,6 +123,17 @@ public class CatalogAPI {
 	 * End product integration
 	 */
 
+	/*
+	 * Starting devolution management
+	 */
+
+	public long insertDevolutionError(DevolutionError devolution) {
+		return client.post("/devolution/error/single", devolution);
+	}
+
+	/*
+	 * End devolution management
+	 */
 
 	public Brand getBrand( long id ) {
 		return client.getSingle( ENDPOINT_BRAND + "single/" + id, Brand.class );
