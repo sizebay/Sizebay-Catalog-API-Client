@@ -22,6 +22,7 @@ public class CatalogAPI {
 		ENDPOINT_TENANTS = "/tenants/",
 		ENDPOINT_USER = "/user/",
 		ENDPOINT_SIZE_STYLE = "/style/",
+		ENDPOINT_DEVOLUTION = "/devolution/",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
 
@@ -127,8 +128,28 @@ public class CatalogAPI {
 	 * Starting devolution management
 	 */
 
+	public List<DevolutionError> retrieveDevolutionErrors() {
+		return client.getList(ENDPOINT_DEVOLUTION + "errors", DevolutionError.class);
+	}
+
 	public long insertDevolutionError(DevolutionError devolution) {
-		return client.post("/devolution/error/single", devolution);
+		return client.post(ENDPOINT_DEVOLUTION + "errors/single", devolution);
+	}
+
+	public void deleteDevolutionErrors() {
+		client.delete(ENDPOINT_DEVOLUTION + "errors");
+	}
+
+	public DevolutionSummary retrieveDevolutionSummary() {
+		return client.getSingle(ENDPOINT_DEVOLUTION + "summary", DevolutionSummary.class);
+	}
+
+	public long insertDevolutionSummary(DevolutionSummary devolutionSummary) {
+		return client.post(ENDPOINT_DEVOLUTION + "summary/single", devolutionSummary);
+	}
+
+	public void deleteDevolutionSummary() {
+		client.delete(ENDPOINT_DEVOLUTION + "summary");
 	}
 
 	/*
