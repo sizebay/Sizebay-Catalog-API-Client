@@ -140,8 +140,8 @@ public class CatalogAPI {
 		client.delete(ENDPOINT_DEVOLUTION + "errors");
 	}
 
-	public DevolutionSummary retrieveDevolutionSummary() {
-		return client.getSingle(ENDPOINT_DEVOLUTION + "summary", DevolutionSummary.class);
+	public DevolutionSummary retrieveDevolutionSummaryLastBy() {
+		return client.getSingle(ENDPOINT_DEVOLUTION + "summary/last", DevolutionSummary.class);
 	}
 
 	public long insertDevolutionSummary(DevolutionSummary devolutionSummary) {
