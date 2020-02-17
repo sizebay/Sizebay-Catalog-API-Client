@@ -35,6 +35,7 @@ public class ModelingSizeMeasures   {
   ModelingMeasureRange ageChart = null;
   ModelingMeasureRange weightChart = null;
   ModelingMeasureRange equivalence = null;
+  ModelingMeasureRange headCircumference = null;
 
 }
 
