@@ -20,6 +20,8 @@ public class Tenant implements Serializable {
 
 	String feedRSS;
 
+	String linkReturnsFile;
+
 	@NonNull
 	String appToken;
 
