@@ -252,6 +252,10 @@ public class CatalogAPI {
 		return client.getSingle( ENDPOINT_PRODUCT + id + "/basic-info", ProductBasicInformation.class );
 	}
 
+	public ProductBasicInformation getProductBasicInfoFilterSizes(long id, String sizes){
+		return client.getSingle( ENDPOINT_PRODUCT + id + "/basic-info-filter-sizes?sizes=" + sizes, ProductBasicInformation.class );
+	}
+
 	public Long getProductIdFromPermalink( String permalink ){
 		return client.getSingle( ENDPOINT_PRODUCT + "/search/product-id?permalink=" + permalink, Long.class );
 	}
