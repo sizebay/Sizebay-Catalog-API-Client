@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-
 import java.io.Serializable;
 
 @Data
@@ -22,5 +21,6 @@ public class ProfileMeasurements implements Serializable {
     double neck;
     double fist;
     double underBust;
+		Double poundWeight;
 
 }
