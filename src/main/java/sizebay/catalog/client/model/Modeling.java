@@ -25,6 +25,9 @@ public class Modeling   {
   private Integer strongCategoryTypeId;
   private String strongCategoryTypeName;
 
+	boolean active = true;
+	boolean accessories = false;
+
   private int isShoe;
 
   @Getter
