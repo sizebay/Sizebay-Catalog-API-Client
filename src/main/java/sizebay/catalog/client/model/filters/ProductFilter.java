@@ -1,23 +1,20 @@
-package sizebay.catalog.client.model;
+package sizebay.catalog.client.model.filters;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.lang.reflect.Field;
-import java.util.StringJoiner;
-
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProductFilter {
+public class ProductFilter extends Filter {
 
 	private String page;
+	private String id;
 	private String name;
 	private String permalink;
 	private String ageGroup;
 	private String gender;
-	private String productId;
 	private String feedProductId;
 	private String brandId;
 	private String brandName;
@@ -35,28 +32,9 @@ public class ProductFilter {
 	private String strongSubcategoryName;
 	private String strongModelId;
 	private String strongModelName;
-	private String onlyShoe;
+	private String onlyShoes;
 	private String productsThatShouldBeFixed;
 	private String productsAvailable;
 	private String productsUnavailable;
-
-	public String createQuery() {
-		StringJoiner query = new StringJoiner("&");
-
-		Field[] fields = this.getClass().getDeclaredFields();
-
-		for(Field field : fields) {
-			try {
-				if(field.get(this) != null) {
-					String parameter = field.getName() + "=" + field.get(this);
-					query.add(parameter);
-				}
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
-		}
-
-		return query.toString();
-	}
 
 }
