@@ -17,12 +17,16 @@ public class ProductIntegration implements Serializable {
 	private Long id;
 	private String name;
 	private char gender;
+	private char feedGender;
 	private String ageGroup;
+	private String feedAgeGroup;
 	private String permalink;
 	private String image;
 	private Long tenantId;
 	private String feedProductId;
 	private String brandName;
+	private Long feedBrandId;
+	private String feedBrandName;
 	private String categoryName;
 	private String modelingName;
 	private String sizeType;

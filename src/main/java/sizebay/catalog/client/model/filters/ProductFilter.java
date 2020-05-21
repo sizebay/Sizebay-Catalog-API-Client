@@ -32,6 +32,7 @@ public class ProductFilter extends Filter {
 	private String strongSubcategoryName;
 	private String strongModelId;
 	private String strongModelName;
+	private String slugId;
 	private String onlyShoes;
 	private String productsThatShouldBeFixed;
 	private String productsAvailable;

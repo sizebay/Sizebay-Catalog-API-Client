@@ -5,16 +5,20 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 
-
-
-
+@Getter
+@Setter
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-02-03T14:09:54.342Z")
 public class Brand   {
   
   private Long id = null;
   private String name = null;
+  private Long strongBrandId = null;
+  private String strongBrandName = null;
+  private Integer shoeBrand = null;
 
   /**
    * Unique identifier representing a specific brand.
