@@ -43,6 +43,7 @@ public class Product   {
 	private Long strongModelId;
 	private String strongModelName;
 	private double weightStyle;
+	private List<String> barcodes;
 	private int isShoe;
 
   private List<String> availableSizes = new ArrayList<>();
