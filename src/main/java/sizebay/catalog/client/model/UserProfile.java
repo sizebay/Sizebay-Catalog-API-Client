@@ -24,8 +24,9 @@ public class UserProfile implements Serializable {
 
   String id;
   String email;
-  String facebook;
   String password;
+  String facebookToken;
+  String googleToken;
 
   List<Profile> profiles = new ArrayList<>();
 
