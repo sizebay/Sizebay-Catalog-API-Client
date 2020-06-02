@@ -158,4 +158,9 @@ public class UserProfile implements Serializable {
     }
   }
 
+  public boolean isAnApplicationUser() {
+  	return (!isNull(this.getFacebookToken()) && !this.getFacebookToken().isEmpty())
+				|| (!isNull(this.getGoogleToken()) && !this.getGoogleToken().isEmpty());
+	}
+
 }
