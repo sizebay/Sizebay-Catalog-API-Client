@@ -9,10 +9,11 @@ import sizebay.catalog.client.model.ProductIntegration;
 @RequiredArgsConstructor
 public class RESTClient {
 
-	static final String METHOD_POST = "POST";
-	static final String METHOD_GET = "GET";
-	static final String METHOD_PUT = "PUT";
-	static final String METHOD_DELETE = "DELETE";
+	static final private String METHOD_GET 		= "GET";
+	static final private String METHOD_PUT 		= "PUT";
+	static final private String METHOD_POST 	= "POST";
+	static final private String METHOD_PATCH  = "PATCH";
+	static final private String METHOD_DELETE = "DELETE";
 
 	final String baseUrl;
 	final MimeType mime;
@@ -20,6 +21,11 @@ public class RESTClient {
 
 	public void delete( String serverEndpoint ) {
 		callEndpoint( METHOD_DELETE, serverEndpoint );
+	}
+
+	public void delete(String serverEndpoint, Object request) {
+		final String jsonBodyData = mime.serialize(request);
+		sendToEndpoint(METHOD_DELETE, serverEndpoint, jsonBodyData);
 	}
 
 	public <T> T getSingle( String serverEndpoint, Class<T> expectedResponseClass ) {
@@ -67,6 +73,11 @@ public class RESTClient {
 		final String jsonBodyData = mime.serialize( request );
 		final Response response = sendToEndpoint( METHOD_PUT, serverEndpoint, jsonBodyData );
 		return serialize( response.body, expectedResponseClass );
+	}
+
+	public void patch(String serverEndpoint, Object request) {
+		final String jsonBodyData = mime.serialize(request);
+		sendToEndpoint(METHOD_PATCH, serverEndpoint, jsonBodyData);
 	}
 
 	private Response sendToEndpoint( String httpMethod, String serverEndpoint, final String body ) {

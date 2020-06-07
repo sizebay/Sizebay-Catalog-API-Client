@@ -13,15 +13,24 @@ public class Product   {
   private String name;
   private String description;
 	private String permalink;
+	private Modeling.Gender gender;
+	private Modeling.Gender feedGender;
 	private String images;
 	private Long tenantId;
 	private String feedProductId;
-	private Long modelingId;
+	private Long brandId;
+	private String brandName;
+	private Long feedBrandId;
+	private String feedBrandName;
 	private Long categoryId;
+	private String categoryName;
+	private Long modelingId;
+	private String modelingName;
 	private Boolean available;
 	private String sizeType;
 	private Wearability wearability;
 	private AgeGroupEnum ageGroup;
+	private AgeGroupEnum feedAgeGroup;
   private String observation;
 	private Long strongBrandId;
 	private String strongBrandName;
@@ -34,6 +43,7 @@ public class Product   {
 	private Long strongModelId;
 	private String strongModelName;
 	private double weightStyle;
+	private List<String> barcodes;
 	private int isShoe;
 
   private List<String> availableSizes = new ArrayList<>();
