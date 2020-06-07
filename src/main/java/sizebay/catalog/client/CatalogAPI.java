@@ -100,6 +100,34 @@ public class CatalogAPI {
 	
 	public void deleteProfile (long profileId) { client.delete(ENDPOINT_USER + "/profile/" + profileId); }
 
+	/* User history */
+
+	public long insertProductInUserHistory(String userId, UserHistory newProductToUserHistory) {
+		return client.post(ENDPOINT_USER + "/history/single/"+ userId, newProductToUserHistory);
+	}
+
+	public List<UserHistory> retrieveUserHistory(int page, String userId) {
+		return client.getList(ENDPOINT_USER + "/history/all/" + userId + "?page=" + page, UserHistory.class);
+	}
+
+	public void deleteUserHistoryProduct(String userId, Long userHistoryId) {
+		client.delete(ENDPOINT_USER + "/history/single/" + userId + "?userHistoryId=" + userHistoryId);
+	}
+
+	/* User liked products */
+
+	public long insertLikeInTheProduct(String userId, LikedProduct likedProduct) {
+		return client.post(ENDPOINT_USER + "/liked-products/single/"+ userId, likedProduct);
+	}
+
+	public List<LikedProduct> retrieveLikedProductsByUser(int page, String userId) {
+		return client.getList(ENDPOINT_USER + "/liked-products/all/" + userId + "?page=" + page, LikedProduct.class);
+	}
+
+	public void deleteLikeInTheProduct(String userId, Long likedProductId) {
+		client.delete(ENDPOINT_USER + "/liked-products/single/" + userId + "?likedProductId=" + likedProductId);
+	}
+
 	/*
 	 * End user profile management
 	 */
