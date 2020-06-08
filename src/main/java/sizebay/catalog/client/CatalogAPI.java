@@ -497,10 +497,6 @@ public class CatalogAPI {
 	 * Starting strong brand management
 	 */
 
-	public List<StrongBrand> getAllBrand(){
-		return client.getList(ENDPOINT_BRAND + "/strong", StrongBrand.class);
-	}
-
 	public List<StrongBrand> getStrongBrands(StrongBrandFilter filter) {
 		return client.getList(ENDPOINT_BRAND + "/strong?" + filter.createQuery(), StrongBrand.class);
 	}
