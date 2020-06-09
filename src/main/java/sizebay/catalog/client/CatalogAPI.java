@@ -396,6 +396,10 @@ public class CatalogAPI {
 		client.put(ENDPOINT_CATEGORIES + "/single/" +id, brand);
 	}
 
+	public void bulkUpdateCategories(BulkUpdateCategories categories) {
+		client.patch(ENDPOINT_CATEGORIES, categories);
+	}
+
 	public void deleteCategories() {
 		client.delete(ENDPOINT_CATEGORIES);
 	}
