@@ -4,8 +4,8 @@ final public class ApiException extends RuntimeException {
 
 	private static final long serialVersionUID = 1916745028112506101L;
 
-	final int status;
-	final String message;
+	public final int status;
+	public final String message;
 
 	public ApiException() {
 		status = 500;

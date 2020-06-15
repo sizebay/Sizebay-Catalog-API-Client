@@ -2,24 +2,34 @@ package sizebay.catalog.client.http;
 
 import java.io.*;
 import java.net.*;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.*;
 import lombok.RequiredArgsConstructor;
-import sizebay.catalog.client.model.ProductIntegration;
+import sizebay.catalog.client.CatalogAuthentication;
 
 @RequiredArgsConstructor
 public class RESTClient {
 
-	static final String METHOD_POST = "POST";
-	static final String METHOD_GET = "GET";
-	static final String METHOD_PUT = "PUT";
-	static final String METHOD_DELETE = "DELETE";
+	static final private String METHOD_GET 		= "GET";
+	static final private String METHOD_PUT 		= "PUT";
+	static final private String METHOD_POST 	= "POST";
+	static final private String METHOD_PATCH  = "PATCH";
+	static final private String METHOD_DELETE = "DELETE";
 
 	final String baseUrl;
 	final MimeType mime;
-	final RESTClientConfiguration config;
+	final CatalogAuthentication config;
 
 	public void delete( String serverEndpoint ) {
 		callEndpoint( METHOD_DELETE, serverEndpoint );
+	}
+
+	public void delete(String serverEndpoint, Object request) {
+		final String jsonBodyData = mime.serialize(request);
+		sendToEndpoint(METHOD_DELETE, serverEndpoint, jsonBodyData);
 	}
 
 	public <T> T getSingle( String serverEndpoint, Class<T> expectedResponseClass ) {
@@ -69,6 +79,48 @@ public class RESTClient {
 		return serialize( response.body, expectedResponseClass );
 	}
 
+	public void patch(String serverEndpoint, Object request) {
+		final String jsonBodyData = mime.serialize(request);
+		sendToEndpoint_(METHOD_PATCH, serverEndpoint, jsonBodyData);
+	}
+
+	private Response sendToEndpoint_(String httpMethod, String serverEndpoint, final String body) throws ApiException {
+		try {
+			final URL url = buildURL(serverEndpoint);
+			final HttpClient client = this.createHttpClient();
+			final HttpRequest request = this.createHttpRequest(url, httpMethod, body);
+
+			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+			if(response.statusCode() >= 300) {
+				handleFailure(response, body);
+			}
+
+			return new Response(response.body());
+		} catch (final IOException | InterruptedException | URISyntaxException e) {
+			throw new ApiException("Failed to send data to endpoint " + serverEndpoint, e);
+		}
+	}
+
+	private HttpClient createHttpClient() {
+		return HttpClient.newBuilder()
+				.version(HttpClient.Version.HTTP_2)
+				.connectTimeout(Duration.ofSeconds(5000))
+				.build();
+	}
+
+	private HttpRequest createHttpRequest(URL url, String method, String body) throws URISyntaxException {
+		return HttpRequest.newBuilder()
+				.uri(url.toURI())
+				.header("Content-Type", mime.contentType())
+				.header("Accept", mime.contentType())
+				.header("charset", mime.charset())
+				.header("Application-Token", config.getApplicationToken())
+				.header("Security-Token", config.getSecurityToken())
+				.method(method, HttpRequest.BodyPublishers.ofString(body))
+				.build();
+	}
+
 	private Response sendToEndpoint( String httpMethod, String serverEndpoint, final String body ) {
 		try {
 			final URL url = buildURL( serverEndpoint );
@@ -92,6 +144,12 @@ public class RESTClient {
 		final String msg = "Status: " + connection.getResponseCode() + "\n\t\tResponse: " + response + "\n\t\tRequest: " + body;
 		System.out.println( msg );
 		throw new ApiException( connection.getResponseCode(), response );
+	}
+
+	private void handleFailure(HttpResponse<String> response, String body) throws IOException {
+		final String msg = "Status: " + response.statusCode() + "\n\t\tResponse: " + response.body() + "\n\t\tRequest: " + body;
+		System.out.println( msg );
+		throw new ApiException( response.statusCode(), response.body());
 	}
 
 	private Response callEndpoint( String httpMethod, String serverEndpoint ) {
@@ -173,4 +231,8 @@ class Response {
 	final String body;
 	final HttpURLConnection connection;
 
+	public Response(String body) {
+		this.body = body;
+		this.connection = null;
+	}
 }

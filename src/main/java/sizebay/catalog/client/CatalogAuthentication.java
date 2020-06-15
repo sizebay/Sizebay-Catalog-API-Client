@@ -1,9 +1,11 @@
 package sizebay.catalog.client;
 
 import java.net.HttpURLConnection;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import sizebay.catalog.client.http.RESTClientConfiguration;
 
+@Getter
 @RequiredArgsConstructor
 public class CatalogAuthentication implements RESTClientConfiguration {
 
