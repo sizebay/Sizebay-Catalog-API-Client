@@ -26,7 +26,7 @@ public class UserProfile implements Serializable {
   String email;
   String password;
   String facebookToken;
-  String googleToken;
+  String googleUserId;
 
   List<Profile> profiles = new ArrayList<>();
 
@@ -160,7 +160,7 @@ public class UserProfile implements Serializable {
 
   public boolean isAnApplicationUser() {
   	return (!isNull(this.getFacebookToken()) && !this.getFacebookToken().isEmpty())
-				|| (!isNull(this.getGoogleToken()) && !this.getGoogleToken().isEmpty());
+				|| (!isNull(this.getGoogleUserId()) && !this.getGoogleUserId().isEmpty());
 	}
 
 }
