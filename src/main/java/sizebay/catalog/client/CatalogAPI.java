@@ -20,7 +20,7 @@ public class CatalogAPI {
 		ENDPOINT_MODELING = "/modelings",
 		ENDPOINT_PRODUCT = "/products",
 		ENDPOINT_CATEGORIES = "/categories",
-		ENDPOINT_TENANTS = "/tenants/",
+		ENDPOINT_TENANTS = "/tenants",
 		ENDPOINT_USER = "/user",
 		ENDPOINT_SIZE_STYLE = "/style",
 		ENDPOINT_DEVOLUTION = "/devolution",
@@ -666,43 +666,101 @@ public class CatalogAPI {
 	 * End strong model management
 	 */
 
+	/*
+	 * Starting tenant management
+	 */
 
-
-	public void updateHashXML(String hash) {
-		client.put(ENDPOINT_TENANTS + "hash", hash);
+	public Tenant getTenant( String appToken ){
+		return client.getSingle( ENDPOINT_TENANTS+ "/single/" + appToken, Tenant.class );
 	}
 
 	public List<Tenant> retrieveAllTenants(){
 		return client.getList( ENDPOINT_TENANTS, Tenant.class );
 	}
 
-	public Tenant getTenant( String appToken ){
-		return client.getSingle( ENDPOINT_TENANTS+ "single/" + appToken, Tenant.class );
-	}
-
-	@Deprecated
-	void saveUser( User user ){
-		client.post( "/users/", user );
-	}
-
-	public void insertTenant(Tenant tenant) {
-		client.post( ENDPOINT_TENANTS, tenant );
-	}
-
-	public void insertImportationSummary(long tenantId, ImportationSummary importationSummary) {
-		client.post( "/importations/tenantId/"+tenantId, importationSummary );
-	}
-
-	public String retrieveImportRules(long id) {
-		return client.getSingle( ENDPOINT_TENANTS + id + "/rules", String.class );
-	}
-
 	public List<Tenant> searchTenants(TenantFilter filter) {
-		return client.getList( ENDPOINT_TENANTS + "search?monitored=" + filter.getMonitored(), Tenant.class);
+		return client.getList( ENDPOINT_TENANTS + "/search?monitored=" + filter.getMonitored(), Tenant.class);
 	}
 
 	public List<Tenant> searchAllTenants() {
-		return client.getList( ENDPOINT_TENANTS + "search/all", Tenant.class);
+		return client.getList( ENDPOINT_TENANTS + "/search/all", Tenant.class);
+	}
+
+	public Long insertTenant(Tenant tenant) {
+		return client.post(ENDPOINT_TENANTS, tenant);
+	}
+
+	public void updateTenant(long id, Tenant tenant) {
+		client.put(ENDPOINT_TENANTS + "/single/" + id, tenant);
+	}
+
+	public void updateHashXML(String hash) {
+		client.put(ENDPOINT_TENANTS + "/hash", hash);
+	}
+
+	public void deleteTenant(long id) {
+		client.delete(ENDPOINT_TENANTS + "/" + id);
+	}
+
+	/*
+	 * End tenant management
+	 */
+
+	/*
+	 * Starting tenant management
+	 */
+
+	public List<MySizebayUser> attachedUsersToTenant(long id) {
+		return client.getList(ENDPOINT_TENANTS + "/" + id + "/users", MySizebayUser.class);
+	}
+
+	public void attachUserToTenant(long id, String email) {
+		client.getSingle(ENDPOINT_TENANTS + "/" + id + "/users/" + email);
+	}
+
+	public void detachUserToTenant(long id, String email) {
+		client.delete(ENDPOINT_TENANTS + "/" + id + "/users/" + email);
+	}
+
+
+	/*
+	 * End tenant management
+	 */
+
+	/*
+	 * Starting importation rules management
+	 */
+
+	public String retrieveImportRules(long id) {
+		return client.getSingle(ENDPOINT_TENANTS + "/" + id + "/rules", String.class);
+	}
+
+	public Long insertImportationRules(long id, ImportationRules rules) {
+		return client.post(ENDPOINT_TENANTS + "/" + id + "/rules", rules);
+	}
+
+	/*
+	 * End importation rules management
+	 */
+
+	/*
+	 * Starting my sizebay user management
+	 */
+
+	public MySizebayUser getMySizebayUser(String username){
+		return client.getSingle( "/users/" + username, MySizebayUser.class);
+	}
+
+	public Long insertMySizebayUser(MySizebayUser user){
+		return client.post("/users/", user);
+	}
+
+	/*
+	 * End my sizebay user management
+	 */
+
+	public void insertImportationSummary(long tenantId, ImportationSummary importationSummary) {
+		client.post( "/importations/tenantId/"+tenantId, importationSummary );
 	}
 
 }
