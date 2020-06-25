@@ -1,6 +1,8 @@
 package sizebay.catalog.client.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -34,6 +36,7 @@ public class ProductBasicInformation implements Serializable {
 	Product.AgeGroupEnum ageGroup = null;
 	Product.AgeGroupEnum feedAgeGroup = Product.AgeGroupEnum.ADULT;
 	Map<String, ModelingSizeMeasures> measures;
+	List<CustomRange> customRanges = new ArrayList<>();
 	Boolean accessory;
 	Long tenantId;
 	Long strongBrandId;

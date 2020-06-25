@@ -32,6 +32,10 @@ public class RESTClient {
 		sendToEndpoint(METHOD_DELETE, serverEndpoint, jsonBodyData);
 	}
 
+	public void getSingle( String serverEndpoint ) {
+		callEndpoint( METHOD_GET, serverEndpoint );
+	}
+
 	public <T> T getSingle( String serverEndpoint, Class<T> expectedResponseClass ) {
 		final Response response = callEndpoint( METHOD_GET, serverEndpoint );
 		return serialize( response.body, expectedResponseClass );
