@@ -16,8 +16,6 @@ public class ExampleTest {
 	final CatalogAPI adminApi = new CatalogAPI( "http://localhost:9000/", "admin", "1q2w3e" );
 	final CatalogAPI api = new CatalogAPI( "http://localhost:9000/", "testTenant", "secretTestTenant" );
 
-	final User user = new User().setUsername( "miere" ).setPassword("mudar_senha")
-			.setProperties( singletonMap( "tenants", asList( "domain" ) ) );
 
 	@Before
 	public void cleanUp(){
@@ -123,14 +121,6 @@ public class ExampleTest {
 		final Brand brand = api.getBrand(brandId);
 		final List<Brand> brands = api.searchForBrands(brand.getName());
 		assertEquals( brand, brands.get(0) );
-	}
-
-	@Test
-	@Ignore
-	public void ensureThatCanCreateAndAuthenticateUser(){
-		adminApi.saveUser( user );
-		final List<Tenant> properties = adminApi.authenticateAndRetrieveTenants(user.getUsername(), user.getPassword());
-		assertEquals( user.getProperties(), properties );
 	}
 
 	@Test
