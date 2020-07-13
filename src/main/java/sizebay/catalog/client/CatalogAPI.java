@@ -16,6 +16,7 @@ public class CatalogAPI {
 	final static String
 		DEFAULT_BASE_URL = "https://catalogue.fitpeek.co/api/v1/",
 
+		ENDPOINT_DASHBOARD = "/dashboard",
 		ENDPOINT_BRAND = "/brands",
 		ENDPOINT_MODELING = "/modelings",
 		ENDPOINT_PRODUCT = "/products",
@@ -26,8 +27,8 @@ public class CatalogAPI {
 		ENDPOINT_DEVOLUTION = "/devolution",
 		ENDPOINT_IMPORTATION_ERROR = "/importations",
 		ENDPOINT_STRONG_CATEGORY_TYPE = "types",
-		ENDPOINT_STRONG_CATEGORY = "types/categories/strong",
-		ENDPOINT_STRONG_SUBCATEGORY = "types/categories/strong/sub",
+		ENDPOINT_STRONG_CATEGORY = "/types/categories/strong",
+		ENDPOINT_STRONG_SUBCATEGORY = "/types/categories/strong/sub",
 		ENDPOINT_STRONG_MODEL = "models/strong",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
@@ -57,6 +58,21 @@ public class CatalogAPI {
 
 		client = new RESTClient( basePath, mimeType, authentication );
 	}
+
+
+	/**
+	 * Starting dashboard management
+	 */
+
+	public List<Dashboard> retrieveDashboard() {
+		return client.getList(ENDPOINT_DASHBOARD, Dashboard.class);
+	}
+
+	/**
+	 * End dashboard management
+	 */
+
+
 
 	/**
 	 * Starting user profile management
@@ -140,18 +156,6 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_SIZE_STYLE + "/search/all" + "?" + filter.createQuery(), SizeStyle.class);
 	}
 
-	public List<SizeStyle> getSizeStyle(long brandId, int typeId, char gender, int ageGroup) {
-		return client.getList(ENDPOINT_SIZE_STYLE + "/" + brandId + "/" + typeId + "/" + gender + "/" + ageGroup, SizeStyle.class);
-	}
-
-	public List<SizeStyle> getSizeStyle(long brandId, int typeId, char gender, int ageGroup, int categoryId) {
-		return client.getList(ENDPOINT_SIZE_STYLE + "/" + brandId + "/" + typeId + "/" + gender + "/" + ageGroup + "/" + categoryId, SizeStyle.class);
-	}
-
-	public List<SizeStyle> getSizeStyle(long brandId, int typeId, char gender, int ageGroup, int categoryId, int subcategoryId) {
-		return client.getList(ENDPOINT_SIZE_STYLE + "/" + brandId + "/" + typeId + "/" + gender + "/" + ageGroup + "/" + categoryId + "/" + subcategoryId, SizeStyle.class);
-	}
-
 	public SizeStyle getSingleSizeStyle(long id) {
 		return client.getSingle(ENDPOINT_SIZE_STYLE + "/single/" + id, SizeStyle.class);
 	}
@@ -166,6 +170,10 @@ public class CatalogAPI {
 
 	public void bulkUpdateSizeStyles(BulkUpdateSizeStyle bulkUpdateSizeStyle) {
 		client.patch(ENDPOINT_SIZE_STYLE, bulkUpdateSizeStyle);
+	}
+
+	public void bulkUpdateModeling(BulkUpdateSizeStyle bulkUpdateSizeStyle) {
+		client.patch(ENDPOINT_SIZE_STYLE + "/bulk/modeling", bulkUpdateSizeStyle);
 	}
 
 	public void deleteSizeStyle(long id) {
@@ -328,6 +336,10 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_BRAND + SEARCH_BY_TEXT + text, Brand.class);
 	}
 
+	public List<Brand> getBrands(BrandFilter filter) {
+		return client.getList(ENDPOINT_BRAND + "?" + filter.createQuery(), Brand.class);
+	}
+
 	public List<Brand> getBrands(int page) {
 		return client.getList(ENDPOINT_BRAND + "?page=" + page, Brand.class);
 	}
@@ -378,6 +390,10 @@ public class CatalogAPI {
 
 	public List<Category> getCategories(int page, String name) {
 		return client.getList(ENDPOINT_CATEGORIES + "?page=" + page + "&name=" + name, Category.class);
+	}
+
+	public List<Category> getCategories(CategoryFilter filter) {
+		return client.getList(ENDPOINT_CATEGORIES + "?" + filter.createQuery(), Category.class);
 	}
 
 	public List<Category> searchForCategories(String text){
@@ -437,6 +453,10 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_MODELING + "/search/all" + "?" + filter.createQuery(), Modeling.class);
 	}
 
+	public List<Modeling> getAllSimplifiedModeling() {
+		return client.getList(ENDPOINT_MODELING + "/simplified/all", Modeling.class);
+	}
+
 	public Modeling getModeling(long id) {
 		return client.getSingle(ENDPOINT_MODELING + "/single/" + id, Modeling.class);
 	}
@@ -469,7 +489,7 @@ public class CatalogAPI {
 	 * Starting importation error management
 	 */
 
-	public List<ImportationError> getImportationErrors(int page){
+	public List<ImportationError> getImportationErrors(String page){
 		return client.getList(ENDPOINT_IMPORTATION_ERROR + "/errors?page=" + page, ImportationError.class);
 	}
 
@@ -664,6 +684,42 @@ public class CatalogAPI {
 
 	/*
 	 * End strong model management
+	 */
+
+	/*
+	 * Starting strong brand management
+	 */
+
+	public List<StrongModeling> getStrongModelings(int page) {
+		return client.getList(ENDPOINT_MODELING	 + "/strong?page=" + page, StrongModeling.class);
+	}
+
+	public List<StrongModeling> getStrongModelings(StrongModelingFilter filter) {
+		return client.getList(ENDPOINT_MODELING	 + "/strong?" + filter.createQuery(), StrongModeling.class);
+	}
+
+	public StrongModeling getSingleStrongModeling(long id) {
+		return client.getSingle(ENDPOINT_MODELING + "/strong/single/" + id, StrongModeling.class);
+	}
+
+	public long insertStrongModeling(StrongModeling strongModeling){
+		return client.post(ENDPOINT_MODELING + "/strong/single", strongModeling);
+	}
+
+	public void updateStrongModeling(long id, StrongModeling strongModeling) {
+		client.put(ENDPOINT_MODELING + "/strong/single/" + id, strongModeling);
+	}
+
+	public void deleteStrongModeling(long id) {
+		client.delete(ENDPOINT_MODELING + "/strong/single/" + id);
+	}
+
+	public void deleteStrongModelings(List<Integer> ids) {
+		client.delete(ENDPOINT_MODELING + "/strong/bulk/some", ids);
+	}
+
+	/*
+	 * End strong brand management
 	 */
 
 	/*
