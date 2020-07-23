@@ -26,9 +26,8 @@ public class CatalogAPI {
 		ENDPOINT_SIZE_STYLE = "/style",
 		ENDPOINT_DEVOLUTION = "/devolution",
 		ENDPOINT_IMPORTATION_ERROR = "/importations",
-		ENDPOINT_STRONG_CATEGORY_TYPE = "types",
-		ENDPOINT_STRONG_CATEGORY = "/types/categories/strong",
-		ENDPOINT_STRONG_SUBCATEGORY = "/types/categories/strong/sub",
+		ENDPOINT_STRONG_CATEGORY = "/categories/strong",
+		ENDPOINT_STRONG_SUBCATEGORY = "/categories/strong/sub",
 		ENDPOINT_STRONG_MODEL = "models/strong",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
@@ -153,7 +152,7 @@ public class CatalogAPI {
 	 */
 
 	public List<SizeStyle> getSizeStyles(SizeStyleFilter filter) {
-		return client.getList(ENDPOINT_SIZE_STYLE + "/search/all" + "?" + filter.createQuery(), SizeStyle.class);
+		return client.getList(ENDPOINT_SIZE_STYLE + "?" + filter.createQuery(), SizeStyle.class);
 	}
 
 	public SizeStyle getSingleSizeStyle(long id) {
@@ -168,8 +167,8 @@ public class CatalogAPI {
 		client.put(ENDPOINT_SIZE_STYLE + "/single/" + id, sizeStyle);
 	}
 
-	public void bulkUpdateSizeStyles(BulkUpdateSizeStyle bulkUpdateSizeStyle) {
-		client.patch(ENDPOINT_SIZE_STYLE, bulkUpdateSizeStyle);
+	public void bulkUpdateWeight(BulkUpdateSizeStyle bulkUpdateSizeStyle) {
+		client.patch(ENDPOINT_SIZE_STYLE + "/bulk/weight", bulkUpdateSizeStyle);
 	}
 
 	public void bulkUpdateModeling(BulkUpdateSizeStyle bulkUpdateSizeStyle) {
@@ -197,7 +196,7 @@ public class CatalogAPI {
 	}
 
 	public List<DevolutionError> retrieveDevolutionErrors(DevolutionFilter filter) {
-		return client.getList(ENDPOINT_DEVOLUTION + "/errors" + "?" + filter.createQuery(), DevolutionError.class);
+		return client.getList(ENDPOINT_DEVOLUTION + "/errors?" + filter.createQuery(), DevolutionError.class);
 	}
 
 	public long insertDevolutionError(DevolutionError devolution) {
@@ -256,6 +255,13 @@ public class CatalogAPI {
 		return client.getSingle(ENDPOINT_PRODUCT + "/search/product-id"
 				+ "?permalink=" + permalink,
 			Long.class);
+	}
+
+	public ProductSlug retrieveProductSlugByPermalink(String permalink, String sizeLabel){
+		return client.getSingle(ENDPOINT_PRODUCT + "/slug"
+			+ "?permalink=" + permalink
+			+ "&size=" + sizeLabel,
+		ProductSlug.class);
 	}
 
 	public Long getAvailableProductIdFromPermalink(String permalink){
@@ -558,13 +564,13 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_STRONG_CATEGORY, StrongCategory.class);
 	}
 
-	public List<StrongCategory> getAllStrongCategories(int page, String categoryName, Long typeId){
+	public List<StrongCategory> getAllStrongCategories(String page, String categoryName, String type){
 		String condition;
 
 		condition = categoryName == null ? "" : "&name=" + categoryName;
-		condition += typeId == null ? "" : "&typeId=" + typeId;
+		condition += type == null ? "" : "&type=" + type;
 
-		return client.getList(ENDPOINT_STRONG_CATEGORY + "/search/all?page=" + page + condition, StrongCategory.class);
+		return client.getList(ENDPOINT_STRONG_CATEGORY + "?page=" + page + condition, StrongCategory.class);
 	}
 
 	public StrongCategory getSingleStrongCategory(long id) {
@@ -592,12 +598,8 @@ public class CatalogAPI {
 	 * Starting strong subcategory management
 	 */
 
-	public List<StrongSubcategory> getAllStrongSubcategories(int page){
-		return client.getList(ENDPOINT_STRONG_SUBCATEGORY + "?page=" + page, StrongSubcategory.class);
-	}
-
-	public List<StrongSubcategory> getAllStrongSubcategories(int page, String subcategoryName){
-		return client.getList(ENDPOINT_STRONG_SUBCATEGORY + "?page=" + page + "&name=" + subcategoryName, StrongSubcategory.class);
+	public List<StrongSubcategory> getStrongSubcategories(StrongSubcategoryFilter filter){
+		return client.getList(ENDPOINT_STRONG_SUBCATEGORY + "?" + filter.createQuery(), StrongSubcategory.class);
 	}
 
 	public StrongSubcategory getSingleStrongSubcategory(long id) {
@@ -621,48 +623,16 @@ public class CatalogAPI {
 	 * End strong subcategory management
 	 */
 
-	/*
-	 * Starting strong category type management
-	 */
-
-	public List<StrongCategoryType> getAllStrongCategoryTypes(int page){
-		return client.getList(ENDPOINT_STRONG_CATEGORY_TYPE + "?page=" + page, StrongCategoryType.class);
-	}
-
-	public List<StrongCategoryType> getAllStrongCategoryTypes(int page, String categoryTypeName){
-		return client.getList(ENDPOINT_STRONG_CATEGORY_TYPE + "?page=" + page + "&name=" + categoryTypeName, StrongCategoryType.class);
-	}
-
-	public StrongCategoryType getSingleStrongCategoryType(long id) {
-		return client.getSingle(ENDPOINT_STRONG_CATEGORY_TYPE + "/single/" + id, StrongCategoryType.class);
-	}
-
-	public long insertStrongCategoryType(StrongCategoryType strongCategoryType){
-		return client.post(ENDPOINT_STRONG_CATEGORY_TYPE + "/single", strongCategoryType);
-	}
-
-	public void updateStrongCategoryType(long id, StrongCategoryType strongCategoryType) {
-		client.put(ENDPOINT_STRONG_CATEGORY_TYPE + "/single/" + id, strongCategoryType);
-	}
-
-	public void deleteStrongCategoryType(long id) {
-		client.delete(ENDPOINT_STRONG_CATEGORY_TYPE + "/single/" + id);
-	}
-
-
-	/*
-	 * End strong category type management
-	 */
 
 	/*
 	 * Starting strong model management
 	 */
 
-	public List<StrongModel> getAllStrongModels(int page){
+	public List<StrongModel> getAllStrongModels(String page){
 		return client.getList(ENDPOINT_STRONG_MODEL + "?page=" + page, StrongModel.class);
 	}
 
-	public List<StrongModel> getAllStrongModels(int page, String modelName){
+	public List<StrongModel> getAllStrongModels(String page, String modelName){
 		return client.getList(ENDPOINT_STRONG_MODEL + "?page=" + page + "&name=" + modelName, StrongModel.class);
 	}
 
