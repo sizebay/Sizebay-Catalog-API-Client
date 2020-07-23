@@ -9,5 +9,6 @@ public class BulkUpdateSizeStyle {
 
 	private long[] ids;
 	private double weightStyle;
+	private Long modelingId;
 
 }
