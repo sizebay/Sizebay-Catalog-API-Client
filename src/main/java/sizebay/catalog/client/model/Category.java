@@ -15,9 +15,8 @@ public class Category   {
   private String name = null;
   private Long strongCategoryId = null;
   private String strongCategoryName = null;
-	private Long strongCategoryTypeId = null;
-	private String strongCategoryTypeName = null;
-	private Integer shoeCategory = null;
+	private StrongCategoryType strongCategoryType = null;
+	private boolean isShoeCategory;
 
   @Getter
   private ClothesType clothesType = ClothesType.FULL_BODY;
@@ -47,6 +46,11 @@ public class Category   {
   public void setName(String name) {
     this.name = name;
   }
+
+	@JsonProperty("isShoeCategory")
+	public boolean getIsShoeCategory() {
+		return this.getStrongCategoryType() != null && this.getStrongCategoryType().equals(StrongCategoryType.shoe);
+	}
 
   @Override
   public boolean equals(Object o) {
