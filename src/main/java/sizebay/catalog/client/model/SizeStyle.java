@@ -14,8 +14,7 @@ public class SizeStyle implements Serializable {
 	long id;
 	long brandId;
 	String brandName;
-	int categoryTypeId;
-	String categoryTypeName;
+	StrongCategoryType categoryType;
 	char gender;
 	int ageGroup;
 	int categoryId;
@@ -24,6 +23,7 @@ public class SizeStyle implements Serializable {
 	String subcategoryName;
 	int modelId;
 	String modelName;
+	String sizeType;
 	double weightStyle;
 	String slugName;
 }
