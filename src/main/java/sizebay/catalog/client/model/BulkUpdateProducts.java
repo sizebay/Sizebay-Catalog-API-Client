@@ -19,8 +19,10 @@ public class BulkUpdateProducts {
 	private Integer categoryId;
 	private Integer modelingId;
 	private String sizeType;
-	private Integer strongSubcategoryId;
-	private Integer strongModelId;
+	private Long strongBrandId;
+	private Long strongCategoryId;
+	private Long strongSubcategoryId;
+	private Long strongModelId;
 	private Boolean activatePlugin;
 	private List<String> availableSizes = emptyList();
 
