@@ -9,5 +9,6 @@ public class StrongSubcategory {
 
 	private Long id;
 	private String name;
+	private Long strongCategoryId;
 
 }
