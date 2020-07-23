@@ -34,8 +34,7 @@ public class Product   {
   private String observation;
 	private Long strongBrandId;
 	private String strongBrandName;
-	private Long strongTypeId;
-	private String strongTypeName;
+	private StrongCategoryType strongCategoryType;
 	private Long strongCategoryId;
 	private String strongCategoryName;
 	private Long strongSubcategoryId;
@@ -44,7 +43,7 @@ public class Product   {
 	private String strongModelName;
 	private double weightStyle;
 	private List<String> barcodes;
-	private int isShoe;
+	private Boolean isShoe;
 
   private List<String> availableSizes = new ArrayList<>();
   private ImportationError importationError;

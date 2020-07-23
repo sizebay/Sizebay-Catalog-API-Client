@@ -23,13 +23,14 @@ public class Modeling   {
   private List<ModelingSizeMeasures> measures = new ArrayList<>();
 	private List<CustomRange> customRanges = new ArrayList<>();
 
-  private Integer strongCategoryTypeId;
-  private String strongCategoryTypeName;
+	private Long originalModelingId;
+
+  private StrongCategoryType strongCategoryType;
 
 	boolean active = true;
 	boolean accessories = false;
 
-  private int isShoe;
+  private Boolean isShoeModeling;
 
   @Getter
   @RequiredArgsConstructor

@@ -19,7 +19,7 @@ public class ProductBasicInformation implements Serializable {
 	String feedGender;
 	String feedProductId;
 	String coverImage;
-	int isShoe;
+	Boolean isShoe;
 	@Deprecated int szbMainCategoryId; // FIXME Remove this field after legacy virtual dead
 	@Deprecated int szbSubCategoryId; // FIXME Remove this field after legacy virtual dead
 	@Deprecated String szbMainCategoryName = null; // FIXME Remove this field after legacy virtual dead
@@ -41,8 +41,7 @@ public class ProductBasicInformation implements Serializable {
 	Long tenantId;
 	Long strongBrandId;
 	String strongBrandName;
-	Long 	strongTypeId;
-	String strongTypeName;
+	StrongCategoryType strongCategoryType;
 	Long strongCategoryId;
 	String strongCategoryName;
 	Long strongSubcategoryId;

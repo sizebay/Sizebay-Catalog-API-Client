@@ -33,8 +33,7 @@ public class ProductIntegration implements Serializable {
 	private int availability;
 	private Long strongBrandId;
 	private String strongBrandName;
-	private Long strongTypeId;
-	private String strongTypeName;
+	private StrongCategoryType strongCategoryType;
 	private Long strongCategoryId;
 	private String strongCategoryName;
 	private Long strongSubcategoryId;
@@ -46,7 +45,7 @@ public class ProductIntegration implements Serializable {
 	private List<String> availableSizes;
 	private double weightStyle;
 	private int isAccessory;
-	private int isShoe;
+	private Boolean isShoe;
 	private Map<String, ModelingSizeMeasures> measures;
 
 	public ProductBasicInformation castToProductBasicInformation() {
@@ -65,8 +64,7 @@ public class ProductIntegration implements Serializable {
 		basicInfo.setStatus(this.getAvailability() > 0);
 		basicInfo.setStrongBrandId(this.getStrongBrandId());
 		basicInfo.setStrongBrandName(this.getStrongBrandName());
-		basicInfo.setStrongTypeId(this.getStrongTypeId());
-		basicInfo.setStrongTypeName(this.getStrongTypeName());
+		basicInfo.setStrongCategoryType(this.getStrongCategoryType());
 		basicInfo.setStrongCategoryId(this.getStrongCategoryId());
 		basicInfo.setStrongCategoryName(this.getStrongCategoryName());
 		basicInfo.setStrongSubcategoryId(this.getStrongSubcategoryId());
