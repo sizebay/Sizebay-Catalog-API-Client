@@ -13,8 +13,7 @@ public class SizeStyleFilter extends Filter {
 	private String id;
 	private String brandId;
 	private String brandName;
-	private String typeId;
-	private String typeName;
+	private String type;
 	private String gender;
 	private String ageGroup;
 	private String categoryId;
@@ -23,6 +22,7 @@ public class SizeStyleFilter extends Filter {
 	private String subcategoryName;
 	private String modelId;
 	private String modelName;
+	private String sizeType;
 	private String weightStyle;
 	private String slugName;
 
