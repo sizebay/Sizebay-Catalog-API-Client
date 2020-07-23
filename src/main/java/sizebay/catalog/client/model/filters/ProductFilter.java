@@ -2,10 +2,12 @@ package sizebay.catalog.client.model.filters;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class ProductFilter extends Filter {
 
@@ -24,8 +26,7 @@ public class ProductFilter extends Filter {
 	private String modelingName;
 	private String strongBrandId;
 	private String strongBrandName;
-	private String strongTypeId;
-	private String strongTypeName;
+	private String strongCategoryType;
 	private String strongCategoryId;
 	private String strongCategoryName;
 	private String strongSubcategoryId;
