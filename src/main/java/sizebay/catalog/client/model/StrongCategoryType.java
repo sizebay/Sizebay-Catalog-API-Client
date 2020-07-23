@@ -1,14 +1,10 @@
 package sizebay.catalog.client.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-public class StrongCategoryType {
+@NoArgsConstructor
+public enum StrongCategoryType {
 
-	private Long id;
-	private String name;
-	private Integer isShoe;
+	clothes, shoe
 
 }
