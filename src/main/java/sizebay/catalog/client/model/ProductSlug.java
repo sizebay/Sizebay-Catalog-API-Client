@@ -14,5 +14,7 @@ public class ProductSlug {
 	private String ageGroup;
 	private String gender;
 	private SizeSystem sizeSystem;
+	private Long strongModelingId;
+	private String groupMeasures;
 
 }
