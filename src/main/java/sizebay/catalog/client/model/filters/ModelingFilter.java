@@ -17,10 +17,8 @@ public class ModelingFilter extends Filter {
 	private String sizeType;
 	private String brandId;
 	private String brandName;
-	private String strongTypeId;
-	private String strongTypeName;
+	private String strongCategoryType;
 	private String onlyAccessories;
-	private String onlyShoes;
 	private String status;
 
 }
