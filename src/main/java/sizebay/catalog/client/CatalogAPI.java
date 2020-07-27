@@ -29,6 +29,7 @@ public class CatalogAPI {
 		ENDPOINT_STRONG_CATEGORY = "/categories/strong",
 		ENDPOINT_STRONG_SUBCATEGORY = "/categories/strong/sub",
 		ENDPOINT_STRONG_MODEL = "models/strong",
+		ENDPOINT_STRONG_MODELING = "/modelings/strong",
 
 		SEARCH_BY_TEXT = "/search/all?text=";
 
@@ -657,39 +658,35 @@ public class CatalogAPI {
 	 */
 
 	/*
-	 * Starting strong brand management
+	 * Starting strong modeling management
 	 */
 
-	public List<StrongModeling> getStrongModelings(int page) {
-		return client.getList(ENDPOINT_MODELING	 + "/strong?page=" + page, StrongModeling.class);
-	}
-
 	public List<StrongModeling> getStrongModelings(StrongModelingFilter filter) {
-		return client.getList(ENDPOINT_MODELING	 + "/strong?" + filter.createQuery(), StrongModeling.class);
+		return client.getList(ENDPOINT_STRONG_MODELING	 + "?" + filter.createQuery(), StrongModeling.class);
 	}
 
 	public StrongModeling getSingleStrongModeling(long id) {
-		return client.getSingle(ENDPOINT_MODELING + "/strong/single/" + id, StrongModeling.class);
+		return client.getSingle(ENDPOINT_STRONG_MODELING + "/single/" + id, StrongModeling.class);
 	}
 
 	public long insertStrongModeling(StrongModeling strongModeling){
-		return client.post(ENDPOINT_MODELING + "/strong/single", strongModeling);
+		return client.post(ENDPOINT_STRONG_MODELING + "/single", strongModeling);
 	}
 
 	public void updateStrongModeling(long id, StrongModeling strongModeling) {
-		client.put(ENDPOINT_MODELING + "/strong/single/" + id, strongModeling);
+		client.put(ENDPOINT_STRONG_MODELING + "/single/" + id, strongModeling);
 	}
 
 	public void deleteStrongModeling(long id) {
-		client.delete(ENDPOINT_MODELING + "/strong/single/" + id);
+		client.delete(ENDPOINT_STRONG_MODELING + "/single/" + id);
 	}
 
 	public void deleteStrongModelings(List<Integer> ids) {
-		client.delete(ENDPOINT_MODELING + "/strong/bulk/some", ids);
+		client.delete(ENDPOINT_STRONG_MODELING + "/bulk/some", ids);
 	}
 
 	/*
-	 * End strong brand management
+	 * End strong modeling management
 	 */
 
 	/*

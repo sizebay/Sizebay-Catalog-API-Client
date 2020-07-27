@@ -9,8 +9,8 @@ import java.util.Map;
 @Setter
 public class StrongSize {
 
-	private Long id;
-	private String sizeName;
+	private String groupMeasures;
+	private Map<SizeSystem, String> labels = new HashMap<>();
 	private Map<Measure, StrongMeasureRange> measures = new HashMap<>();
 
 }
