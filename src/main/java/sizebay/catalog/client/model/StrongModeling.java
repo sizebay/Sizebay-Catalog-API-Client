@@ -13,6 +13,7 @@ public class StrongModeling {
 	private String name;
 	private String ageGroup;
 	private String gender;
+	private StrongCategoryType strongCategoryType;
 	private Long strongBrandId;
 	private String strongBrandName;
 	private String modelingSizeType;
