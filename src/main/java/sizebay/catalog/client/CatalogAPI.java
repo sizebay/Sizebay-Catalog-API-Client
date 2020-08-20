@@ -669,6 +669,10 @@ public class CatalogAPI {
 		return client.getSingle(ENDPOINT_STRONG_MODELING + "/single/" + id, StrongModeling.class);
 	}
 
+	public List<StrongModeling> getAllSimplifiedStrongModelings(StrongModelingFilter filter) {
+		return client.getList(ENDPOINT_STRONG_MODELING + "/simplified" + "?" + filter.createQuery(), StrongModeling.class);
+	}
+
 	public long insertStrongModeling(StrongModeling strongModeling){
 		return client.post(ENDPOINT_STRONG_MODELING + "/single", strongModeling);
 	}
