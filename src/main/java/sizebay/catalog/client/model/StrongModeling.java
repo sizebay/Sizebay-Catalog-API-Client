@@ -17,7 +17,7 @@ public class StrongModeling {
 	private Long strongBrandId;
 	private String strongBrandName;
 	private String modelingSizeType;
-	private Boolean isAnOrganicModeling;
+	private int isAnOrganicModeling;
 	private List<StrongSize> sizes = new ArrayList<>();
 	private List<String> slugs = new ArrayList<>();
 
