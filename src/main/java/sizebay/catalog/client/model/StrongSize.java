@@ -14,5 +14,6 @@ public class StrongSize {
 	private Map<Measure, StrongMeasureRange> measures = new HashMap<>();
 	private int totalSamples;
 	private double accuracyPercentage;
+	private int status;
 
 }
