@@ -35,6 +35,8 @@ public class Tenant implements Serializable {
 
 	boolean automaticallyImportSize;
 
+	SizeSystem defaultSizeSystem;
+
 	boolean monitored;
 
 	int httpLinkBehavior;
