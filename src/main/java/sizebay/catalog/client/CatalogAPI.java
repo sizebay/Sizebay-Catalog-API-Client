@@ -98,6 +98,10 @@ public class CatalogAPI {
 		return client.getSingle(ENDPOINT_USER + "/social/google/" + googleToken, UserProfile.class);
 	}
 
+	public UserProfile retrieveUserByApple(String appleUserId) {
+		return client.getSingle(ENDPOINT_USER + "/social/apple/" + appleUserId, UserProfile.class);
+	}
+
 	public Profile retrieveProfile (long profileId) {
 		return client.getSingle(ENDPOINT_USER + "/profile/" + profileId, Profile.class);
 	}
@@ -108,6 +112,10 @@ public class CatalogAPI {
 
 	public void updateUserGoogleToken(String userId, String googleToken) {
 		client.put(ENDPOINT_USER + "/social/google/" + userId, googleToken);
+	}
+
+	public void updateUserAppleId(String userId, String appleUserId) {
+		client.put(ENDPOINT_USER + "/social/apple/" + userId, appleUserId);
 	}
 
 	public void insertProfile (Profile profile) {
