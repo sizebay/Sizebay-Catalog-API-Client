@@ -16,10 +16,14 @@ public class ProductFilter extends Filter {
 	private String name;
 	private String permalink;
 	private String ageGroup;
+	private String feedAgeGroup;
 	private String gender;
+	private String feedGender;
 	private String feedProductId;
 	private String brandId;
 	private String brandName;
+	private String feedBrandId;
+	private String feedBrandName;
 	private String categoryId;
 	private String categoryName;
 	private String modelingId;
