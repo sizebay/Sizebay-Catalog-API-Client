@@ -603,6 +603,10 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_STRONG_SUBCATEGORY + "?" + filter.createQuery(), StrongSubcategory.class);
 	}
 
+	public List<StrongSubcategory> getStrongSubcategories(int page){
+		return client.getList(ENDPOINT_STRONG_SUBCATEGORY + "?page=" + page, StrongSubcategory.class);
+	}
+
 	public StrongSubcategory getSingleStrongSubcategory(long id) {
 		return client.getSingle(ENDPOINT_STRONG_SUBCATEGORY + "/single/" + id, StrongSubcategory.class);
 	}
