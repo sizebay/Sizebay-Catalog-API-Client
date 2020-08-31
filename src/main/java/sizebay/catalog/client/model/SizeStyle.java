@@ -24,6 +24,8 @@ public class SizeStyle implements Serializable {
 	int modelId;
 	String modelName;
 	String sizeType;
+	Long modelingId;
+	String modelingName;
 	double weightStyle;
 	String slugName;
 }
