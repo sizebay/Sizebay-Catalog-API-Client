@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -28,5 +30,8 @@ public class SizeStyle implements Serializable {
 	String modelingName;
 	double weightStyle;
 	String slugName;
+	private Map<Language, String> categoryTranslations = new HashMap();
+	private Map<Language, String> subcategoryTranslations = new HashMap();
+
 }
 
