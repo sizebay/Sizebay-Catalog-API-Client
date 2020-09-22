@@ -24,6 +24,7 @@ public class ProfileProduct implements Serializable {
       String gender;
       int ageGroup;
       String size;
+			String sizeLabel;
       String sizeStr;
       double weightStyle;
 
