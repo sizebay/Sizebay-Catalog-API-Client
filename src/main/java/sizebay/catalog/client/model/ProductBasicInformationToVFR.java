@@ -15,9 +15,9 @@ public class ProductBasicInformationToVFR {
 	private Modeling.Gender gender;
 	private Product.AgeGroupEnum ageGroup;
 	private StrongCategoryType strongCategoryType;
-	private boolean isPending;
-	private boolean isAccessory;
-	private boolean isShoe;
+	private boolean pending;
+	private boolean accessory;
+	private boolean shoe;
 	private boolean status;
 
 }
