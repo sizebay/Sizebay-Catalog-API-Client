@@ -72,6 +72,11 @@ public class CatalogAPI {
 	 * End dashboard management
 	 */
 
+	public ProductBasicInformationToVFR retrieveProductBasicInformationToVFR(String permalink) {
+		return client.getSingle(ENDPOINT_PRODUCT + "/basic-info-to-vfr?"
+			+ "permalink=" + permalink, ProductBasicInformationToVFR.class);
+	}
+
 
 
 	/**
