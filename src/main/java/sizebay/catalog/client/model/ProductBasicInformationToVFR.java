@@ -9,14 +9,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProductBasicInformationToVFR {
 
-	private Long productId;
-	private String productName;
-	private Modeling.Gender productGender;
-	private Product.AgeGroupEnum productAgeGroup;
-	private Long strongCategoryId;
-	private Long strongSubcategoryId;
-	private String permalink ;
-	private String categoryName;
+	private Long id;
+	private Modeling.Gender gender;
+	private Product.AgeGroupEnum ageGroup;
 	private StrongCategoryType strongCategoryType;
 	private boolean isAccessory;
 	private boolean isShoe;
