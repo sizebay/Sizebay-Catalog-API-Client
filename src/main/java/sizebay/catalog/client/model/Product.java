@@ -42,8 +42,10 @@ public class Product   {
 	private Long strongModelId;
 	private String strongModelName;
 	private double weightStyle;
-	private List<String> barcodes;
+	private SizeSystem sizeSystem;
 	private Boolean isShoe;
+//	private Boolean useStrongModeling;
+	private List<String> barcodes;
 
   private List<String> availableSizes = new ArrayList<>();
   private ImportationError importationError;

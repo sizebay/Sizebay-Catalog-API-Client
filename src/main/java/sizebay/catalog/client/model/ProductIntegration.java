@@ -46,6 +46,8 @@ public class ProductIntegration implements Serializable {
 	private double weightStyle;
 	private int isAccessory;
 	private Boolean isShoe;
+//	private Boolean useStrongModeling;
+	private SizeSystem sizeSystem;
 	private Map<String, ModelingSizeMeasures> measures;
 
 	public ProductBasicInformation castToProductBasicInformation() {
