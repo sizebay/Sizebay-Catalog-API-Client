@@ -44,7 +44,7 @@ public class ProductIntegration implements Serializable {
 	private List<String> sizes;
 	private List<String> availableSizes;
 	private double weightStyle;
-	private int isAccessory;
+	private Boolean isAccessory;
 	private Boolean isShoe;
 //	private Boolean useStrongModeling;
 	private SizeSystem sizeSystem;
@@ -74,7 +74,7 @@ public class ProductIntegration implements Serializable {
 		basicInfo.setStrongModelId(this.getStrongModelId());
 		basicInfo.setStrongModelName(this.getStrongModelName());
 		basicInfo.setWeightStyle(this.getWeightStyle());
-		basicInfo.setAccessory(this.getIsAccessory() > 0);
+		basicInfo.setAccessory(this.getIsAccessory());
 		basicInfo.setIsShoe(this.getIsShoe());
 
 		return basicInfo;
