@@ -682,6 +682,10 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_STRONG_MODELING	 + "?" + filter.createQuery(), StrongModeling.class);
 	}
 
+	public List<Long> retrieveAllOrganicTableIds(StrongModelingFilter filter) {
+		return client.getList(ENDPOINT_STRONG_MODELING	 + "/organic/ids" , Long.class);
+	}
+
 	public StrongModeling getSingleStrongModeling(long id) {
 		return client.getSingle(ENDPOINT_STRONG_MODELING + "/single/" + id, StrongModeling.class);
 	}
