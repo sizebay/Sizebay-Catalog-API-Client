@@ -13,9 +13,11 @@ public class Category   {
   
   private Long id = null;
   private String name = null;
-  private Long strongCategoryId = null;
-  private String strongCategoryName = null;
 	private StrongCategoryType strongCategoryType = null;
+	private Long strongCategoryId = null;
+  private String strongCategoryName = null;
+	private Long strongSubcategoryId = null;
+	private String strongSubcategoryName = null;
 	private boolean isShoeCategory;
 
   @Getter
