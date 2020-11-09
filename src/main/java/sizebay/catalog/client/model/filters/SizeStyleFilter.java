@@ -22,6 +22,8 @@ public class SizeStyleFilter extends Filter {
 	private String subcategoryName;
 	private String modelId;
 	private String modelName;
+	private String modelingId;
+	private String modelingName;
 	private String sizeType;
 	private String weightStyle;
 	private String slugName;
