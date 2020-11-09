@@ -44,7 +44,7 @@ public class Product   {
 	private double weightStyle;
 	private SizeSystem sizeSystem;
 	private Boolean isShoe;
-//	private Boolean useStrongModeling;
+	private Boolean useStrongModeling;
 	private List<String> barcodes;
 
   private List<String> availableSizes = new ArrayList<>();
