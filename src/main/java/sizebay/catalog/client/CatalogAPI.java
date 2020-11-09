@@ -376,6 +376,14 @@ public class CatalogAPI {
 		return client.post(ENDPOINT_BRAND + "/single", brand);
 	}
 
+	public void associateBrandsWithStrongBrand() {
+		client.getSingle(ENDPOINT_BRAND + "/sync/associate-brand-with-strong-brand");
+	}
+
+	public void createStrongBrandBasedOnBrands(List<Integer> ids) {
+		client.post(ENDPOINT_BRAND + "/sync/create-strong-brand", ids);
+	}
+
 	public void updateBrand(long id, Brand brand) {
 		client.put(ENDPOINT_BRAND + "/single/" + id, brand);
 	}
@@ -692,6 +700,14 @@ public class CatalogAPI {
 
 	public long insertStrongModeling(StrongModeling strongModeling){
 		return client.post(ENDPOINT_STRONG_MODELING + "/single", strongModeling);
+	}
+
+	public void createStrongModelingsBasedOnBrands(String sizeSystem, List<Integer> ids) {
+		client.post(ENDPOINT_STRONG_MODELING + "/sync/create-strong-modelings?sizeSystem=" + sizeSystem, ids);
+	}
+
+	public void syncStrongModelingsWithSlugs() {
+		client.post(ENDPOINT_STRONG_MODELING + "/sync", null);
 	}
 
 	public void updateStrongModeling(long id, StrongModeling strongModeling) {
