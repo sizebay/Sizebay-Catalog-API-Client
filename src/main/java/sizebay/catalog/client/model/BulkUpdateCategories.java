@@ -10,5 +10,6 @@ public class BulkUpdateCategories {
 
 	private List<String> ids;
 	private ClothesType clothesType;
-
+	private Long strongCategoryId;
+	private Long strongSubcategoryId;
 }
