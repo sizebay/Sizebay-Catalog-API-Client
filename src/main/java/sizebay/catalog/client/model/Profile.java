@@ -58,4 +58,22 @@ public class Profile implements Serializable {
           this.setId(val);
      }
 
+     public String getAgeGroup(final String productAgeGroup) {
+    		final boolean isGrayZone = this.getAge() >= 12 && this.getAge() <= 16;
+
+    		if(isGrayZone && productAgeGroup != null) {
+					try {
+						return Product.AgeGroupEnum.valueOf(productAgeGroup).name();
+					} catch (IllegalArgumentException e) {
+						return null;
+					}
+				}
+
+				if(this.getAge() > 13) {
+					return Product.AgeGroupEnum.ADULT.name();
+				}
+
+				return Product.AgeGroupEnum.KIDS.name();
+		 }
+
 }
