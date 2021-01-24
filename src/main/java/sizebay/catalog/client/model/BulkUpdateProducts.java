@@ -24,6 +24,7 @@ public class BulkUpdateProducts {
 	private Long strongSubcategoryId;
 	private Long strongModelId;
 	private Boolean activatePlugin;
+	private Boolean useStrongModeling;
 	private List<String> availableSizes = emptyList();
 
 }
