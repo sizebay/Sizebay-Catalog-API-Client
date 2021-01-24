@@ -28,6 +28,7 @@ public class ProductFilter extends Filter {
 	private String categoryName;
 	private String modelingId;
 	private String modelingName;
+	private String sizeType;
 	private String strongBrandId;
 	private String strongBrandName;
 	private String strongCategoryType;
