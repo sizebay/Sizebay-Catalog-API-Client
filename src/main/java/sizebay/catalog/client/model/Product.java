@@ -41,6 +41,8 @@ public class Product   {
 	private String strongSubcategoryName;
 	private Long strongModelId;
 	private String strongModelName;
+	private Long strongModelingId;
+	private String strongModelingName;
 	private double weightStyle;
 	private SizeSystem sizeSystem;
 	private Boolean isShoe;
