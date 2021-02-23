@@ -241,6 +241,10 @@ public class CatalogAPI {
 	 * Starting user (MySizebay) management
 	 */
 
+	public UserTenants authenticateAndRetrieveUser(String username, String password ) {
+		return client.getSingle( "/users/" + username + "/" + password + "/user", UserTenants.class );
+	}
+
 	public List<Tenant> authenticateAndRetrieveTenants(String username, String password ) {
 		return client.getList( "/users/" + username + "/" + password + "/tenants", Tenant.class );
 	}
