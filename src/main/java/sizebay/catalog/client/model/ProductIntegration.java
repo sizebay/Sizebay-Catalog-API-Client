@@ -23,6 +23,7 @@ public class ProductIntegration implements Serializable {
 	private String permalink;
 	private String image;
 	private Long tenantId;
+	private String tenantName;
 	private String feedProductId;
 	private String brandName;
 	private Long feedBrandId;
@@ -59,6 +60,7 @@ public class ProductIntegration implements Serializable {
 		basicInfo.setAgeGroup(Product.AgeGroupEnum.valueOf(this.getAgeGroup().toUpperCase()));
 		basicInfo.setPermalink(this.getPermalink());
 		basicInfo.setCoverImage(this.getImage());
+		basicInfo.setTenantName(this.getTenantName());
 		basicInfo.setTenantId(this.getTenantId());
 		basicInfo.setFeedProductId(this.getFeedProductId());
 		basicInfo.setModelingName(this.getModelingName());

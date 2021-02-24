@@ -38,6 +38,7 @@ public class ProductBasicInformation implements Serializable {
 	Map<String, ModelingSizeMeasures> measures;
 	List<CustomRange> customRanges = new ArrayList<>();
 	Boolean accessory;
+	String tenantName;
 	Long tenantId;
 	Long strongBrandId;
 	String strongBrandName;

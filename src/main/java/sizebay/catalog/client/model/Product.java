@@ -16,6 +16,7 @@ public class Product   {
 	private Modeling.Gender gender;
 	private Modeling.Gender feedGender;
 	private String images;
+	private String tenantName;
 	private Long tenantId;
 	private String feedProductId;
 	private Long brandId;
