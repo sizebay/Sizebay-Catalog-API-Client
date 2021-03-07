@@ -1,0 +1,47 @@
+resource "aws_codeartifact_repository_permissions_policy" "maven_sizebay_repository_emmett_brown" {
+  repository      = aws_codeartifact_repository.maven_sizebay_repository_sizebay_catalog_api_client.repository
+  domain          = var.domain
+  policy_document = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::108068209879:user/continuous-integration"
+            },
+            "Action": [
+                "codeartifact:DescribePackageVersion",
+                "codeartifact:DescribeRepository",
+                "codeartifact:GetPackageVersionReadme",
+                "codeartifact:GetRepositoryEndpoint",
+                "codeartifact:ListPackageVersionAssets",
+                "codeartifact:ListPackageVersionDependencies",
+                "codeartifact:ListPackageVersions",
+                "codeartifact:ListPackages",
+                "codeartifact:PublishPackageVersion",
+                "codeartifact:PutPackageMetadata",
+                "codeartifact:ReadFromRepository"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "codeartifact:DescribePackageVersion",
+                "codeartifact:DescribeRepository",
+                "codeartifact:GetPackageVersionReadme",
+                "codeartifact:GetRepositoryEndpoint",
+                "codeartifact:ListPackageVersionAssets",
+                "codeartifact:ListPackageVersionDependencies",
+                "codeartifact:ListPackageVersions",
+                "codeartifact:ListPackages",
+                "codeartifact:ReadFromRepository"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+EOF
+}
