@@ -8,7 +8,7 @@ resource "aws_codeartifact_repository_permissions_policy" "maven_sizebay_reposit
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::108068209879:user/continuous-integration"
+                "AWS": "arn:aws:iam::839781922904:user/continuous-integration"
             },
             "Action": [
                 "codeartifact:DescribePackageVersion",
