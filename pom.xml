@@ -4,7 +4,7 @@
 
 	<groupId>com.sizebay.catalog</groupId>
 	<artifactId>sizebay-catalog-api-client</artifactId>
-	<version>0.5.45</version>
+	<version>0.5.50</version>
 
 	<packaging>jar</packaging>
 	<name>Sizebay Catalog API Client</name>
@@ -15,33 +15,12 @@
 
 	<distributionManagement>
 		<repository>
-			<id>sizebay-maven-plugin</id>
-			<url>s3://public-maven.sizebay.com</url>
+			<id>sizebay--sizebay-catalog-api-client</id>
+			<name>sizebay--sizebay-catalog-api-client</name>
+			<url>https://sizebay-839781922904.d.codeartifact.us-east-1.amazonaws.com/maven/sizebay-catalog-api-client/</url>
 		</repository>
 	</distributionManagement>
 
-	<repositories>
-		<repository>
-			<id>sizebay-maven</id>
-			<url>http://sizebay.maven.s3-website-sa-east-1.amazonaws.com/release</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>sizebay-maven-snapshot</id>
-			<url>http://sizebay.maven.s3-website-sa-east-1.amazonaws.com/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</repository>
-	</repositories>
 	<build>
 		<extensions>
 			<extension>
