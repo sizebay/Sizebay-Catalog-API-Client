@@ -134,7 +134,7 @@ public class RESTClient {
 
 			final String response = readData( connection );
 			if ( connection.getResponseCode() / 100 >= 3 )
-				handleFailure( connection, response, body );
+				handleFailure(connection);
 
 			return new Response( response, connection );
 		} catch ( final IOException e ) {
@@ -148,6 +148,10 @@ public class RESTClient {
 		final String msg = "Status: " + connection.getResponseCode() + "\n\t\tResponse: " + response + "\n\t\tRequest: " + body;
 		System.out.println( msg );
 		throw new ApiException( connection.getResponseCode(), response );
+	}
+
+	private void handleFailure(final HttpURLConnection connection) {
+		throw new ApiException(readDataError(connection));
 	}
 
 	private void handleFailure(HttpResponse<String> response, String body) throws IOException {
@@ -219,6 +223,12 @@ public class RESTClient {
 		} catch ( final IOException ioe ) {
 			return ioe.getMessage();
 		}
+	}
+
+	private String readDataError(final HttpURLConnection connection) {
+		final InputStream stream = connection.getErrorStream();
+
+		return convertStreamToString(stream);
 	}
 
 	private String convertStreamToString( InputStream is ) {
