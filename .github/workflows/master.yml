@@ -19,8 +19,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.yml') }}
-          restore-keys: ${{ runner.os }}-maven-${{ hashFiles('**/pom.yml') }}
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
