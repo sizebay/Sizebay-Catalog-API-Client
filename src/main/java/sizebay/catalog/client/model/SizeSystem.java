@@ -6,6 +6,18 @@ import lombok.NoArgsConstructor;
 public enum SizeSystem {
 
 	AU, BR, CN, DE, EU, FR,
-	IT, JP, MEX, UK, US, ZH, AR
+	IT, JP, MEX, UK, US, ZH, AR;
+
+	public static SizeSystem from(String value) {
+		try {
+			if(value == null || value.isEmpty()) {
+				return null;
+			}
+
+			return SizeSystem.valueOf(value.toUpperCase());
+		} catch (Throwable e) {
+			throw new IllegalArgumentException();
+		}
+	}
 
 }
