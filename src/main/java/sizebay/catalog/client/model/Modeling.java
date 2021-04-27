@@ -20,6 +20,7 @@ public class Modeling   {
   private TypeEnum type;
   private Long brandId;
   private Long categoryId;
+  private Measure composedMeasure;
   private List<ModelingSizeMeasures> measures = new ArrayList<>();
 	private List<CustomRange> customRanges = new ArrayList<>();
 
