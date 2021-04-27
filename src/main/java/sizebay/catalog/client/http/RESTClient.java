@@ -150,8 +150,8 @@ public class RESTClient {
 		throw new ApiException( connection.getResponseCode(), response );
 	}
 
-	private void handleFailure(final HttpURLConnection connection) {
-		throw new ApiException(readDataError(connection));
+	private void handleFailure(final HttpURLConnection connection) throws IOException {
+		throw new ApiException(connection.getResponseCode(), readDataError(connection));
 	}
 
 	private void handleFailure(HttpResponse<String> response, String body) throws IOException {
