@@ -29,6 +29,7 @@ public class ProductBasicInformation implements Serializable {
 	String categoryName;
 	String modelingName;
 	String observation;
+	Measure composedMeasure;
 	@Deprecated boolean bottomOnly;
 	ClothesType clothesType;
 	String sizeType;

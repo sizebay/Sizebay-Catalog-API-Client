@@ -49,6 +49,7 @@ public class Product   {
 	private Boolean isShoe;
 	private Boolean useStrongModeling;
 	private List<String> barcodes;
+	private Measure composedMeasure;
 
   private List<String> availableSizes = new ArrayList<>();
   private ImportationError importationError;
