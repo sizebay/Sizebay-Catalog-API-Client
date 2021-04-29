@@ -7,5 +7,6 @@ public class ModelingMeasureRange   {
   private Float initialValue = null;
   private Float finalValue = null;
   private String text;
+  private String composedMeasureValue;
   private ModelingMeasureType type;
 }
