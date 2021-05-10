@@ -249,6 +249,11 @@ public class CatalogAPI {
 		return client.getList( "/users/" + username + "/" + password + "/tenants", Tenant.class );
 	}
 
+	public List<UserTenants> retrieveAllUsersBy(String privilege) {
+		return client.getList( "/privileges/users?privilege=" + privilege, UserTenants.class );
+	}
+
+
 	/*
 	 * End user (MySizebay) management
 	 */
@@ -770,6 +775,9 @@ public class CatalogAPI {
 		client.delete(ENDPOINT_TENANTS + "/" + id);
 	}
 
+	public void updateTenantDetails(TenantDetails tenantDetails) {
+		client.put(ENDPOINT_TENANTS + "/details/",tenantDetails);
+	}
 	/*
 	 * End tenant management
 	 */
