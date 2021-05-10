@@ -11,6 +11,7 @@ public class UserTenants {
 
 	private Long id;
 	private String username;
+	private String nickname;
 	private String privilege;
 	private List<Tenant> tenants;
 
