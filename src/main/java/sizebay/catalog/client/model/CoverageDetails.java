@@ -12,6 +12,7 @@ public class CoverageDetails {
 	private Long id;
 	private Long tenantId;
 	private Long responsibleId;
+	private String responsibleName;
 	private TenantTypeModeling typeModeling;
 	private VFRversion vfrVersion;
 	private EcommercePlatform ecommercePlatform;
