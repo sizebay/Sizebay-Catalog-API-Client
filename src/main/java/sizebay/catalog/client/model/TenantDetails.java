@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class TenantDetails {
 
+	private Long tenantId;
 	private String name;
 	private String domain;
 	private TenantPlan plan;
