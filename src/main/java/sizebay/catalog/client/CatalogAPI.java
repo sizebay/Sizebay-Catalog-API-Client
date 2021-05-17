@@ -775,6 +775,14 @@ public class CatalogAPI {
 		client.delete(ENDPOINT_TENANTS + "/" + id);
 	}
 
+	public TenantDetails retrieveTenantDetails(long id) {
+		return client.getSingle(ENDPOINT_TENANTS + "/details/single/" + id, TenantDetails.class);
+	}
+
+	public List<TenantDetails> retrieveAllTenantDetails() {
+		return client.getList(ENDPOINT_TENANTS + "/details", TenantDetails.class);
+	}
+
 	public void updateTenantDetails(TenantDetails tenantDetails) {
 		client.put(ENDPOINT_TENANTS + "/details/",tenantDetails);
 	}
