@@ -4,7 +4,7 @@
 
 	<groupId>com.sizebay.catalog</groupId>
 	<artifactId>sizebay-catalog-api-client</artifactId>
-	<version>0.6.0</version>
+	<version>0.6.5</version>
 
 	<packaging>jar</packaging>
 	<name>Sizebay Catalog API Client</name>
