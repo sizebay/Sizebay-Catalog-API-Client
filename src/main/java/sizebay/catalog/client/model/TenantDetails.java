@@ -10,6 +10,7 @@ public class TenantDetails {
 	private Long tenantId;
 	private String name;
 	private String domain;
+	private String productIntegrationXmlLink;
 	private TenantPlan plan;
 	private String gtmCode;
 	private TenantProfile tenantProfile;
