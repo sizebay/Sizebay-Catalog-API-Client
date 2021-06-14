@@ -21,6 +21,7 @@ public class Modeling   {
   private Long brandId;
   private Long categoryId;
   private Measure composedMeasure;
+	private SizeSystem sizeSystem;
   private List<ModelingSizeMeasures> measures = new ArrayList<>();
 	private List<CustomRange> customRanges = new ArrayList<>();
 
