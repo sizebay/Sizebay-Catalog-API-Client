@@ -50,6 +50,7 @@ public class Product   {
 	private Boolean useStrongModeling;
 	private List<String> barcodes;
 	private Measure composedMeasure;
+	private SizeSystem modelingSizeSystem;
 
   private List<String> availableSizes = new ArrayList<>();
   private ImportationError importationError;
