@@ -68,6 +68,10 @@ public class CatalogAPI {
 		return client.getList(ENDPOINT_DASHBOARD, Dashboard.class);
 	}
 
+	public Dashboard retrieveDashboardByTenant(Long tenantId) {
+		return client.getSingle(ENDPOINT_DASHBOARD + "/single/" + tenantId, Dashboard.class);
+	}
+
 	/**
 	 * End dashboard management
 	 */
