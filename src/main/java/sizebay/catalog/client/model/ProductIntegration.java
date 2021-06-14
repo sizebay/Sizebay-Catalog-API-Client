@@ -50,6 +50,7 @@ public class ProductIntegration implements Serializable {
 	private Boolean useStrongModeling;
 	private SizeSystem sizeSystem;
 	private Measure composedMeasure;
+	private SizeSystem modelingSizeSystem;
 	private Map<String, ModelingSizeMeasures> measures;
 
 	public ProductBasicInformation castToProductBasicInformation() {
