@@ -16,8 +16,10 @@ public enum EcommercePlatform {
 	LIVE_COMMERCE,
 	MEGAZORD,
 	MAGENTO,
+	MAGEWORK,
 	MARKNET,
 	MKX,
+	MOOVIN,
 	N49,
 	NEO,
 	NETZEE,
@@ -39,6 +41,7 @@ public enum EcommercePlatform {
 	VTEX,
 	VNDA,
 	VTEX_IO,
+	WIX,
 	WOO_COMMERCE,
 	WORD_PRESS
 
