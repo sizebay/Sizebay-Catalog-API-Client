@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 public enum SizeSystem {
 
 	AU, BR, CN, DE, EU, FR,
-	IT, JP, MEX, UK, US, ZH, AR;
+	IT, JP, MEX, UK, US, ZH, AR, CUSTOM;
 
 	public static SizeSystem from(String value) {
 		try {
