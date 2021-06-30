@@ -16,5 +16,6 @@ public class Dashboard {
 	private long regular;
 	private long total;
 	private ImportationSummary importationSummary;
+	private TenantStatus status;
 
 }
