@@ -328,8 +328,8 @@ public class CatalogAPI {
 		return client.post(ENDPOINT_PRODUCT + "/single", product);
 	}
 
-	public ProductIntegration insertProductIntegration(ProductIntegration product) {
-		return client.post(ENDPOINT_PRODUCT + "/single/integration", product, ProductIntegration.class);
+	public Product insertProductIntegration(ProductIntegration product) {
+		return client.post(ENDPOINT_PRODUCT + "/single/integration", product, Product.class);
 	}
 
 	public long insertMockedProduct(String permalink) {
